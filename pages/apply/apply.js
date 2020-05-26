@@ -5,9 +5,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    num:1
   },
 
+  handleInput(e){
+    this.setData({
+      num:e.detail.value
+    })
+  },
+  //加减按钮事件
+  handleClick(e){
+    //获取自定义属性operation
+    //console.log(e);
+    const operation = e.currentTarget.dataset.operation;
+    this.setData({
+      num:this.data.num + operation
+    })
+
+    
+  },
   /**
    * 生命周期函数--监听页面加载
    */

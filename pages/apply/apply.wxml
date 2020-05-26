@@ -1,2 +1,9 @@
-<!--pages/apply/apply.wxml-->
-<text>pages/apply/apply.wxml</text>
+<input type="text" bindinput="handleInput"/>
+<!-- 传递参数是通过自定义属性 data-operation 传递，
+获取的方式: e.currentTarget.dataset.operation-->
+<button bindtap="handleClick" data-operation="{{1}}">+</button>
+<button bindtap="handleClick" data-operation="{{-1}}">-</button>
+<view>
+  {{num}}
+</view>
+  

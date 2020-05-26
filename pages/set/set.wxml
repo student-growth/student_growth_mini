@@ -1,5 +1,27 @@
 
 <!--pages/set/set.wxml-->
-<text>pages/set/set.wxml</text>
+<!-- 10 black 
+  1.占位符的标签
+  2.写代码的时候，可以看到标签的存在
+  3.页面渲染的时候，小程序会把它移除掉
+-->
+<view>
+  <view>对象循环</view>
+  <block wx:for="{{list}}"
+  wx:for-item="item"
+  wx:for-index="index"
+  wx:key="id"
+  class="mylist">
+    Attribute:{{index}}--value:{{item.name}}
+  </block>    
+</view>
+
+
+  
+
+    
+    
+    
+  
 
   

@@ -5,6 +5,28 @@ Page({
    * 页面的初始数据
    */
   data: {
+    msg:"mina",
+    num:1000,
+    Person:{
+      age:23,
+      height:160, 
+      weight:110,
+      name:"leesure"
+    },
+    isCheck:true,
+    list:[{
+      id:0,
+      name:'leesure'
+    },{
+      id:1,
+      name:'lee'
+    },{
+      id:2,
+      name:'shmily'
+    },{
+      id:3,
+      name:'sure'
+    }]
 
   },
 
