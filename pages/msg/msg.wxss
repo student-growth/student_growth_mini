@@ -1,1 +1,14 @@
-/* pages/msg/msg.wxss */
+text {
+  color: yellow;
+}
+view .view1 text {
+  color: red;
+}
+view {
+  color: red;
+}
+swiper{
+  width: 100%;
+  height: calc(100vw*500/1180);
+  
+}

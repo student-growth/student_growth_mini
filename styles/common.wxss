@@ -1,0 +1,4 @@
+view{
+  color: cornflowerblue;
+  font-size: medium;
+}

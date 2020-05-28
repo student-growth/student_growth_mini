@@ -1,9 +1,10 @@
-<input type="text" bindinput="handleInput"/>
-<!-- 传递参数是通过自定义属性 data-operation 传递，
-获取的方式: e.currentTarget.dataset.operation-->
-<button bindtap="handleClick" data-operation="{{1}}">+</button>
-<button bindtap="handleClick" data-operation="{{-1}}">-</button>
-<view>
-  {{num}}
-</view>
+<!-- 
+  navigator导航组件
+  url指示跳转的界面
+ -->
+
+<navigator url="/pages/msg/msg">跳转到轮播图页面</navigator>
+
+ 
+  
   

@@ -1,7 +1,7 @@
 {
   "pages":[
-    "pages/index/index",
     "pages/msg/msg",
+    "pages/index/index",
     "pages/apply/apply",
     "pages/set/set",
     "pages/logs/logs"
@@ -14,31 +14,7 @@
     "navigationBarTextStyle":"white",
     "enablePullDownRefresh":true
   },
-  "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "icon/_user.png",
-      "selectedIconPath": "icon/user.png"
-    },{
-      "pagePath":"pages/apply/apply",
-      "text":"申请",
-      "iconPath":"icon/_apply.png",
-      "selectedIconPath":"icon/apply.png"
-    },{
-      "pagePath":"pages/msg/msg",
-      "text":"消息",
-      "iconPath":"icon/_msg.png",
-      "selectedIconPath":"icon/msg.png"
-    },{
-      "pagePath":"pages/set/set",
-      "text":"设置",
-      "iconPath":"icon/_setting.png",
-      "selectedIconPath":"icon/setting.png"
-    }],
-    "color": "#000",
-    "selectedColor": "#1296db"
-  },
+   
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

@@ -3,11 +3,32 @@ Page({
 
   /**
    * 页面的初始数据
-   */
+   */ 
   data: {
-
+    checkedlist:"",
+    lists:[
+      {
+        id:0,
+        name:"🍎",
+        value:"apple"
+      },{
+        id:1,
+        name:"🍇",
+        value:"grape"
+      },{
+        id:2,
+        name:"🍌",
+        value:"bananer"
+      }
+    ]
   },
-
+  handleCheckChange(e){
+    // console.log(e.detail);
+    const checkedlist = e.detail.value;
+    this.setData({
+      checkedlist:e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
