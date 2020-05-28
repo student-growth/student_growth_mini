@@ -19,8 +19,7 @@ Page({
         id:2,
         name:"🍌",
         value:"bananer"
-      }
-    ]
+      }]
   },
   handleCheckChange(e){
     // console.log(e.detail);
