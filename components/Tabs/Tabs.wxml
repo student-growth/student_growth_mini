@@ -9,5 +9,10 @@
       {{item.name}}
     </view>
   </view>
-  <view class="tabs_content">内容</view>
+  <view class="tabs_content">
+    <!-- 
+      slot标签就是一个占位符，当父组件传递数据过来，就会替换slot标签的位置
+     -->
+    <slot></slot>
+  </view>
 </view>

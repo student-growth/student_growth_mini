@@ -1,11 +1,11 @@
-//app.js
+
 App({
+  // 1.  应用第一次启动就会触发的事件
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
     // 登录
     wx.login({
       success: res => {
@@ -32,6 +32,26 @@ App({
         }
       }
     })
+  },
+  //2. 应用被用户看到时候触发的事件
+  onShow: function () {
+    console.log("obShow");
+  },
+  // 3. 当应用被隐藏触发的事件
+  onHide: function(){
+    // 暂停或者清除一些定时器，
+    console.log("onHide");
+  },
+  onError:function(err){
+    // 收集用户的错误信息，通过异步请求，将错误信息发送到后台去
+    console.log(err);
+  },
+  // 5.如果页面找不到了，，需要通过js的方式重新跳转页面到首页
+  onPageNotFound:function(){
+    wx.navigateTo({
+      url: '/pages/index/index'
+    });
+      
   },
   globalData: {
     userInfo: null
