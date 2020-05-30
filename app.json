@@ -1,7 +1,8 @@
 {
   "pages":[
     "pages/login/index",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/forgot/index"
   ],
   "window":{
     "backgroundTextStyle":"dark",
@@ -11,6 +12,5 @@
     "navigationBarTextStyle":"white"
   },
    
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
