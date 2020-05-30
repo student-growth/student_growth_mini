@@ -1,10 +1,7 @@
-/**app.wxss**/
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
+@import './styles/iconfont.css';
+
+page{
+  /* 定义主题颜色 */
+  --themeColor:#ff3b30;
+  font-size: 28rpx; 
+}

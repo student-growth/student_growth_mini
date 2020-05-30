@@ -1,18 +1,14 @@
 {
   "pages":[
-    "pages/msg/msg",
-    "pages/index/index",
-    "pages/apply/apply",
-    "pages/set/set",
-    "pages/logs/logs"
+    "pages/login/index",
+    "pages/index/index"
   ],
   "window":{
     "backgroundTextStyle":"dark",
     "backgroundColor":"#ddd",
     "navigationBarBackgroundColor": "#1296db",
     "navigationBarTitleText": "学生成长",
-    "navigationBarTextStyle":"white",
-    "enablePullDownRefresh":true
+    "navigationBarTextStyle":"white"
   },
    
   "style": "v2",

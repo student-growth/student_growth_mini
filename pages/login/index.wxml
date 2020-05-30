@@ -1,0 +1,11 @@
+<view class="login">
+  <view class="login_icon">
+
+  </view>
+
+  <input class="user_name" />
+  <input class="user_pwd" />
+  <button class="iconfont icon-denglu"> 
+    
+  </button>
+</view>
