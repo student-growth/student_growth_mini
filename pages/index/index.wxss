@@ -1,21 +1,24 @@
-/**index.wxss**/
-.userinfo {
+.index_page {
+  background-image: url("https://ae01.alicdn.com/kf/Hcffcefd8912945aa9aac0a405a0a0742j.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.index_page .user_center_area {
+  border: 1px red solid;
+}
+.index_page .swiper_area {
+  border: 1rpx blue solid;
+  margin: 30rpx;
+}
+.index_page .swiper_area swiper {
+  width: 100%;
+  height: calc(100vw*220/600);
+  display: inline-block;
+  box-shadow: 5rpx #636363;
+}
+.index_page .swiper_area swiper image {
+  border-radius: 20rpx 20rpx;
+}
+.index_page .tools_area {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
 }

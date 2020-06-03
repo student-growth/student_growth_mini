@@ -1,0 +1,9 @@
+<!--components/Card/Card.wxml-->
+<view class="comp_card">
+  <text>
+    
+  </text>     
+  <navigator >更多...</navigator>
+   <slot ></slot>
+</view>
+  

@@ -1,0 +1,23 @@
+{
+  "name": "student_growth_system_02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leesurelye/wx_miniprogram.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leesurelye/wx_miniprogram/issues"
+  },
+  "homepage": "https://github.com/leesurelye/wx_miniprogram#readme",
+  "devDependencies": {
+    "mini-program-iconfont-cli": "^0.6.0"
+  }
+}

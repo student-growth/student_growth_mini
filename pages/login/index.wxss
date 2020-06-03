@@ -24,7 +24,7 @@ page .login form input {
   height: 70rpx;
   font-size: small;
   color: #696969;
-  background-color: #d1d1d1;
+  background-color: #dddddd;
   justify-content: center;
   border-radius: 35rpx;
   margin: 20rpx;

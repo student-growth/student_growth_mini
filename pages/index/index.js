@@ -1,39 +1,50 @@
-//Page Object
+//index/index.js
+import { request } from '../../request/index.js';
+//import { style } from   '../../styles/iconfont.js'
 Page({
   data: {
-    
+    swiperList: []
   },
-  //options(Object)
-  onLoad: function(options) {
-    
+  getStudentScore(e){
+    request({url:""})
+    .then(res=>{
+      console.log(res)
+    })
   },
-  onReady: function() {
-    
+  onLoad: function (options) {
+    //获取轮播图列表
+    request({
+      url: 'http://student.com/api/pulic/swiperlist'
+    }).then(res => {
+      console.log("result" + res);
+    })
   },
-  onShow: function() {
-    
-  },
-  onHide: function() {
+  onReady: function () {
 
   },
-  onUnload: function() {
+  onShow: function () {
 
   },
-  onPullDownRefresh: function() {
+  onHide: function () {
 
   },
-  onReachBottom: function() {
+  onUnload: function () {
 
   },
-  onShareAppMessage: function() {
+  onPullDownRefresh: function () {
 
   },
-  onPageScroll: function() {
+  onReachBottom: function () {
+
+  },
+  onShareAppMessage: function () {
+
+  },
+  onPageScroll: function () {
 
   },
   //item(index,pagePath,text)
-  onTabItemTap:function(item) {
+  onTabItemTap: function (item) {
 
   }
 });
-  

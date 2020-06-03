@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "SearchBar":"../../components/SearchBar/SearchBar",
+    "Card":"../../components/Card/Card"
+  },
   "enablePullDownRefresh":true
 }

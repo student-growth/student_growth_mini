@@ -1,16 +1,20 @@
 {
-  "pages":[
-    "pages/login/index",
+  "pages": [
     "pages/index/index",
-    "pages/forgot/index"
+    "pages/login/index",
+    "pages/forgot/index",
+    "pages/score/index"
   ],
-  "window":{
-    "backgroundTextStyle":"dark",
-    "backgroundColor":"#ddd",
+  "window": {
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#ddd",
     "navigationBarBackgroundColor": "#1296db",
     "navigationBarTitleText": "学生成长",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   },
-   
-  "sitemapLocation": "sitemap.json"
+
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "iconfont": "./iconfont/iconfont"
+  }
 }

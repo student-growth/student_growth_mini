@@ -1,0 +1,3 @@
+<view class="search_bar">
+  <navigator class="iconfont icon-chaxun" open-type="navigate"></navigator>
+</view>
