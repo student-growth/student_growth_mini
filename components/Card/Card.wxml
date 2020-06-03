@@ -1,9 +1,8 @@
-<!--components/Card/Card.wxml-->
+<!-- components/Card/Card.wxml -->
 <view class="comp_card">
-  <text>
-    
-  </text>     
-  <navigator >更多...</navigator>
-   <slot ></slot>
+  <view class="comp_title">
+    {{title}}
+    <navigator class="comp_more">更多...</navigator>
+  </view>
+  <slot></slot>
 </view>
-  

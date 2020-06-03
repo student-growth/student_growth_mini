@@ -1,8 +1,6 @@
-@import './styles/iconfont.wxss';
 page{
   /* 定义主题颜色 */
   --themeColor: #78bcff;
-  font-size: 28rpx; 
   margin: 0;
   padding: 0;
 }

@@ -1,11 +1,16 @@
 <!-- index.wxml -->
 <view class="index_page">
+  <!-- 个人中心 -->
   <view class="user_center_area">
     <view class="user_icon">
+      <image  />
       <text>个人中心</text>
     </view>
-    <SearchBar></SearchBar>
+    <navigator class="search_area" url="../../pages/search/index">
+      <iconfont name="chaxun" size="20" />
+    </navigator>
   </view>
+  <!-- 轮播图 -->
   <view class="swiper_area">
     <swiper indicator-dots autoplay interval="3000" duration="1000" circular>
       <swiper-item wx:for="{{swiperList}}" wx:key="id">
@@ -13,9 +18,10 @@
       </swiper-item>
     </swiper>
   </view>
-  <Card>新闻区域</Card>
+  <!-- 新闻区域 -->
+  <Card title="新闻资讯">新闻区域</Card>
   <!-- 工具栏区域 -->
-  <Card>
+  <Card title="学生服务">
     <view class="tools_area">
       <navigator>
         <iconfont name="datihuodong" size="50" />
@@ -28,8 +34,9 @@
       <navigator>
         <iconfont name="pingjia" size="50" />
         <text>学生评价</text>
-      </navigator> 
+      </navigator>
     </view>
   </Card>
-  <Card>问题反馈区域</Card>
+  <Card title="问题反馈">问题反馈区域</Card>
+  <view class="footer_area">浙江工商大学智慧教育工作室</view>
 </view>

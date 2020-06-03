@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/leesurelye/wx_miniprogram#readme",
   "devDependencies": {
-    "mini-program-iconfont-cli": "^0.6.0"
+    "mini-program-iconfont-cli": "^0.6.0",
+    "miniprogram-simulate": "^1.2.5"
   }
 }

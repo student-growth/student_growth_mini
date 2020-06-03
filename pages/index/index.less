@@ -1,32 +1,59 @@
 .index_page {
   background-image: url("https://ae01.alicdn.com/kf/Hcffcefd8912945aa9aac0a405a0a0742j.jpg");
   background-size: 100%;
-  background-repeat: no-repeat;
-  
-
+  background-repeat: no-repeat; 
   .user_center_area {
-    border: 1px red solid;
-  }
-
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx;
+    .user_icon{
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      font-size: small;
+      image{
+        width: 80rpx;
+        height: 80rpx;
+        background-color: #ffdcbc;
+        border-radius: 50%;
+        margin-right: 10rpx;
+      }
+    }
+    .search_area{
+      padding: 15rpx;
+      border-radius: 50%;
+      background-color: #6d6d6d4f;
+    }
+  } 
   .swiper_area { 
-    border: 1rpx blue solid;
-    margin: 30rpx; 
+    border-radius: 20rpx;
+    margin: 30rpx;  
     swiper {
-      width: 100%;
+      width: inherit;
       height: calc(100vw*220/600);
       display:inline-block;
-      box-shadow: 5rpx #636363; 
-      image {
-        border-radius: 20rpx 20rpx;
-      }
     }
   }
   .tools_area{
+    padding-top: 20rpx;
     display: flex;
-    navigator{
-      text{
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    text{
+      font-size: small;
+    }
+  }
 
-      }
-     }
+  .footer_area{
+    display: flex;
+    margin-top: 50rpx;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 160rpx;
+    background-color: #FFD4AB;
+    color: black;
+    font-size: small;
   }
 }

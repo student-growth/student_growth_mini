@@ -2,12 +2,13 @@
   "pages": [
     "pages/index/index",
     "pages/login/index",
-    "pages/forgot/index",
-    "pages/score/index"
+    "pages/search/index",
+    "pages/score/index",
+    "pages/forgot/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "backgroundColor": "#ddd",
+    "backgroundColor": "#78bcff",
     "navigationBarBackgroundColor": "#1296db",
     "navigationBarTitleText": "学生成长",
     "navigationBarTextStyle": "white"

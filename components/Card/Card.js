@@ -1,8 +1,11 @@
 // components/Card/Card.js
 Component({
-  
+  options: {
+    // 在组件定义时的选项中启用多slot支持
+    multipleSlots: true
+  },
   properties: {
-
+    title: String
   },
 
   /**
@@ -11,11 +14,9 @@ Component({
   data: {
 
   },
-
-  /**
-   * 组件的方法列表
-   */
   methods: {
-
+    onLoad: function () {
+        
+    }
   }
 })
