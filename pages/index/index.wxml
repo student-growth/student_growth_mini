@@ -3,7 +3,7 @@
   <!-- 个人中心 -->
   <view class="user_center_area">
     <view class="user_icon">
-      <image  />
+      <image />
       <text>个人中心</text>
     </view>
     <navigator class="search_area" url="../../pages/search/index">
@@ -19,11 +19,11 @@
     </swiper>
   </view>
   <!-- 新闻区域 -->
-  <Card title="新闻资讯">新闻区域</Card>
+  <Card title="新闻资讯" moreUrl="">新闻区域</Card>
   <!-- 工具栏区域 -->
-  <Card title="学生服务">
+  <Card title="学生服务" moreUrl="">
     <view class="tools_area">
-      <navigator>
+      <navigator url="../../pages/score/index">
         <iconfont name="datihuodong" size="50" />
         <text>成绩查询</text>
       </navigator>
@@ -35,8 +35,20 @@
         <iconfont name="pingjia" size="50" />
         <text>学生评价</text>
       </navigator>
+      <navigator>
+        <iconfont name="jindu" size="50" />
+        <text>进度查询</text>
+      </navigator>
+      <navigator url="../../pages/patent/index">
+        <iconfont name="jindu" size="50" />
+        <text>专利申请</text>
+      </navigator>
+      <navigator>
+        <iconfont name="jindu" size="50" />
+        <text>问题反馈</text>
+      </navigator>
     </view>
   </Card>
-  <Card title="问题反馈">问题反馈区域</Card>
+  <Card title="问题反馈" moreUrl="">问题反馈区域</Card>
   <view class="footer_area">浙江工商大学智慧教育工作室</view>
 </view>

@@ -1,18 +1,37 @@
-// pages/score/index.js
+// pages/score/index.js 分数查询页面
 Page({
-
-  /**
-   * 页面的初始数据
-   */
+ 
   data: {
-
+    tableTitle:"测试标题",
+    tableData:[
+      {
+        id:1,
+        name:"心里健康",
+        courseType:"必修",
+        grade:90,
+        isRetest:false
+      },{
+        id:2,
+        name:"心里健康",
+        courseType:"必修",
+        grade:90,
+        isRetest:false
+      },{
+        id:3,
+        name:"心里健康",
+        courseType:"必修",
+        grade:90,
+        isRetest:false
+      }
+    ],
+    tableColumn:["序号","课程名称","课程类型","分数","是否重修"]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+     
   },
 
   /**

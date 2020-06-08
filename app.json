@@ -1,9 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/patent/index",
+    "pages/score/index",
+    "pages/questions/index",
     "pages/login/index",
     "pages/search/index",
-    "pages/score/index",
     "pages/forgot/index"
   ],
   "window": {

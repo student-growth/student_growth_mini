@@ -1,0 +1,26 @@
+<!-- pages/patent/index.wxml
+  用户申请专利页面 -->
+<view class="container">
+  <view class="header">todo --此处放入图片--</view>
+  <view class="main">
+    <form bindsubmit="handleSubmit" bindreset="bandleReset">
+      <view class="patent_form">
+        <span>专利名称：</span>
+        <input type="text" name="patentName" placeholder="请输入专利作品名称" />
+        <span>申请号：</span>
+        <input type="number" name="applyId" placeholder="请输入专利申请号" />
+        <span>授权号：</span>
+        <input type="number" name="authId" placeholder="请输入专利授权号" />
+        <span>第一作者：</span>
+        <input type="text" name="fir_author" placeholder="请输入第一作者" />
+        <span>团队总人数：</span>
+        <input name="totalNum" type="number" placeholder="请输入团队认数" />
+      </view>
+      <view class="btn_group">
+        <button form-type="submit">提交</button>
+        <button form-type="reset">重置</button>
+      </view>
+    </form>
+  </view>
+  <view class="footer">-- 页脚 --</view>
+</view>

@@ -5,7 +5,8 @@ Component({
     multipleSlots: true
   },
   properties: {
-    title: String
+    title: String,
+    moreUrl:String
   },
 
   /**

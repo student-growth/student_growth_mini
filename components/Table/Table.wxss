@@ -1,0 +1,32 @@
+.table {
+  display: table;
+  text-align: center;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
+.table .table_header {
+  display: table-caption;
+  font-weight: bold;
+  font-size: large;
+  margin-bottom: 10rpx;
+}
+.table .content {
+  display: table-row-group;
+}
+.table .content .header {
+  font-weight: bold;
+  background-color: #93c9ff98;
+}
+.table .content .table_ul {
+  display: table-row;
+}
+.table .content .table_ul .table_li {
+  display: table-cell;
+  border: 1rpx solid grey;
+  padding: 10rpx;
+}
+.table .content .table_ul:nth-child(odd):not(:first-child) {
+  background-color: rgba(0, 0, 0, 0.1);
+}

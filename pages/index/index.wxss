@@ -42,7 +42,10 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-.index_page .tools_area text {
+.index_page .tools_area navigator {
+  margin: 20rpx;
+}
+.index_page .tools_area navigator text {
   font-size: small;
 }
 .index_page .footer_area {

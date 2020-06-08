@@ -1,2 +1,5 @@
 <!--pages/search/index.wxml-->
-<text>还没开发呢😊 </text>
+<form class="search_bar" bindsubmit="onSearch">
+  <input type="text" name="search_content" />
+  <button form-type="submit"/>
+</form>

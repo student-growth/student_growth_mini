@@ -1,2 +1,5 @@
-<!--pages/score/index.wxml-->
-<text>pages/score/index.wxml</text>
+<!-- pages/score/index.wxml  分数查询页面 -->
+<view class="main">
+  <Table tableData="{{tableData}}" tableTitle="{{'四级测试成绩'}}" tableColumn="{{tableColumn}}"></Table>
+  <Table tableData="{{tableData}}" tableTitle="{{'六级测试成绩'}}" tableColumn="{{tableColumn}}"></Table>
+</view>

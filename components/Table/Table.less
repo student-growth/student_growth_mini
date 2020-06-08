@@ -1,0 +1,33 @@
+.table{
+  display: table;
+  text-align: center;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+  // 表格标题
+  .table_header{
+    display: table-caption;
+    font-weight: bold;
+    font-size: large;
+    margin-bottom: 10rpx;
+  }
+  .content{
+    display: table-row-group;
+    .header{
+      font-weight: bold;
+      background-color: #93c9ff98;
+    }
+    .table_ul{
+      display: table-row;
+      .table_li{
+        display: table-cell;
+        border: 1rpx solid grey;
+        padding: 10rpx;
+      }
+      &:nth-child(odd):not(:first-child){
+        background-color: rgba(0, 0, 0,.1);
+      }
+    }
+  }
+}

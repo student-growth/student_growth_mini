@@ -2,7 +2,7 @@
 <view class="comp_card">
   <view class="comp_title">
     {{title}}
-    <navigator class="comp_more">更多...</navigator>
+    <navigator class="comp_more" url="{{moreUrl}}">更多...</navigator>
   </view>
   <slot></slot>
 </view>

@@ -1,6 +1,6 @@
 Component({
   properties: {
-    // pingjia | chengjiu | xuesheng | chaxun | datihuodong
+    // biaoti | kong | jindu | pingjia | chengjiu | xuesheng | chaxun | datihuodong
     name: {
       type: String,
     },
