@@ -1,6 +1,6 @@
 Component({
   properties: {
-    // biaoti | kong | jindu | pingjia | chengjiu | xuesheng | chaxun | datihuodong
+    // webicon302 | biaoti | kong | jindu | pingjia | chengjiu | xuesheng | chaxun | datihuodong
     name: {
       type: String,
     },

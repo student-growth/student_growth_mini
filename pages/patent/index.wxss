@@ -25,12 +25,16 @@
 }
 .container .main .patent_form span {
   text-align: right;
+  font-weight: bold;
 }
 .container .main .patent_form input {
   background-color: rgba(189, 195, 199, 0.5);
   border-radius: 10rpx;
   padding: 15rpx 20rpx;
   margin: 0 0 15rpx 0;
+}
+.container .main .patent_form input:focus:target {
+  outline-style: 2rpx solid #2c3e50;
 }
 .container .main .btn_group {
   display: flex;

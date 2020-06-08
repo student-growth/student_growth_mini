@@ -1,1 +1,78 @@
-/* pages/questions/index.wxss */
+/* 问题反馈界面*/
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 20%,80%;
+  background-color: rgba(189, 195, 199, 0.5);
+}
+.container .header {
+  background-color: #f1c40f;
+}
+.container .body {
+  position: relative;
+  margin: 0 20rpx ;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+}
+.container .body span {
+  font-weight: bold;
+}
+.container .body input {
+  border-bottom: #130f40 solid 2rpx;
+  padding: 10rpx;
+  margin: 20rpx;
+}
+.container .body .content {
+  width: inherit;
+  height: 500rpx;
+  padding: 30rpx 20rpx;
+  margin: 20rpx;
+  overflow: auto;
+  background-color: #dfe4ea;
+  box-shadow: 0 5rpx 5rpx #2f3542;
+  border-radius: 20rpx;
+  font-size: medium;
+}
+.container .body .sub_group {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+}
+.container .body .sub_group button {
+  font-size: small;
+  box-shadow: 0 5rpx 5rpx grey;
+}
+.container .body .sub_group button:nth-child(2) {
+  background-color: #130f40;
+  color: white;
+}
+.container .body .sub_group button:nth-child(1) {
+  color: #130f40;
+  border: 2rpx solid #130f40;
+}
+.container .feadback {
+  margin-top: 100rpx;
+  position: absolute;
+  right: 0;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: #2c3e50;
+  opacity: 0.8;
+}
+.container .feadback iconfont {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.container .footer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: white;
+  background-color: #130f40;
+}

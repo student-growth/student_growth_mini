@@ -1,2 +1,24 @@
-<!--pages/questions/index.wxml-->
-<text>pages/questions/index.wxml</text>
+<!-- pages/questions/index.wxml
+问题反馈页面 -->
+<view class="container">
+  <view class="header">--此处存放的是常见的问题反馈--</view>
+  <view class="body">
+    <form bindsubmit="handleSubmit">
+      <span>收件人：</span>
+      <input name="receiver" placeholder="输入接收人" />
+      <span>标题：</span>
+      <input name="que_title" type="text" placeholder="输入标题" />
+      <textarea class="content" name="content" placeholder="//在此输入内容..."></textarea>
+      <view class="sub_group">
+        <button>保存为草稿</button>
+        <button form-type="submit">提交</button>
+      </view>
+    </form>
+    <button class="feadback" open-type="feedback">
+      <iconfont name="webicon302" color="#fff" size="30"/>
+    </button>
+  </view>
+  <view class="footer">
+    --浙江工商大学智慧工作实--
+  </view>
+</view>

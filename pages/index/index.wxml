@@ -43,7 +43,7 @@
         <iconfont name="jindu" size="50" />
         <text>专利申请</text>
       </navigator>
-      <navigator>
+      <navigator url="../../pages/questions/index">
         <iconfont name="jindu" size="50" />
         <text>问题反馈</text>
       </navigator>

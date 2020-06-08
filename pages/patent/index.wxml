@@ -1,5 +1,5 @@
 <!-- pages/patent/index.wxml
-  用户申请专利页面 -->
+  专利申请页面 -->
 <view class="container">
   <view class="header">todo --此处放入图片--</view>
   <view class="main">
