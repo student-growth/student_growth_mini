@@ -1,7 +1,11 @@
 <!-- components/Table/Table.wxml -->
 <view class="table">
   <view class="table_header">{{tableTitle}}</view>
-  <view class="content" wx:if="{{tableColumn!=undefined || tableColumn.length>0}}">
+  <view wx:if="{{tableData.length<=0}}">
+    <iconfont name='kong' size="100" />
+    <text>暂时没有内容呀~</text>
+  </view>
+  <view class="content" wx:elif="{{tableData.length>0}}">
     <ul class="header table_ul">
       <li class="table_li" wx:for="{{tableColumn}}" wx:key="*this">{{item}}</li>
     </ul>
@@ -10,9 +14,5 @@
         {{value}}
       </li>
     </ul>
-  </view>
-  <view wx:else>
-    <iconfont name='kong' size="100" />
-    <text>暂时没有内容呀~</text>
   </view>
 </view>

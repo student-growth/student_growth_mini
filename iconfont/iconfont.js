@@ -1,6 +1,6 @@
 Component({
   properties: {
-    // webicon302 | biaoti | kong | jindu | pingjia | chengjiu | xuesheng | chaxun | datihuodong
+    // wodexuesheng | tubiaozhizuomoban1 | daxue | xueshengxuejixinxigenggai | xueshengchuyongyinshenqingbiao | xueshengmiankao | xueshenghuankao | xueshengkechengfenshubuchang | xueshengdangjiangongzuoduiwuganbulihui | Vxueshenghuodongzhongxinchangdishenqing | xueshengzhengbuban | huochepiaoxueshengyouhuiqiabanli | mianzhihangguojiaxueshengtizhijiankangbiaozhun | xiaoneixueshengqingongzhuxueshanggang | xueshengICqiabanli | xueshengdangan | jiatingjingjikunnanxueshengrending | shiwuzhongxin_xueshengzhengbuban | tubiaozhizuomoban | xueshengkaoqin-01 | webicon302 | biaoti | kong | jindu | pingjia | chengjiu | xuesheng | chaxun | datihuodong
     name: {
       type: String,
     },

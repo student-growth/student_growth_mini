@@ -10,10 +10,18 @@ page .login {
   align-items: center;
   color: #666;
 }
-page .login image {
-  width: 200rpx;
-  height: 200rpx;
+page .login .login_icon {
+  position: relative;
+  width: 180rpx;
+  height: 180rpx;
+  background-color: #192a56;
   border-radius: 50%;
+}
+page .login .login_icon iconfont {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 page .login form {
   margin-top: 90rpx;

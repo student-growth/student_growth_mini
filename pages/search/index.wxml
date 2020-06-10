@@ -1,5 +1,20 @@
-<!--pages/search/index.wxml-->
-<form class="search_bar" bindsubmit="onSearch">
-  <input type="text" name="search_content" />
+<!--pages/search/index.wxml
+  搜索栏页面
+-->
+<view class="container">
+  <form class="search_bar" bindsubmit="onSearch">
+  <input type="text" name="search_content" placeholder="奖学金公示"/>
   <button form-type="submit"/>
 </form>
+<view class="content">
+   --此处放置查询历史记录,--
+   <ul>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+   </ul>
+</view>
+
+</view>

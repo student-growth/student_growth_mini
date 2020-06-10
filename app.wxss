@@ -1,6 +1,6 @@
 page{
   /* 定义主题颜色 */
-  --themeColor: #78bcff;
+  --themeColor: #192a56;
   margin: 0;
   padding: 0;
 }

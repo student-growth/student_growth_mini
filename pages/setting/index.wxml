@@ -1,0 +1,16 @@
+<!-- pages/setting/index.wxml
+  个人设置页面 
+-->
+<view class="container">
+  <view class="header">
+    <view class="user_icon"></view>
+    <span>{{Student.name}}</span>
+  </view>
+  <view class="card"></view>
+  <view class="content">
+    <navigator>个人设置</navigator>
+    <navigator>安全设置</navigator>
+    <navigator>绑定邮箱</navigator>
+    <navigator>手机绑定</navigator>
+  </view>
+</view>

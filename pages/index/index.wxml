@@ -1,13 +1,12 @@
 <!-- index.wxml -->
 <view class="index_page">
-  <!-- 个人中心 -->
-  <view class="user_center_area">
-    <view class="user_icon">
+  <view class="header">
+    <navigator url="../../pages/setting/index" class="icon">
       <image />
-      <text>个人中心</text>
-    </view>
-    <navigator class="search_area" url="../../pages/search/index">
-      <iconfont name="chaxun" size="20" />
+      <span>个人中心</span>
+    </navigator>
+    <navigator url="../../pages/search/index" open-type="navigate">
+      <iconfont name="chaxun" size="20" color="#fff" />
     </navigator>
   </view>
   <!-- 轮播图 -->
@@ -23,29 +22,29 @@
   <!-- 工具栏区域 -->
   <Card title="学生服务" moreUrl="">
     <view class="tools_area">
-      <navigator url="../../pages/score/index">
+      <view bind:tap="handleQueryScore">
         <iconfont name="datihuodong" size="50" />
         <text>成绩查询</text>
-      </navigator>
+      </view>
       <navigator>
         <iconfont name="chengjiu" size="50" />
         <text>奖项申请</text>
-      </navigator>
+      </navigator> 
       <navigator>
         <iconfont name="pingjia" size="50" />
         <text>学生评价</text>
-      </navigator>
-      <navigator>
+      </navigator> 
+      <navigator url="../../pages/process/index">
         <iconfont name="jindu" size="50" />
         <text>进度查询</text>
       </navigator>
       <navigator url="../../pages/patent/index">
         <iconfont name="jindu" size="50" />
-        <text>专利申请</text>
+        <text>奖学金申请</text>
       </navigator>
       <navigator url="../../pages/questions/index">
         <iconfont name="jindu" size="50" />
-        <text>问题反馈</text>
+        <text>意见反馈</text>
       </navigator>
     </view>
   </Card>

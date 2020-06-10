@@ -1,31 +1,40 @@
 .index_page {
-  background-image: url("https://ae01.alicdn.com/kf/Hcffcefd8912945aa9aac0a405a0a0742j.jpg");
-  background-size: 100%;
-  background-repeat: no-repeat;
+  position: relative;
 }
-.index_page .user_center_area {
+.index_page .header {
   display: flex;
+  padding: 0 10rpx;
   justify-content: space-between;
-  align-items: center;
-  padding: 20rpx;
 }
-.index_page .user_center_area .user_icon {
+.index_page .header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  z-index: -1;
+  height: 600rpx;
+  background-color: #192a56;
+  clip-path: ellipse(65% 55% at top center);
+}
+.index_page .header .icon {
   display: flex;
   align-items: center;
-  justify-content: start;
-  font-size: small;
+  color: #ffffff;
 }
-.index_page .user_center_area .user_icon image {
-  width: 80rpx;
-  height: 80rpx;
-  background-color: #ffdcbc;
+.index_page .header image {
+  width: 100rpx;
+  height: 100rpx;
   border-radius: 50%;
+  background-color: black;
   margin-right: 10rpx;
 }
-.index_page .user_center_area .search_area {
-  padding: 15rpx;
+.index_page .header navigator:last-child {
+  align-self: center;
+  background-color: #2f3640;
+  opacity: 0.8;
   border-radius: 50%;
-  background-color: #6d6d6d4f;
+  padding: 20rpx;
 }
 .index_page .swiper_area {
   border-radius: 20rpx;
@@ -34,19 +43,20 @@
 .index_page .swiper_area swiper {
   width: inherit;
   height: calc(100vw*220/600);
-  display: inline-block;
 }
 .index_page .tools_area {
   padding-top: 20rpx;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-evenly;
+  align-content: flex-start;
+  flex-wrap: wrap;
 }
 .index_page .tools_area navigator {
   margin: 20rpx;
 }
 .index_page .tools_area navigator text {
   font-size: small;
+  text-align: center;
 }
 .index_page .footer_area {
   display: flex;

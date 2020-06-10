@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "Table":"../../components/Table/Table"
+  },
+  "navigationBarTitleText": "进度查询"
+
+}

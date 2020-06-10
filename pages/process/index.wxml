@@ -1,0 +1,12 @@
+<!--pages/process/index.wxml
+  进度查询页面
+-->
+<view class="container">
+  <view class="header">
+    --此处放入查询表头--
+  </view>
+  <view class="table_content">
+    <Table tableData="{{tableData}}" tableTitle="{{tableTitle}}" tableColumn="{{tableColumn}}"></Table>
+  </view>
+</view>
+

@@ -5,36 +5,34 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-     
+
   },
   // 提交表单
   formSubmit: function (e) {
-    console.log(e.detail.value);
-    //todo list
-    wx.navigateTo({
-      url: '../../pages/index/index',
+    //todo submit function;
+    console.log(e.detail);
+    wx.showToast({
+      title: '登陆成功',
+      icon: 'none',
+      duration:2000,
       success: (result) => {
-        wx.showToast({
-          title: '登录成功' 
-        }); 
-      },
-      fail: () => {},
-      complete: () => {}
+        wx.navigateTo({url: '../../pages/index/index' });
+      }
     });
-      
+
   },
-  onLoad: function (options) {  
-     wx.getUserInfo({
-       success: (result) => {
+  onLoad: function (options) {
+    wx.getUserInfo({
+      success: (result) => {
         this.setData({
-          userInfo:result.userInfo,
-          hasUserInfo:true
+          userInfo: result.userInfo,
+          hasUserInfo: true
         })
-       },
-       fail: (err) => {
+      },
+      fail: (err) => {
         console.log(err)
-       }
-     });
-       
+      }
+    });
+
   }
 })

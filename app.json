@@ -1,21 +1,22 @@
 {
   "pages": [
-    "pages/questions/index",
     "pages/index/index",
+    "pages/setting/index",
+    "pages/login/index",
+    "pages/process/index",
+    "pages/questions/index",
     "pages/patent/index",
     "pages/score/index",
-    "pages/login/index",
     "pages/search/index",
     "pages/forgot/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "backgroundColor": "#78bcff",
-    "navigationBarBackgroundColor": "#1296db",
+    "backgroundColor": "#192a56",
+    "navigationBarBackgroundColor": "#192a56",
     "navigationBarTitleText": "学生成长",
     "navigationBarTextStyle": "white"
-  },
-
+  }, 
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
     "iconfont": "./iconfont/iconfont"
