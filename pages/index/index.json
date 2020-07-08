@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "Card":"../../components/Card/Card"
+    "Card":"../../components/Card/Card",
+    "i-button":"../../dist/button/index",
+    "i-card":"../../dist/card/index"
   },
   "enablePullDownRefresh":true
 }

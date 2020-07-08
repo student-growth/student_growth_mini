@@ -1,0 +1,31 @@
+<!-- 成果申请界面 -->
+<view class="container">
+  <view class="search">
+    <input placeholder='查询项目名称' />
+    <iconfont name='chaxun' size='30' />
+  </view>
+  <view class="main">
+    <scroll-view scroll-y class="left_menu">
+      <view class="menu_item {{index===currentIndex?'active':''}}" wx:for="{{firstMenu}}" wx:key="id"
+      bind:tap="handleItemTap" data-index="{{item.id}}">
+        <iconfont name="{{item.icon}}" size='25' />
+        <span>{{item.name}}</span>
+      </view>
+    </scroll-view>
+    <scroll-view scroll-y class="main_menu">
+      <view class="kong" wx:if="{{contentData==undefined ||contentData.length==0}}">
+        <iconfont name='kong' size='100'/>
+        <span>这里空空如也~</span>
+      </view>
+      <view class="gain_group" wx:for="{{contentData}}" wx:for-index="index" wx:for-item="item1" wx:key="id">
+        <view class="gain_second">/ {{item1.name}} /</view>
+        <view class="gain_third">
+          <navigator wx:for="{{item1.thirdCate}}" wx:key="id" wx:for-item="item2">
+            {{item2.name}}
+          </navigator>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  
+</view>

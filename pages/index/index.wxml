@@ -18,36 +18,20 @@
     </swiper>
   </view>
   <!-- 新闻区域 -->
-  <Card title="新闻资讯" moreUrl="">新闻区域</Card>
+  <Card title="新闻资讯">
+    <i-button type="primary" >这是一个按钮</i-button>
+  </Card>
   <!-- 工具栏区域 -->
-  <Card title="学生服务" moreUrl="">
+  <Card title="学生服务">
     <view class="tools_area">
-      <view bind:tap="handleQueryScore">
-        <iconfont name="datihuodong" size="50" />
-        <text>成绩查询</text>
+      <view wx:for="{{toolsList}}" wx:key='id' url="{{item.url}}" 
+        wx:for-index="index" wx:for-item="item" data-index='{{item.id}}'
+        bind:tap="handleToolItem">
+        <iconfont name='{{item.icon}}' size='50' />
+        <span>{{item.name}}</span>
       </view>
-      <navigator>
-        <iconfont name="chengjiu" size="50" />
-        <text>奖项申请</text>
-      </navigator> 
-      <navigator>
-        <iconfont name="pingjia" size="50" />
-        <text>学生评价</text>
-      </navigator> 
-      <navigator url="../../pages/process/index">
-        <iconfont name="jindu" size="50" />
-        <text>进度查询</text>
-      </navigator>
-      <navigator url="../../pages/patent/index">
-        <iconfont name="jindu" size="50" />
-        <text>奖学金申请</text>
-      </navigator>
-      <navigator url="../../pages/questions/index">
-        <iconfont name="jindu" size="50" />
-        <text>意见反馈</text>
-      </navigator>
     </view>
   </Card>
-  <Card title="问题反馈" moreUrl="">问题反馈区域</Card>
+  <Card title="问题反馈">问题反馈区域</Card>
   <view class="footer_area">浙江工商大学智慧教育工作室</view>
 </view>

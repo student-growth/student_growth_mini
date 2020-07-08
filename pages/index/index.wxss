@@ -51,10 +51,10 @@
   align-content: flex-start;
   flex-wrap: wrap;
 }
-.index_page .tools_area navigator {
+.index_page .tools_area view {
   margin: 20rpx;
 }
-.index_page .tools_area navigator text {
+.index_page .tools_area view text {
   font-size: small;
   text-align: center;
 }

@@ -3,7 +3,7 @@
 -->
 <view class="container">
   <form class="search_bar" bindsubmit="onSearch">
-  <input type="text" name="search_content" placeholder="奖学金公示"/>
+  <input type="text" name="search_content" placeholder="如：查询奖学金项目"/>
   <button form-type="submit"/>
 </form>
 <view class="content">

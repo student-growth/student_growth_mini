@@ -1,11 +1,13 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/scholarship/index",
+    "pages/comment/index",
+    "pages/apply/index",
     "pages/setting/index",
     "pages/login/index",
     "pages/process/index",
     "pages/questions/index",
-    "pages/patent/index",
     "pages/score/index",
     "pages/search/index",
     "pages/forgot/index"

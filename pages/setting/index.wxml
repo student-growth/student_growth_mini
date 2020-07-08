@@ -6,7 +6,11 @@
     <view class="user_icon"></view>
     <span>{{Student.name}}</span>
   </view>
-  <view class="card"></view>
+  <view class="card">
+    <view>
+      <span>通知</span>
+    </view> 
+  </view>
   <view class="content">
     <navigator>个人设置</navigator>
     <navigator>安全设置</navigator>

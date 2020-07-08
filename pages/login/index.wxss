@@ -27,11 +27,9 @@ page .login form {
   margin-top: 90rpx;
 }
 page .login form input {
-  padding-left: 25rpx;
+  padding: 15rpx 20rpx;
   width: 500rpx;
-  height: 70rpx;
-  font-size: small;
-  color: #696969;
+  font-size: medium;
   background-color: #dddddd;
   justify-content: center;
   border-radius: 35rpx;

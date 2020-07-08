@@ -53,6 +53,9 @@ App({
       
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    loginCode:null,
+    version:'1.0.0',
+    host:'https://www.fastmock.site/mock/224e535af85c8390bb1c1d6671bdf185/miniprogram/'
   }
 })

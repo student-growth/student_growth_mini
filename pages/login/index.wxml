@@ -3,8 +3,8 @@
     <iconfont name="wodexuesheng" color="#fff" size="50" />
   </view>
   <form bindsubmit="formSubmit">
-    <input class="user_name" name="userId" placeholder="请输入学/工号" />
-    <input class="user_pwd" name="password" password placeholder="请输入密码" />
+    <input type="text" name="userId" placeholder="请输入学/工号" />
+    <input type="text" name="password" password placeholder="默认密码身份证后六位" />
     <button formType="submit">→</button>
   </form>
   <view class="navi_area">
@@ -12,6 +12,6 @@
     <view>|</view>
     <navigator open-type="navigate">用户注册</navigator>
   </view>
-  <!-- footer -->
+  
   <view class="foot">浙江工商大学智慧教育工作室</view>
 </view>

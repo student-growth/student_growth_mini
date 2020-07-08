@@ -1,0 +1,26 @@
+<!-- pages/comment/index.wxml
+学生评价页面 -->
+<view class="container">
+  <view class="self_comment">
+    <view class="sel_title">
+      <iconfont name='yucepinggu' size='40' />
+      <span>自我评分</span>
+    </view>
+    <Form formMap='{{formMap}}' bindsubmit="submitForm" />
+  </view>
+  <view class="other_comment">
+    <view class="title">
+      <iconfont name='shichangyuce' size='40' />
+      <span>请帮助其他同学评分</span>
+    </view>
+    <scroll-view scroll-y class="item_list">
+      <view class="item" wx:for="{{StudentList}}" wx:key="id" mut-bind:tap="showDialogue" data-index="{{item.id}}">
+        {{item.name}}
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 对话框 -->
+  <view class="dialogue {{showDialogue?'active_dia':'hidden_dia'}}">
+    <Form class="dia_form" reset='取消'  title='评分详情' formMap="{{formMap}}" bindsubmit="submitForm" bindreset="resetForm"></Form>
+  </view>
+</view>
