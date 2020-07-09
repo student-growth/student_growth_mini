@@ -1,7 +1,10 @@
 //index/index.js
 import request from '../../request/index.js'
+const app =getApp();
+
 Page({
   data: {
+    showActionSheet:false,
     swiperList: [],
     Student: {
       name: "李",
@@ -38,11 +41,11 @@ Page({
 
   },
   handleQueryScore() {
+    this.showActionSheet=true
     wx.showActionSheet({
       itemList: ["学科成绩查询", "四六级成绩查询", "综合测试成绩"],
       itemColor: '#2c3e50',
-      success: (result) => {
-          
+      success: (result) => { 
         this.showStatement(result.tapIndex);
       }
     });
@@ -58,10 +61,14 @@ Page({
       });
     }
   },
+
   onLoad: function (options) {
     //获取轮播图列表
-    request.get('getSwiperList').then(res => {
-      console.log(res);
+    request.get('getSwiperList').then(res => { 
+      for(let i=0;i<res.data.length;i++){
+        res.data[i].name="http://localhost:7778/"+res.data[i].name
+      }
+      this.setData({swiperList:res.data})
     })
   }
 });
