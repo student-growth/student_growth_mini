@@ -1,28 +1,15 @@
 //index/index.js
 import request from '../../request/index.js'
+import store, { toolsList } from '../../store/index.js'
 const app =getApp();
 
 Page({
   data: {
     showActionSheet:false,
-    swiperList: [],
     Student: {
       name: "李",
       url: "",
-    },
-    toolsList: [{
-      id: 0, name: '成绩查询', url: '', icon: 'annual-report'
-    }, {
-      id: 1, name: '成果申请', url: '../../pages/apply/index', icon: 'youzhifuwu'
-    }, {
-      id: 2, name: '学生评价', url: '../../pages/comment/index', icon: 'qianshuhetong'
-    }, {
-      id: 3, name: '进度查询', url: '../../pages/process/index', icon: 'tuanduijineng'
-    }, {
-      id: 4, name: '奖学金申请', url: '../../pages/scholarship/index', icon: 'daikuan'
-    }, {
-      id: 5, name: '意见反馈', url: '../../pages/questions/index', icon: 'tounaofengbao'
-    }]
+    }
   },
   
   //显示声明
@@ -52,7 +39,7 @@ Page({
   },
   handleToolItem(e) {
     let index = e.currentTarget.dataset.index;
-    let toolitem = this.data.toolsList[index];
+    let toolitem = store.toolsList[index];
     if (index == 0) {
       this.handleQueryScore();
     } else {
@@ -63,12 +50,15 @@ Page({
   },
 
   onLoad: function (options) {
-    //获取轮播图列表
-    request.get('getSwiperList').then(res => { 
-      for(let i=0;i<res.data.length;i++){
-        res.data[i].name="http://localhost:7778/"+res.data[i].name
-      }
-      this.setData({swiperList:res.data})
+    this.setData({
+      toolsList:store.toolsList
+    })
+    request.get('stu_news/swiper',{size:3})
+    .then(res => { 
+       for(let i=0;i<res.list.length;i++){
+         res.list[i].fullPath = app.globalData.imgHost+res.list[i].fullPath
+       }
+       this.setData({swiperList:res.list})
     })
   }
 });

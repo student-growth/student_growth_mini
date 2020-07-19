@@ -13,7 +13,7 @@
 	<view class="swiper_area">
 		<swiper indicator-dots autoplay interval="3000" duration="1000" circular>
 			<swiper-item wx:for="{{swiperList}}" wx:key="id">
-				<image src="{{item.name}}" mode="widthFix" />
+				<image src="{{item.fullPath}}" mode="widthFix" />
 			</swiper-item>
 		</swiper>
 	</view>
