@@ -53,7 +53,7 @@ Page({
     this.setData({
       toolsList:store.toolsList
     })
-    request.get('stu_news/swiper',{size:3})
+    request.get('stu_news/swiper',{size:4})
     .then(res => { 
        for(let i=0;i<res.list.length;i++){
          res.list[i].fullPath = app.globalData.imgHost+res.list[i].fullPath
