@@ -1,6 +1,6 @@
 //index/index.js
 import request from '../../request/index.js'
-import store, { toolsList } from '../../store/index.js'
+import store  from '../../store/index.js'
 const app =getApp();
 
 Page({

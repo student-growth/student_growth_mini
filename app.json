@@ -10,7 +10,9 @@
     "pages/questions/index",
     "pages/score/index",
     "pages/search/index",
-    "pages/forgot/index"
+    "pages/forgot/index",
+    "pages/patent",
+    "pages/patent/patent"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -18,7 +20,7 @@
     "navigationBarBackgroundColor": "#192a56",
     "navigationBarTitleText": "学生成长",
     "navigationBarTextStyle": "white"
-  }, 
+  },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
     "iconfont": "./iconfont/iconfont"
