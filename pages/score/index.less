@@ -4,17 +4,36 @@ page {
   box-sizing: content-box;
   width: 100vw;
   height: 100vh;
-  .main { 
-    height: inherit;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-content: center;
-    Table{
-      display: flex;
-      justify-content: center;
-      align-content: center;
+  .content{
+    width: 100vw;
+    display: table;
+    text-align: center;
+    border-collapse: collapse;
+    margin: 2vh 1vh;
+    padding: 0;
+    box-sizing: content-box;
+    overflow-x: scroll;
+    // 表格标题
+    .table_header{
+      display: table-caption;
+      font-weight: bold;
+      font-size: large;
+      margin-bottom: 10rpx;
+    }
+    .header{
+        font-weight: bold;
+        background-color: #93c9ff98;
+      }
+      .table_ul{
+        display: table-row;
+        border-top: 1rpx solid grey;
+        .table_li{
+          display: table-cell;
+          padding: 10rpx;
+        }
+        &:nth-child(odd):not(:first-child){
+          background-color: rgba(0, 0, 0,.1);
+        }
+      }
     }
   }
-
-}

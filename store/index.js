@@ -1,5 +1,5 @@
 const toolsList =[{
-  id: 0, name: '成绩查询', url: '', icon: 'annual-report'
+  id: 0, name: '成绩查询', url: '../../pages/score/index', icon: 'annual-report'
 }, {
   id: 1, name: '成果申请', url: '../../pages/apply/index', icon: 'youzhifuwu'
 }, {
@@ -12,6 +12,8 @@ const toolsList =[{
   id: 5, name: '意见反馈', url: '../../pages/questions/index', icon: 'tounaofengbao'
 }]
 
+const scoreColumn=['课程名称','平时成绩','期末成绩','总成绩','学分','绩点']
+
 module.exports={
-  toolsList
+  toolsList,scoreColumn
 }

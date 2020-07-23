@@ -3,7 +3,7 @@
   <view class="table_header">{{tableTitle}}</view>
   <view wx:if="{{tableData.length<=0}}">
     <iconfont name='kong' size="100" />
-    <text>暂时没有内容呀~</text>
+    <text>暂时没有内容</text>
   </view>
   <view class="content" wx:elif="{{tableData.length>0}}">
     <ul class="header table_ul">

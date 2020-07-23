@@ -1,5 +1,4 @@
 const app = getApp()
-
 const request = (url,options)=>{
   return new Promise((resolve,reject)=>{
     wx.request({
@@ -13,7 +12,7 @@ const request = (url,options)=>{
         if(res.data.code===200){
           resolve(res.data)
         }else{
-          reject(res.msg)
+          reject(res.data)
         }
       },
       fail(err){

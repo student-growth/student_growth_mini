@@ -1,41 +1,56 @@
 <!-- index.wxml -->
 <view class="index_page">
 	<view class="header">
-		<navigator url="../../pages/setting/index" class="icon">
-			<image />
+		<navigator url="../../pages/setting/index">
+			<i-avatar >李</i-avatar>
 			<span>个人中心</span>
 		</navigator>
 		<navigator url="../../pages/search/index" open-type="navigate">
 			<i-icon type="search" size="28" color="#fff"/>
 		</navigator>
 	</view>
-	<!-- 轮播图 -->
-	<view class="swiper_area">
-		<swiper indicator-dots autoplay interval="3000" duration="1000" circular>
-			<swiper-item wx:for="{{swiperList}}" wx:key="id">
-				<image src="{{item.fullPath}}" mode="widthFix" />
+	<!-- swiper area -->  
+  <swiper indicator-dots autoplay interval="4000" duration="500" circular>
+			<swiper-item wx:for="{{swiperList}}" wx:key="id"> 
+				<image src="{{item.fullPath}}" />
 			</swiper-item>
-		</swiper>
-	</view>
-	<!-- 新闻区域 -->
-	<i-card title="新闻资讯" extra="更多内容">
-		<i-button type="primary">这是一个按钮</i-button>
-	</i-card>
-
-	<!-- 工具栏区域 -->
-	<i-card title="学生服务" extra="更多内容" >
+		</swiper> 
+	<!-- news area-->
+  <view class='card'>
+    <i-card title="新闻资讯" extra="更多内容">
+      <i-cell-group slot='content'>
+        <i-cell wx:for='{{newslist}}' is-link 
+          url='/pages/newsdetail/newsdetail' wx:key='id' 
+          wx:for-item='item' title='{{item.title}}' 
+          label='{{item.summary}}'>
+        </i-cell>
+      </i-cell-group>
+    </i-card>
+  </view>
+    
+	
+	<!-- tools area -->
+  <view class='card'>
+    <i-card  title="学生服务" extra="更多内容" >
 		<view class="tools_area" slot="content">
-			<view  wx:for="{{toolsList}}" wx:key='id' url="{{item.url}}" wx:for-index="index" wx:for-item="item" data-index='{{item.id}}' bind:tap="handleToolItem">
+			<view wx:for="{{toolsList}}" wx:key='id' url="{{item.url}}" 
+            wx:for-index="index" wx:for-item="item" data-index='{{item.id}}' 
+            bind:tap="handleToolItem">
 				<iconfont name='{{item.icon}}' size='50' />
 				<span>{{item.name}}</span>
 			</view>
 		</view>
 	</i-card>
-	<i-card title="问题反馈">
-    <view slot="content">
-      
-    </view>
-      
+  </view>
+  <view class='card'>
+    <i-card  title="问题反馈" extra='查看更多'>
+     <i-cell-group slot='content'>
+      <i-cell wx:for='{{questlist}}' is-link 
+        wx:key='id' wx:for-item='item' title='{{item.title}}'>
+          <i-tag color='red' slot='icon' type='border'>{{item.category}}</i-tag>
+        </i-cell>
+     </i-cell-group>
   </i-card>
+  </view>
 	<view class="footer_area">浙江工商大学智慧教育工作室</view>
 </view>

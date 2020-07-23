@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
   box-sizing: content-box;
+  overflow: scroll;
 }
 .table .table_header {
   display: table-caption;
@@ -21,10 +22,10 @@
 }
 .table .content .table_ul {
   display: table-row;
+  border: 1rpx solid grey;
 }
 .table .content .table_ul .table_li {
   display: table-cell;
-  border: 1rpx solid grey;
   padding: 10rpx;
 }
 .table .content .table_ul:nth-child(odd):not(:first-child) {

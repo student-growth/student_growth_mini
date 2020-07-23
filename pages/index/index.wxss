@@ -1,9 +1,12 @@
 .index_page {
   position: relative;
+  z-index: -2;
+  background-color: #ecf0f1;
 }
 .index_page .header {
+  color: white;
   display: flex;
-  padding: 0 10rpx;
+  padding: 0 20rpx;
   justify-content: space-between;
 }
 .index_page .header::after {
@@ -17,18 +20,6 @@
   background-color: #192a56;
   clip-path: ellipse(65% 55% at top center);
 }
-.index_page .header .icon {
-  display: flex;
-  align-items: center;
-  color: #ffffff;
-}
-.index_page .header image {
-  width: 100rpx;
-  height: 100rpx;
-  border-radius: 50%;
-  background-color: black;
-  margin-right: 10rpx;
-}
 .index_page .header navigator:last-child {
   align-self: center;
   background-color: #2f3640;
@@ -36,13 +27,22 @@
   border-radius: 50%;
   padding: 20rpx;
 }
-.index_page .swiper_area {
-  border-radius: 20rpx;
-  margin: 30rpx;
+.index_page swiper {
+  margin: 20rpx;
+  height: 160px;
 }
-.index_page .swiper_area swiper {
-  width: inherit;
-  height: calc(100vw*220/600);
+.index_page swiper image {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20rpx;
+  height: 150px;
+  width: 95%;
+  box-sizing: content-box;
+}
+.index_page .card {
+  margin: 30rpx 0;
 }
 .index_page .tools_area {
   padding-top: 20rpx;

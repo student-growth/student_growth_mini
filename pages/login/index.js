@@ -1,24 +1,31 @@
 // pages/login/index.js
-import { request } from '../../request/index.js';
+import request  from '../../request/index.js';
+const {$Toast} = require('../../dist/base/index')
+const { $Message } = require('../../dist/base/index');
 const app = getApp()
 Page({
   data: {
-    userInfo: {},
-    hasUserInfo: false,
-
+     user:null
   },
-  // 提交表单
-  formSubmit: function (e) {
-    //todo submit function;
-    console.log(e.detail);
-    wx.showToast({
-      title: '登陆成功',
-      icon: 'none',
-      duration:4000,
-      success: (result) => {
-        wx.navigateTo({url: '../../pages/index/index' });
-      }
-    });
+
+  //do login
+  login(e){
+    request.post('student/login',e.detail.value)
+    .then(res=>{
+      getApp().globalData.user = res.data
+      $Message({type:'success',content:res.msg})
+       wx.navigateTo({
+         url: '../../pages/index/index'
+       })
+    }).catch(err=>{
+      $Message({
+        type:'error',
+        duration:4,
+        content:err.sysError
+      })
+    })
+  },
+  reset(e){
 
   },
   onLoad: function (options) {

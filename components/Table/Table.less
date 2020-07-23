@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
   box-sizing: content-box;
+  overflow: scroll;
   // 表格标题
   .table_header{
     display: table-caption;
@@ -20,9 +21,10 @@
     }
     .table_ul{
       display: table-row;
+      border: 1rpx solid grey;
       .table_li{
         display: table-cell;
-        border: 1rpx solid grey;
+        
         padding: 10rpx;
       }
       &:nth-child(odd):not(:first-child){

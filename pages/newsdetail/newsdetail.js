@@ -1,4 +1,4 @@
-// pages/patent/patent.js
+// pages/newsdetail/newsdetail.js
 Page({
 
   /**

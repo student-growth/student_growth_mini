@@ -1,18 +1,17 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/score/index",
+    "pages/login/index",
     "pages/scholarship/index",
     "pages/comment/index",
     "pages/apply/index",
     "pages/setting/index",
-    "pages/login/index",
     "pages/process/index",
     "pages/questions/index",
-    "pages/score/index",
     "pages/search/index",
     "pages/forgot/index",
-    "pages/patent",
-    "pages/patent/patent"
+    "pages/newsdetail/newsdetail"
   ],
   "window": {
     "backgroundTextStyle": "dark",

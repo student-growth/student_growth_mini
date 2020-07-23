@@ -1,5 +1,67 @@
 <!-- pages/score/index.wxml  分数查询页面 -->
-<view class="main">
-  <Table tableData="{{tableData}}" tableTitle="{{'四级测试成绩'}}" tableColumn="{{tableColumn}}"></Table>
-  <Table tableData="{{tableData}}" tableTitle="{{'六级测试成绩'}}" tableColumn="{{tableColumn}}"></Table>
+<view>
+	<i-notice-bar icon="systemprompt">
+		本次查询不会对任何机构或者第三方开放
+	</i-notice-bar>
+	<i-tabs current="{{ current }}" bindchange="switchTabs">
+    <i-tab key="subject" title="学科成绩"></i-tab>
+		<i-tab key="composite" title="综合成绩"></i-tab>
+		<i-tab key="level4" title="四级成绩"></i-tab>
+		<i-tab key="level6" title="六级成绩"></i-tab>
+	</i-tabs>
+
+
+  <!-- table area -->
+  <block wx:if='{{current=="subject"}}'>
+    <view class='cont ent'> 
+       <i-panel title="<<必修>>">
+          <ul class="header table_ul">
+            <li class="table_li" wx:for="{{table.column}}" wx:key="*this">{{item}}</li>
+          </ul>  
+          <ul class="table_ul" wx:for="{{table.body.compulsory}}" wx:key="id" wx:for-item='item'>
+            <li class="table_li" ><i-tag type='border' color="{{item.score>=60?'green':'red'}}">
+              {{item.courseName}}</i-tag></li>
+            <li class="table_li" >{{item.dailyScore}}</li>
+            <li class="table_li" >{{item.finalScore}}</li>
+            <li class="table_li" >{{item.score}}</li>
+            <li class="table_li" >{{item.credit}}</li>
+            <li class="table_li" >{{item.point}}</li>
+          </ul>
+        </i-panel>
+        <i-panel title='<<选修>>'>
+          <ul class="header table_ul">
+              <li class="table_li" wx:for="{{table.column}}" wx:key="*this">{{item}}</li>
+            </ul>  
+            <ul class="table_ul" wx:for="{{table.body.elective}}" wx:key="id" wx:for-item='item'>
+              <li class="table_li" ><i-tag type='border' color="{{item.score>=60?'green':'red'}}">
+                {{item.courseName}}</i-tag></li>
+              <li class="table_li" >{{item.dailyScore}}</li>
+              <li class="table_li" >{{item.finalScore}}</li>
+              <li class="table_li" >{{item.score}}</li>
+              <li class="table_li" >{{item.credit}}</li>
+              <li class="table_li" >{{item.point}}</li>
+            </ul>
+        </i-panel>
+    </view>
+  </block>
+  <block wx:if='{{current =="composite"}}'>
+    <view class="content">
+      <ul class="header table_ul">
+          <li class="table_li" wx:for="{{table.column}}" wx:key="*this">{{item}}</li>
+        </ul>  
+        <!-- <ul class="table_ul" wx:for="{{table.body}}" wx:key="id" wx:for-item='item'>
+          //todo list
+        </ul> -->
+    </view>
+  </block>
+  <block wx:if='{{current =="level4"||current=="level6"}}'>
+    
+    <i-cell-group>
+      <i-cell title="听力" ></i-cell>
+      <i-cell title="阅读" ></i-cell>
+      <i-cell title="写作" ></i-cell>
+      <i-cell title="总分" ></i-cell>
+    </i-cell-group>
+  </block>
+     
 </view>

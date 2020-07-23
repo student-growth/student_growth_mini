@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "i-toast": "../../dist/toast/index",
+    "i-message": "../../dist/message/index"
+  },
   "enablePullDownRefresh":false
 }

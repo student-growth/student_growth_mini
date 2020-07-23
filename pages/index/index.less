@@ -1,6 +1,12 @@
 .index_page {
   position: relative;
+  z-index: -2;
+  background-color: #ecf0f1;
   .header {
+    color: white;
+    display: flex;
+    padding: 0 20rpx;
+    justify-content: space-between;
     &::after{
       content: '';
       position: absolute;
@@ -12,21 +18,6 @@
       background-color: #192a56;
       clip-path: ellipse(65% 55% at top center);
     }
-    display: flex;
-    padding: 0 10rpx;
-    justify-content: space-between;
-    .icon{
-      display: flex;
-      align-items: center;
-      color: #ffffff;
-    }
-    image{
-      width: 100rpx;
-      height: 100rpx;
-      border-radius: 50%;
-      background-color: black;
-      margin-right: 10rpx;
-    }
     navigator:last-child{
       align-self: center;
       background-color: #2f3640;
@@ -35,16 +26,24 @@
       padding: 20rpx; 
     }
   }
-
-  .swiper_area {
-    border-radius: 20rpx;
-    margin: 30rpx; 
-    swiper {
-      width: inherit;
-      height: calc(100vw*220/600);
+  swiper{
+    margin: 20rpx;
+    height: 160px;
+    image{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      border-radius: 20rpx;
+      height: 150px;
+      width: 95%;
+      box-sizing: content-box;
     }
   }
-
+  .card{
+    margin:30rpx 0;
+  }
+  
   .tools_area {
     padding-top: 20rpx;
     display: flex;
@@ -59,7 +58,7 @@
       }
     }
   }
-
+  
   .footer_area {
     display: flex;
     margin-top: 50rpx;
