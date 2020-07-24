@@ -13,14 +13,14 @@
     "pages/forgot/index"
   ],
   "window": {
-    "backgroundTextStyle": "dark",
-    "backgroundColor": "#192a56",
-    "navigationBarBackgroundColor": "#192a56",
+    "navigationStyle": "custom",
+    "navigationBarBackgroundColor": "#39b54a",
     "navigationBarTitleText": "学生成长",
     "navigationBarTextStyle": "white"
   }, 
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
-    "iconfont": "./iconfont/iconfont"
+    "iconfont": "./iconfont/iconfont",
+    "cu-custom": "/colorui/components/cu-custom"
   }
 }
