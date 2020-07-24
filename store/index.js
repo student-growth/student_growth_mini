@@ -14,6 +14,7 @@ const toolsList =[{
 
 const scoreColumn=['课程名称','平时成绩','期末成绩','总成绩','学分','绩点']
 
+const processColumn=['已经申请成果','进度','分数','备注']
 module.exports={
-  toolsList,scoreColumn
+  toolsList,scoreColumn,processColumn
 }

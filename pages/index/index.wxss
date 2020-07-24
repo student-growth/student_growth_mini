@@ -1,7 +1,5 @@
 .index_page {
   position: relative;
-  z-index: -2;
-  background-color: #ecf0f1;
 }
 .index_page .header {
   color: white;

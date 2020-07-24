@@ -1,21 +1,34 @@
 /* pages/process/index.wxss */
-.container{
+.table{
   padding: 0;
   margin: 0;
   width: 100vw;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: table;
+
   .header{
-    height: 200rpx;
-    background-color: #e74c3c;
+    text-align: center;
+      position: sticky;
+      top: 0;right: 0;left: 0;
+      height: 65rpx;
+      color: white;
+      background-color: #192a56;
+    }
+  .body{
+    text-align: center;
+    .row{
+       
+    }
   }
-  .table_content{
-    flex: 2;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    place-items: center;
-   
-  }
+  // .table_ul{
+  //   padding: 0 10rpx;
+  //     display: table-row;
+  //     .table_li{
+  //       display: table-cell; 
+  //     }
+  //     &:nth-child(odd):not(:first-child){
+  //       border-top: 1px solid #bdc3c7;
+  //       background-color: rgba(0, 0, 0,.1);
+  //     }
+  //   }
 }

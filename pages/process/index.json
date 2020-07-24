@@ -1,7 +1,8 @@
 {
+  "enablePullDownRefresh":true,
   "usingComponents": {
-    "Table":"../../components/Table/Table"
+    "i-row": "../../dist/row/index",
+    "i-col": "../../dist/col/index"
   },
   "navigationBarTitleText": "进度查询"
-
 }

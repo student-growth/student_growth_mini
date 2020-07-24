@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/process/index",
     "pages/index/index",
     "pages/score/index",
     "pages/login/index",
@@ -7,21 +8,19 @@
     "pages/comment/index",
     "pages/apply/index",
     "pages/setting/index",
-    "pages/process/index",
     "pages/questions/index",
-    "pages/search/index",
     "pages/forgot/index",
-    "pages/newsdetail/newsdetail"
+    "pages/newsdetail/index"
   ],
   "window": {
-    "backgroundTextStyle": "dark",
-    "backgroundColor": "#192a56",
-    "navigationBarBackgroundColor": "#192a56",
+    "navigationBarBackgroundColor": "#39b54a",
     "navigationBarTitleText": "学生成长",
+    "navigationStyle": "custom",
     "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
-    "iconfont": "./iconfont/iconfont"
+    "iconfont": "./iconfont/iconfont",
+    "cu-custom": "/colorui/components/cu-custom"
   }
 }

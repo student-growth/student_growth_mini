@@ -13,7 +13,7 @@
 
   <!-- table area -->
   <block wx:if='{{current=="subject"}}'>
-    <view class='cont ent'> 
+    <view class='content'> 
        <i-panel title="<<必修>>">
           <ul class="header table_ul">
             <li class="table_li" wx:for="{{table.column}}" wx:key="*this">{{item}}</li>
@@ -56,6 +56,10 @@
   </block>
   <block wx:if='{{current =="level4"||current=="level6"}}'>
     
+    <i-tabs current="{{ cetType }}" bindchange="handleChange">
+      <i-tab key="written" title="笔试成绩"></i-tab>
+      <i-tab key="oral" title="口语成绩"></i-tab>
+    </i-tabs> 
     <i-cell-group>
       <i-cell title="听力" ></i-cell>
       <i-cell title="阅读" ></i-cell>

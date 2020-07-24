@@ -1,20 +1,21 @@
 /* pages/process/index.wxss */
-.container {
+.table {
   padding: 0;
   margin: 0;
   width: 100vw;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: table;
 }
-.container .header {
-  height: 200rpx;
-  background-color: #e74c3c;
+.table .header {
+  text-align: center;
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 65rpx;
+  color: white;
+  background-color: #192a56;
 }
-.container .table_content {
-  flex: 2;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  place-items: center;
+.table .body {
+  text-align: center;
 }

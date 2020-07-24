@@ -1,12 +1,38 @@
-<!--pages/process/index.wxml
-  进度查询页面
--->
-<view class="container">
+<view class="table">
   <view class="header">
-    --此处放入查询表头--
-  </view>
-  <view class="table_content">
-    <Table tableData="{{tableData}}" tableTitle="{{tableTitle}}" tableColumn="{{tableColumn}}"></Table>
-  </view>
+    <i-row>
+        <i-col span="10">已申请项目成果</i-col>
+        <i-col span="4">进度</i-col>
+        <i-col span="4">分数</i-col>
+        <i-col span="6">备注</i-col> 
+    </i-row>
+    </view>
+    <view class="body">
+      <i-row i-class='row' wx:for='{{table.body}}' wx:key="id" wx:for-item="item" bindclick='checkDetail'>
+        <i-col span="10">
+          <i-tag type='border' color="green">12324124</i-tag>
+        </i-col>
+        <i-col span='4'>123</i-col>
+        <i-col span='4'>123</i-col>
+        <i-col span='6'>123</i-col> 
+      </i-row>
+    </view>
+
+    <button class='topBtn'>
+      
+    </button>
 </view>
+  <!-- <view class="table">
+     <ul class="header table_ul">
+      <li class="table_li" wx:for="{{table.column}}" wx:key="*this">{{item}}</li>
+    </ul>  
+    <ul class="table_ul" wx:for="{{table.body.elective}}" wx:key="id" wx:for-item='item'>
+      <li class="table_li" ><i-tag type='border' color="{{item.score>=60?'green':'red'}}">
+        {{item.courseName}}</i-tag></li>
+      <li class="table_li" >{{item.dailyScore}}</li>
+      <li class="table_li" >{{item.finalScore}}</li>
+      <li class="table_li" >{{item.score}}</li> 
+    </ul>
+  </view>
+</view> -->
 

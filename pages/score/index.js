@@ -6,6 +6,7 @@ Page({
  
   data: {
     current:'subject',
+    cetType:'written',
     table:{}
   },
   switchTabs({ detail }){
