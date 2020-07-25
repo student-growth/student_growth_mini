@@ -1,0 +1,38 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">进度详情</view>
+</cu-custom>
+<view class="cu-bar bg-blue light shadow-blur">
+  <text class="cuIcon-titles">项目正在审核中,同学耐心等待...</text>
+</view>
+<view class="cu-card dynamic">
+  <view class="cu-item ">
+    <view class="cu-list menu">
+      <view class="cu-item">
+        <view class="text-black text-center">竞赛名称</view>
+      </view>
+      <view class="cu-item">
+        <view class="text-black text-center">竞赛时间</view>
+      </view>
+      <view class="cu-item">
+        <view class="text-black text-center">团队：</view>
+        <view class="text-black text-center">团队：</view>
+        <view class="text-black text-center">团队：</view>
+      </view>
+      <view class="cu-item">
+        <view class="text-black text-center">获奖情况</view>
+      </view>
+    </view>
+    <scroll-view class="cu-list comment solids-top margin-top">
+      <view class="cu-item">
+        <text class="text-lg">1231312</text>
+      </view>
+      <view class="cu-item">
+        1313123
+      </view>
+      <view class="cu-item">
+        1313123
+      </view>
+    </scroll-view>
+  </view>
+</view>

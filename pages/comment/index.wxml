@@ -1,26 +1,86 @@
 <!-- pages/comment/index.wxml
 学生评价页面 -->
-<view class="container">
-  <view class="self_comment">
-    <view class="sel_title">
-      <iconfont name='yucepinggu' size='40' />
-      <span>自我评分</span>
-    </view>
-    <Form formMap='{{formMap}}' bindsubmit="submitForm" />
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">学生评价</view>
+</cu-custom>
+<view class="cu-bar bg-white solid-bottom">
+  <view class="action">
+    <text class="cuIcon-edit text-blue"></text>
+    自我评价
   </view>
-  <view class="other_comment">
-    <view class="title">
-      <iconfont name='shichangyuce' size='40' />
-      <span>请帮助其他同学评分</span>
-    </view>
-    <scroll-view scroll-y class="item_list">
-      <view class="item" wx:for="{{StudentList}}" wx:key="id" mut-bind:tap="showDialogue" data-index="{{item.id}}">
-        {{item.name}}
+</view>
+<view class="cu-card case">
+  <view class="cu-item shadow">
+    <form bindsubmit="submitForm" bindreset="resetForm">
+      <view class="cu-form-group">
+        <view class="title">品德素质:</view>
+        <input placeholder="分数范围在0-100之间" name="character"></input>
       </view>
-    </scroll-view>
+      <view class="cu-form-group">
+        <view class="title">心理素质:</view>
+        <input type="number" placeholder="分数范围在0-100之间" name="psyscore"></input>
+      </view>
+      <view class="flex  justify-center">
+        <button form-type="reset" class="cu-btn margin-sm  line text-green shadow">取消</button>
+        <button form-type="submit" class="cu-btn margin-sm  bg-green shadow">提交</button>
+      </view>
+    </form>
   </view>
-  <!-- 对话框 -->
-  <view class="dialogue {{showDialogue?'active_dia':'hidden_dia'}}">
-    <Form class="dia_form" reset='取消'  title='评分详情' formMap="{{formMap}}" bindsubmit="submitForm" bindreset="resetForm"></Form>
+</view>
+<view class="cu-bar bg-white solid-bottom">
+  <view class="action">
+    <text class="cuIcon-rank text-blue"></text>
+    同学互评
+  </view>
+</view>
+<view class="cu-list menu">
+  <view class="cu-item " bind:tap="scoring" wx:key="id" data-student='{{index}}' wx:for="{{10}}" wx:for-index="index">
+    <view class="content">
+      <view>
+        <text class="text-black text-blod">{{"李玉娥"+index}}</text>
+      </view>
+      <view class="text-sm flex">
+        <text class="cuIcon-tag text-red margin-right-xs"></text>
+        {{"2015级电信学院"}}
+      </view>
+    </view>
+    <view class="action">
+      <view class="cu-capsule round">
+        <view class="cu-tag bg-orange light margin">心理</view>
+        <view class="cu-tag line-orange">{{index}}</view>
+      </view>
+      <view class="cu-capsule round">
+        <view class="cu-tag bg-olive light margin">品德</view>
+        <view class="cu-tag line-olive">{{index}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- dialog -->
+<view class="cu-modal {{show?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">评分详细</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view>
+      <view class="cu-form-group">
+        <view class="title">品德素质:</view>
+        <input class="text-left" type="number" bindinput="charaInput" placeholder="分数范围在0-100之间" name="character"></input>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">心理素质:</view>
+        <input class="text-left" type="number" bindinput="psyInput" placeholder="分数范围在0-100之间" name="psyscore"></input>
+      </view>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub text-grey solid-left" bindtap="hideModal">取消</view>
+      <view class="action margin-0 flex-sub text-blue solid-left" bindtap="dialogFormSubmiit">
+        确定
+      </view>
+    </view>
   </view>
 </view>

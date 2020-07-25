@@ -5,22 +5,19 @@ const app=getApp()
 Page({
  
   data: {
-    current:'subject',
-    cetType:'written',
+    CustomBar:app.globalData.CustomBar,
+    TabCur:0,
     table:{}
   },
-  switchTabs({ detail }){
-    this.setData({current:detail.key})
-    switch(detail.key){
-      case 'level4':this.getCET4ScoreList(); break;
-      case 'level6':this.getCET6ScoreList(); break;
-      case 'subject':this.getSubjectScore();break;
-      case 'composite':this.getComposite();break;
-    }
+  tabSelect(e) {
+    console.log(e);
+    this.setData({
+      TabCur: e.currentTarget.dataset.id,
+      scrollLeft: (e.currentTarget.dataset.id - 1) * 60
+    })
   },
-
   onLoad: function (options) {
-    
+    this.setData({tabNav:store.scoreNavBar})
     this.getSubjectScore()
   },
   getSubjectScore(){
@@ -29,8 +26,6 @@ Page({
     .then(res=>{
       this.setData({'table.body.compulsory':res.data.compulsory})
       this.setData({'table.body.elective':res.data.elective})
-    }).catch(err=>{
-      console.log(err);
     })
   },
   getComposite(){

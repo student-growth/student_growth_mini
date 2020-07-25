@@ -1,16 +1,19 @@
 {
   "pages": [
-    "pages/process/index",
-    "pages/index/index",
-    "pages/score/index",
-    "pages/login/index",
+    "pages/auth/center/index",
     "pages/scholarship/index",
+    "pages/apply/list/index", 
     "pages/comment/index",
-    "pages/apply/index",
-    "pages/setting/index",
+    "pages/index/home/index",
+    "pages/index/newsdetail/index",
+    "pages/process/list/index",
+    "pages/process/detail/index",
+    "pages/score/index",
+    "pages/login/home/index",
+    "pages/login/forget/index",
     "pages/questions/index",
-    "pages/forgot/index",
-    "pages/newsdetail/index"
+    "pages/auth/setting/index"
+    
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",
@@ -21,6 +24,6 @@
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
     "iconfont": "./iconfont/iconfont",
-    "cu-custom": "/colorui/components/cu-custom"
+    "cu-custom": "./colorui/components/cu-custom"
   }
 }

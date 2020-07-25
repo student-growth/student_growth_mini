@@ -1,0 +1,56 @@
+<!-- 成果申请界面 -->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">成果申请</view>
+</cu-custom>
+<view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input type="text" placeholder="查询项目名称" confirm-type="search" bindinput="searchIcon"></input>
+  </view>
+  <view class="action">
+    <button class="cu-btn bg-gradual-blue shadow-blur round">搜索</button>
+  </view>
+</view>
+<view class="VerticalBox">
+  <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}">
+    <view class="cu-item {{index==TabCur?'text-blue':''}}" wx:for="{{firstMenu}}" wx:key="id" bindtap="tabSelect" data-id="{{index}}">
+      {{item.name}}
+    </view>
+  </scroll-view>
+  <scroll-view class="VerticalMain" scroll-y scroll-with-animation bindscroll="VerticalMain">
+    <view class="padding-top padding-lr" wx:for="{{category.secondCate}}" wx:for-item="secItem" wx:key="id">
+      <view class='cu-bar solid-bottom bg-white'>
+        <view class='action'>
+          <text class='cuIcon-title text-green'></text>
+          {{secItem.name}}
+        </view>
+      </view>
+      <view class="cu-list menu"></view>
+    </view>
+  </scroll-view>
+</view>
+<view class="container">
+  <view class="main">
+    <scroll-view scroll-y class="left_menu">
+      <view class="menu_item {{index===currentIndex?'active':''}}" wx:for="{{firstMenu}}" wx:key="id" bind:tap="handleItemTap" data-index="{{item.id}}">
+        <iconfont name="{{item.icon}}" size='25' />
+        <span>{{item.name}}</span>
+      </view>
+    </scroll-view>
+    <scroll-view scroll-y class="main_menu">
+      <view class="kong" wx:if="{{contentData==undefined ||contentData.length==0}}">
+        <iconfont name='kong' size='100' />
+        <span>这里空空如也~</span>
+      </view>
+      <view class="gain_group" wx:for="{{contentData}}" wx:for-index="index" wx:for-item="item1" wx:key="id">
+        <view class="gain_second">/ {{item1.name}} /</view>
+        <view class="gain_third">
+          <navigator wx:for="{{item1.thirdCate}}" wx:key="id" wx:for-item="item2">
+            {{item2.name}}
+          </navigator>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
