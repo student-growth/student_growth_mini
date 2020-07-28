@@ -3,6 +3,7 @@
   <view slot="backText">返回</view>
   <view slot="content">成果申请</view>
 </cu-custom>
+<!-- search bar -->
 <view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px">
   <view class="search-form round">
     <text class="cuIcon-search"></text>
@@ -12,45 +13,40 @@
     <button class="cu-btn bg-gradual-blue shadow-blur round">搜索</button>
   </view>
 </view>
-<view class="VerticalBox">
-  <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}">
-    <view class="cu-item {{index==TabCur?'text-blue':''}}" wx:for="{{firstMenu}}" wx:key="id" bindtap="tabSelect" data-id="{{index}}">
-      {{item.name}}
+<view class="flex">
+  <!-- left menu -->
+  <scroll-view style="height:{{scrollHeight}}" class="nav-bar  flex-sub padding-left-sm radius fixed" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}">
+    <view class="padding-top" wx:for="{{category}}" wx:key="id" bindtap='handleItemTap' data-id="{{index}}">
+      <view class="cu-bar  solid-bottom bg-{{index==TabCur?'blue':'white'}} light">
+        <view class="action text-center">
+          <text class='cuIcon-{{item.icon}}} text-{{item.color}}'></text>
+          {{item.name}}
+        </view>
+      </view>
     </view>
   </scroll-view>
-  <scroll-view class="VerticalMain" scroll-y scroll-with-animation bindscroll="VerticalMain">
-    <view class="padding-top padding-lr" wx:for="{{category.secondCate}}" wx:for-item="secItem" wx:key="id">
+  <!-- main menu -->
+  <scroll-view style="height:{{scrollHeight}}" class="flex-twice padding-left-sm " scroll-y scroll-with-animation>
+    <view class="padding-top" wx:for="{{contentData}}" wx:for-item="item" wx:for-index="index" wx:key="id">
       <view class='cu-bar solid-bottom bg-white'>
         <view class='action'>
-          <text class='cuIcon-title text-green'></text>
-          {{secItem.name}}
+          <text class='cuIcon-titles text-green'></text>
+          {{item.name}}
         </view>
       </view>
-      <view class="cu-list menu"></view>
+      <view class="cu-list menu">
+        <view class="cu-item" wx:for="{{item.thirdCate}}" wx:for-item="innerItem" wx:for-index="innerIndex" wx:key="id" bind:tap="chooseItem" data-item="{{innerItem}}">
+          <view class="content">
+            <view class="text-black">
+              <text class="text-cut" style="width:200rpx">{{innerItem.name}}</text>
+            </view>
+          </view>
+          <view class="action">
+            <button class="cu-btn bg-olive sm margin-right-sm">详情</button>
+            <button class="cu-btn  bg-blue sm">申请</button>
+          </view>
+        </view>
+      </view>
     </view>
   </scroll-view>
-</view>
-<view class="container">
-  <view class="main">
-    <scroll-view scroll-y class="left_menu">
-      <view class="menu_item {{index===currentIndex?'active':''}}" wx:for="{{firstMenu}}" wx:key="id" bind:tap="handleItemTap" data-index="{{item.id}}">
-        <iconfont name="{{item.icon}}" size='25' />
-        <span>{{item.name}}</span>
-      </view>
-    </scroll-view>
-    <scroll-view scroll-y class="main_menu">
-      <view class="kong" wx:if="{{contentData==undefined ||contentData.length==0}}">
-        <iconfont name='kong' size='100' />
-        <span>这里空空如也~</span>
-      </view>
-      <view class="gain_group" wx:for="{{contentData}}" wx:for-index="index" wx:for-item="item1" wx:key="id">
-        <view class="gain_second">/ {{item1.name}} /</view>
-        <view class="gain_third">
-          <navigator wx:for="{{item1.thirdCate}}" wx:key="id" wx:for-item="item2">
-            {{item2.name}}
-          </navigator>
-        </view>
-      </view>
-    </scroll-view>
-  </view>
 </view>

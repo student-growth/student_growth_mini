@@ -1,0 +1,41 @@
+/* pages/scholarship/index.wxss */
+.ABox ,.Box {
+  padding: 40rpx;
+  border-radius: 12rpx;
+  position: relative;
+  z-index: 1;
+  height: 200rpx;
+}
+.ABox::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background-color: inherit;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: -20rpx;
+  border-radius: 10rpx;
+  opacity: 0.2;
+  transform: scale(0.9, 0.9);
+}
+
+
+.title{
+  display: flex;
+  justify-content: space-between;
+  font-size: large;  
+  opacity: 0.8;
+}
+.title::first-letter{
+  font-size: xx-large;
+}
+.name{
+  font-size: larger;
+  text-transform: capitalize;
+  opacity: 0.8;
+}
+.name::first-letter{
+  font-size: x-large;
+}
+ 

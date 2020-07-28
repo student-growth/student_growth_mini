@@ -6,21 +6,12 @@ Page({
     CustomBar: app.globalData.CustomBar,
     Custom: app.globalData.Custom,
     TabCur: 0, 
-    VerticalNavTop: 0,
     contentData:[], 
     category:applyCategory
   },
 
-  tabSelect(e) {
-    this.setData({
-      TabCur: e.currentTarget.dataset.id,
-      MainCur: e.currentTarget.dataset.id,
-      VerticalNavTop: (e.currentTarget.dataset.id - 1) * 50
-    })
-  },
   //options(Object)
   onLoad: function (options) {
-    
     let firstMenu = this.data.category.map(v=>{
       return {id:v.id,icon:v.iconName,name:v.name}
     });
@@ -30,10 +21,24 @@ Page({
       contentData
     })
   },
+  onReady:function(){
+    let that=this;
+    wx.getSystemInfo({
+      success:function success(res){
+        that.setData({scrollHeight:(res.windowHeight -100)+"px"});
+      }
+    })
+
+  },
+
+  chooseItem(e){
+    console.log(e.currentTarget.dataset)
+    
+  },
   // 左侧菜单的点击事件
   handleItemTap(e){
     const id =  e.currentTarget.dataset.id; 
-    let contentData = this.data.category[id].secondCate==undefined?[]:this.data.category[index].secondCate;
+    let contentData = this.data.category[id].secondCate==undefined?[]:this.data.category[id].secondCate;
     this.setData({
       TabCur:id,
       contentData

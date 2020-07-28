@@ -1,24 +1,23 @@
-<!-- pages/questions/index.wxml
-问题反馈页面 -->
-<view class="container">
-  <view class="header">--此处存放的是常见的问题反馈--</view>
-  <view class="body">
-    <form bindsubmit="handleSubmit">
-      <span>收件人：</span>
-      <input name="receiver" placeholder="输入接收人" />
-      <span>标题：</span>
-      <input name="que_title" type="text" placeholder="输入标题" />
-      <textarea class="content" name="content" placeholder="//在此输入内容..."></textarea>
-      <view class="sub_group">
-        <button>保存为草稿</button>
-        <button form-type="submit">提交</button>
-      </view>
-    </form>
-    <button class="feadback" open-type="feedback">
-      <iconfont name="webicon302" color="#fff" size="30"/>
-    </button>
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">问题反馈</view>
+</cu-custom>
+<form bindsubmit="handleSubmit" bindreset="handleReset">
+  <view class="cu-form-group margin-top">
+    <view class="title">收件人</view>
+    <input placeholder="请输入教师名称"></input>
   </view>
-  <view class="footer">
-    --浙江工商大学智慧工作室--
+  <view class="cu-form-group">
+    <view class="title">标题</view>
+    <input placeholder="请输入问题简要"></input>
   </view>
+</form>
+<view class="cu-card case">
+  <view class="cu-item solid-bottom">
+    <textarea style="padding:15rpx" maxlength="-1" bindinput="textareaInput" placeholder="在此处输入问题反馈内容"></textarea>
+  </view>
+</view>
+<view class="flex  justify-center">
+  <button class="cu-btn line-blue margin-right-lg shadow" bind:tap="handleReset">取消</button>
+  <button class="cu-btn bg-blue shadow"  bind:tap="handleSubmit">提交</button>
 </view>

@@ -1,0 +1,5 @@
+<!-- 填写表单页面 -->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">奖学金信息填写</view>
+</cu-custom>

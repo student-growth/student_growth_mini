@@ -1,0 +1,14 @@
+<!-- 讲学金列表 -->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">奖学金</view>
+</cu-custom>
+<view class="margin">
+  <view class="shadow-blur bg-gradual-{{item.color}} ABox margin-lg" wx:for="{{tabNav}}" wx:key="id" data-item='{{item}}' bind:tap="selectItem">
+    <view class="title">
+      <view class="text">{{item.title}}</view>
+      <view class="icon cuIcon-{{item.icon}}"></view>
+    </view>
+    <view class="name">{{item.name}}</view>
+  </view>
+</view>

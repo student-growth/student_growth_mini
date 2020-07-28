@@ -1,8 +1,0 @@
-<!-- components/Card/Card.wxml -->
-<view class="comp_card">
-  <view class="comp_title">
-    {{title}}
-    <navigator class="comp_more" url="{{moreUrl}}">更多...</navigator>
-  </view>
-  <slot></slot>
-</view>
