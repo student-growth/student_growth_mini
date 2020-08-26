@@ -17,6 +17,9 @@ Page({
       wx.navigateTo({url})
     }
   },
+  navCenter(e){
+    wx.navigateTo({url:'/pages/auth/center/index'})
+  },
   onLoad: function (options) {
     let user = app.globalData.user;
     this.setData({
@@ -42,6 +45,10 @@ Page({
       this.setData({newslist:res.list})
     })
   },
+  //获取具体的文件内容
+  checkNewsDeatil(e){
+    console.log(e.currentTarget.dataset)
+  },
   //getSwiperList
   getSwiperList(){
     request.get('stu_news/swiper',{size:4})
@@ -60,5 +67,4 @@ Page({
       url: toolitem.url
     });
   },
-
 });

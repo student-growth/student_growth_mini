@@ -1,11 +1,9 @@
-import {outstandingList} from '../../../store/index.js'
-
-const app = getApp()
-
+import {individualList} from '../../../store/index.js'
+const app =getApp()
 Page({
   data: {
     CustomBar:app.globalData.CustomBar,
-    outstandingList
+    individualList
   },
   onLoad: function(options) {
     
@@ -21,6 +19,7 @@ Page({
     })
   },
   apply(e){
-    console.log(e.currentTarget.dataset)
+    let name  = e.currentTarget.dataset.name
+    wx.navigateTo({url:'/pages/scholarship/form/index'})
   }
 })

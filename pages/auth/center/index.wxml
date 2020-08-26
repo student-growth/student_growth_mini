@@ -1,63 +1,58 @@
-<scroll-view scroll-y class="scrollPage">
-  <view class="bg-gradual-blue" style="height:400rpx">
-    <image src="/images/wave-2.gif" mode="scaleToFill" class="gif-black response"  style="height:50rpx;"></image>
-    <view class="text-xl">
-      学生成长系统
-      <text class="text-df">v1.0</text>
-    </view>
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">个人中心</view>
+</cu-custom>
+<view class="header">
+  <text class="avatar">李玉娥</text>
+  <image src="/images/wave.gif" mode="widthFix" class="gif-wave"></image>
+</view>
+<view class=" padding flex text-center text-grey bg-white ">
+  <view class="flex flex-sub flex-direction solid-right">
+    <view class="text-xxl text-orange">100</view>
     <view class="margin-top-sm">
-      <text>浙江工商大学</text>
-    </view>
-    <image src="/images/wave.gif" mode="widthFix" style="width:100%" class="gif-wave"></image>
-  </view>
-  <view class="padding flex text-center text-grey bg-white shadow-warp">
-    <view class="flex flex-sub flex-direction solid-right">
-      <view class="text-xxl text-orange">{{100}}</view>
-      <view class="margin-top-sm">
-        <text class="cuIcon-attentionfill"></text>
-        View
-      </view>
-    </view>
-    <view class="flex flex-sub flex-direction solid-right">
-      <view class="text-xxl text-blue">{{100}}</view>
-      <view class="margin-top-sm">
-        <text class="cuIcon-favorfill"></text>
-        Star
-      </view>
-    </view>
-    <view class="flex flex-sub flex-direction">
-      <view class="text-xxl text-green">{{100}}</view>
-      <view class="margin-top-sm">
-        <text class="cuIcon-fork"></text>
-        Fork
-      </view>
+      <text class="cuIcon-attentionfill"></text>
+      成就
     </view>
   </view>
-  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
-    <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/test/list" hover-class="none">
-        <text class="cuIcon-myfill text-orange"></text>
-        <text class="text-grey">完善个人信息</text>
-      </navigator>
-    </view>
-    <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/log/log" hover-class="none">
-        <text class="cuIcon-commandfill text-orange"></text>
-        <text class="text-grey">修改密码</text>
-      </navigator>
-    </view>
-    <view class="cu-item arrow">
-      <view class="content" bindtap="showQrcode">
-        <text class="cuIcon-communityfill text-red"></text>
-        <text class="text-grey">绑定邮箱</text>
-      </view>
-    </view>
-    <view class="cu-item arrow">
-      <button class="cu-btn content" open-type="feedback">
-        <text class="cuIcon-mobilefill text-cyan"></text>
-        <text class="text-grey">绑定手机号</text>
-      </button>
+  <view class="flex flex-sub flex-direction solid-right">
+    <view class="text-xxl text-blue">100</view>
+    <view class="margin-top-sm">
+      <text class="cuIcon-favorfill"></text>
+      排名
     </view>
   </view>
-  <view class="cu-tabbar-height"></view>
-</scroll-view>
+  <view class="flex flex-sub flex-direction">
+    <view class="text-xxl text-green">100</view>
+    <view class="margin-top-sm">
+      <text class="cuIcon-fork"></text>
+      等级
+    </view>
+  </view>
+</view>
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+  <view class="cu-item arrow">
+    <navigator class="content" url="/pages/about/test/list" hover-class="none">
+      <text class="cuIcon-myfill text-orange"></text>
+      <text class="text-grey">完善个人信息</text>
+    </navigator>
+  </view>
+  <view class="cu-item arrow">
+    <navigator class="content" url="/pages/about/log/log" hover-class="none">
+      <text class="cuIcon-commandfill text-orange"></text>
+      <text class="text-grey">修改密码</text>
+    </navigator>
+  </view>
+  <view class="cu-item arrow">
+    <view class="content" bindtap="showQrcode">
+      <text class="cuIcon-communityfill text-red"></text>
+      <text class="text-grey">绑定邮箱</text>
+    </view>
+  </view>
+  <view class="cu-item arrow">
+    <button class="cu-btn content" open-type="feedback">
+      <text class="cuIcon-mobilefill text-cyan"></text>
+      <text class="text-grey">绑定手机号</text>
+    </button>
+  </view>
+  
+</view>

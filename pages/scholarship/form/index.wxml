@@ -1,0 +1,103 @@
+<cu-custom bgColor="bg-gradual-orange" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">申请登记表</view>
+</cu-custom>
+<view class="cu-form-group margin-top-xs">
+  <view class="title">申请等级</view>
+  <picker mode="selector" bindchange="chooseLevel" range-key="name" range="{{level}}" value="{{index}}">
+    <view class="picker">{{index?level[index].name:'请选择申请等级'}}</view>
+  </picker>
+</view>
+<view class="cu-bar bg-blue light solid-bottom margin-top-xs">
+  <view class='action'>
+    <text class='cuIcon-titles text-grey '></text>
+    基本信息
+  </view>
+</view>
+<view class="cu-form-group">
+  <view class="title">姓名:</view>
+  <input name='name' value='Leesure' />
+</view>
+<view class="  cu-form-group">
+  <view class="title">班级:</view>
+  <input type="text" name="grade" value="电信2020级" />
+</view>
+<view class="flex">
+  <view class="flex-sub cu-form-group">
+    <view class="title">性别:</view>
+    <input type="text" value="女" name="sex" />
+  </view>
+  <view class="flex-sub cu-form-group">
+    <view class="title">年龄:</view>
+    <input type="text" />
+  </view>
+</view>
+<view class="flex border-top">
+  <view class="flex-sub cu-form-group">
+    <view class="title">民族:</view>
+    <input type="text" />
+  </view>
+  <view class="flex-sub cu-form-group">
+    <view class="title">政治面貌:</view>
+    <input type="text" />
+  </view>
+</view>
+<view class="cu-form-group border-top">
+  <view class="title">职务:</view>
+  <input type="text" />
+</view>
+<view class="cu-bar bg-orange light solid-bottom margin-top-xs">
+  <view class='action'>
+    <text class='cuIcon-titles text-grey '></text>
+    主要先进事迹填写
+  </view>
+</view>
+<view class="cu-form-group">
+  <textarea maxlength="-1" disabled="{{modalName!=null}}" placeholder="主要先进实际，字数在200-300字左右"></textarea>
+</view>
+<view class="cu-bar bg-green light solid-bottom margin-top-xs">
+  <view class="action">
+    <text class="cuIcon-titles text-grey"></text>
+    相关成绩信息
+  </view>
+</view>
+<view class="cu-form-group">
+  <view class="title">专业素质:</view>
+  <input type="text" />
+</view>
+<view class="cu-form-group">
+  <view class="title">英语平均成绩:</view>
+  <input type="number" />
+</view>
+<view class="cu-form-group">
+  <view class="title">体育成绩:</view>
+  <input type="number" />
+</view>
+<view class="flex">
+  <view class="flex-sub cu-form-group">
+    <view class="title">基本项总分:</view>
+    <input type="number" />
+  </view>
+  <view class="flex-sub cu-form-group">
+    <view class="title">基本项排名:</view>
+    <input type="number" />
+  </view>
+</view>
+<view class="flex">
+  <view class="flex-sub cu-form-group">
+    <view class="title">综合能力:</view>
+    <input type="number" />
+  </view>
+  <view class="flex-sub cu-form-group">
+    <view class="title">综合能力排名：</view>
+    <input type="number" />
+  </view>
+</view>
+<view class="line">
+  <span>已经到底部了</span>
+</view>
+<view style="height:50rpx"></view>
+<view class="btn-group">
+  <button class="cu-btn shadow-blur flex-sub line-olive padding-sm margin-xs">保存草稿</button>
+  <button class="cu-btn shadow-blur flex-sub bg-blue padding-sm margin-xs">提交申请</button>
+</view>

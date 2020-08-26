@@ -5,3 +5,23 @@
    height: 400rpx;
    z-index:-1
 }
+
+.svg-footer{
+  position: relative;
+  background-size: cover;
+  width: 100vw;
+  height: 100px;
+  background-image: url("data:image/svg+xml,%3C?xml version='1.0' encoding='utf-8'?%3E %3C!-- Generator: Adobe Illustrator 23.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E %3Csvg version='1.1' id='图层_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 1242 439' style='enable-background:new 0 0 1242 439;' xml:space='preserve'%3E %3Cstyle type='text/css'%3E .st0%7Bopacity:0.45;fill:url(%23SVGID_1_);%7D .st1%7Bfill:url(%23SVGID_2_);%7D .st2%7Bfill:%230FBCEC;%7D %3C/style%3E %3ClinearGradient id='SVGID_1_' gradientUnits='userSpaceOnUse' x1='-40.806' y1='253.5' x2='1201.194' y2='253.5'%3E %3Cstop offset='0.4071' style='stop-color:%2329ABE2'/%3E %3Cstop offset='0.4812' style='stop-color:%233CAFD7'/%3E %3Cstop offset='0.7131' style='stop-color:%2373BCB7'/%3E %3Cstop offset='0.7665' style='stop-color:%2354B7B0'/%3E %3Cstop offset='0.8779' style='stop-color:%2318ADA2'/%3E %3Cstop offset='0.931' style='stop-color:%2300A99D'/%3E %3C/linearGradient%3E %3Cpath class='st0' d='M-0.5,230.5c38.06-45.99,97.95-102.43,174-105c89.19-3.02,122.37,70.71,215,69c97.52-1.8,104.59-84.31,208-108 c133.85-30.66,197.65,90.26,357,96c65.18,2.35,163.64-13.95,288-114c0,123.33,0,246.67,0,370c-414,0-828,0-1242,0 C-0.5,369.17-0.5,299.83-0.5,230.5z'/%3E %3ClinearGradient id='SVGID_2_' gradientUnits='userSpaceOnUse' x1='-1.5091' y1='225.5979' x2='548.0273' y2='225.5979' gradientTransform='matrix(1.0826 -1.911108e-03 -1.911108e-03 1.0023 0.89 -0.0464)'%3E %3Cstop offset='0.1583' style='stop-color:%2329ABE2'/%3E %3Cstop offset='0.5779' style='stop-color:%2324A3DC'/%3E %3Cstop offset='0.6663' style='stop-color:%23209ED9'/%3E %3Cstop offset='0.7718' style='stop-color:%23168FCF'/%3E %3Cstop offset='0.8856' style='stop-color:%230578C0'/%3E %3Cstop offset='0.9115' style='stop-color:%230071BC'/%3E %3C/linearGradient%3E %3Cpath class='st1' d='M-0.77,11.14C101.66,28.99,121.54,73.61,137,103c20.06,38.13,5.74,78.94,32.35,122.18 c33.39,54.27,114.21,65.87,125.45,68.94C361.36,312.3,389.35,281.9,442,303c11.02,4.42,58.09,10.29,77.8,57.69 c11.42,27.47,11.96,64.86,9.66,78.35c-175.71,4.18-354.09-3.99-529.79,0.19C-0.48,296.53-0.62,153.84-0.77,11.14z'/%3E %3Ccircle class='st2' cx='1208' cy='398' r='122'/%3E %3C/svg%3E ");
+  
+}
+.svg-footer text{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  color: black;
+  background-color: white;
+  padding: 5rpx;
+  border-radius: 3rpx;
+  opacity: 0.8;
+  transform: translate(-50%,-50%);
+}

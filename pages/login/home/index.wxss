@@ -3,59 +3,62 @@ page {
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-page .login {
+
+page {
   display: flex;
-  margin-top: 200rpx;
   flex-direction: column;
   align-items: center;
   color: #666;
 }
-page .login .login_icon {
-  position: relative;
-  width: 180rpx;
-  height: 180rpx;
-  background-color: #192a56;
-  border-radius: 50%;
+
+page .svg-logo {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='120' height='120' viewBox='0 0 120 120'%3E %3Cdefs%3E %3Cstyle%3E .cls-1 %7B fill: url(%23linear-gradient); %7D .cls-2 %7B fill: %23fff; %7D .cls-2, .cls-4 %7B fill-rule: evenodd; %7D .cls-3 %7B fill: url(%23linear-gradient-2); %7D .cls-4 %7B fill: %238fc31f; %7D %3C/style%3E %3ClinearGradient id='linear-gradient' x1='120' y1='106.877' x2='0' y2='13.123' gradientUnits='userSpaceOnUse'%3E %3Cstop offset='0' stop-color='%237aaa1f'/%3E %3Cstop offset='0.522' stop-color='%237aaa1f'/%3E %3Cstop offset='0.994' stop-color='%23a6c46c'/%3E %3Cstop offset='1' stop-color='%23a6c46c'/%3E %3C/linearGradient%3E %3ClinearGradient id='linear-gradient-2' x1='43' y1='78' x2='43' y2='34' gradientUnits='userSpaceOnUse'%3E %3Cstop offset='0' stop-color='%237aaa1f'/%3E %3Cstop offset='1' stop-color='%238fc130'/%3E %3C/linearGradient%3E %3C/defs%3E %3Ccircle id='椭圆_1' data-name='椭圆 1' class='cls-1' cx='60' cy='60' r='60'/%3E %3Cpath id='形状_1' data-name='形状 1' class='cls-2' d='M104.34,66.978c-2.2,2.363-9.473,1.462-14.537-1.019-5.121-2.508-9.346-8.148-9.346-8.148a80.886,80.886,0,0,1-1.038,25.463C76.747,96.167,75.049,100,69.035,109.756s-6.23,8.149-6.23,8.149H57.613a80.894,80.894,0,0,0,9.346-14.26c3.98-7.936,5.365-8.36,7.269-17.315S77,69.44,76.3,60.867s-1.324-7.356-1.324-7.356L73.189,51.7v3.565c0,16.032-13.25,29.028-29.594,29.028S14,71.3,14,55.265c0-27.694,30.113-30.047,30.113-30.047s10.125-.735,16.614,1.018c17.879,6.394,12.461,2.037,12.461,2.037s-5.278-2.115,2.791-3.215C88.218,23.391,115.571,54.908,104.34,66.978Z'/%3E %3Ccircle id='圆形' class='cls-3' cx='43' cy='56' r='22'/%3E %3Cpath id='形状_2' data-name='形状 2' class='cls-2' d='M24.723,48.752L61.3,64.808S50.806,82.25,33.592,73.376C19.333,66.026,24.723,48.752,24.723,48.752Z'/%3E %3Cpath id='眼睛' class='cls-4' d='M30,54a3,3,0,1,1-3,3A3,3,0,0,1,30,54Zm20,9a3,3,0,1,1-3,3A3,3,0,0,1,50,63Z'/%3E %3C/svg%3E ");
+  background-size: cover;
+  width: 200rpx;
+  height: 200rpx;
+  margin-top: 350rpx;
 }
-page .login .login_icon iconfont {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+
+
+page form {
+  margin-top: 60rpx;
 }
-page .login form {
-  margin-top: 90rpx;
-}
-page .login form input {
-  padding: 15rpx 20rpx;
-  width: 500rpx;
+
+page form input {
+  padding:20rpx;
+  width: 600rpx;
+  height: 2.5em;
   font-size: medium;
   background-color: #dddddd;
   justify-content: center;
   border-radius: 35rpx;
   margin: 20rpx;
 }
-page .login button {
+
+page button {
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
   color: white;
   font-size: 15pt;
   margin-top: 50rpx;
-  background-image: linear-gradient(#0068aa, #3ba7dc);
+  background-image: linear-gradient(150deg, #659a00, #acd598);
 }
-page .login .navi_area {
+
+page .navi_area {
   margin-top: 150rpx;
   display: flex;
   flex: 1;
   color: #1e50b3;
   font-size: medium;
 }
-page .login .navi_area view {
+
+page .navi_area view {
   margin-left: 90rpx;
   margin-right: 90rpx;
 }
-page .login .foot {
+
+page .svg-footer {
   margin-top: 90rpx;
   font-size: x-small;
 }

@@ -1,3 +1,63 @@
-page{
+page {
   padding-top: 90rpx;
+}
+.radius{
+  border-radius: 4rpx;
+}
+.fail{
+  font-weight: bold;
+  color:red
+}
+.table {
+  display: flex;
+  text-align: center;
+  margin: 0;
+  padding: 8rpx;
+  box-sizing: content-box;
+  overflow: scroll;
+  align-content: center;
+  justify-content: center;
+}
+
+.table .table_header {
+  display: table-caption;
+  font-weight: bold;
+  font-size: large;
+  margin-bottom: 10rpx;
+}
+
+.table .content {
+  display: table-row-group;
+}
+
+.table .content .header {
+  font-weight: bold;
+  background-color: #93c9ff98;
+  padding: 4rpx 2rpx;
+}
+
+.table .content .table_ul {
+  display: table-row;
+  border: 1rpx solid grey;
+}
+
+.table .content .table_ul .table_li {
+  display: table-cell;
+  padding: 10rpx;
+}
+
+.table .content .table_ul:nth-child(odd):not(:first-child) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.table-empty {
+  min-height: 240rpx;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.table-empty text {
+  align-self: center;
+  font-size: 1rem;
 }

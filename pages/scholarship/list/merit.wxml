@@ -1,0 +1,34 @@
+<!-- 能力突出奖学金 -->
+<scroll-view scroll-y class="DrawerPage {{modalName=='viewModal'?'show':''}}">
+  <cu-custom bgColor="bg-gradual-orange" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">优秀学生综合奖学金</view>
+  </cu-custom>
+  <view class='margin-xl bg-white padding-xl radius shadow-lg'>
+    <view class='text-center margin-bottom text-lg  text-grey'>优秀学生综合奖学金申请条件</view>
+    <view class='text-content'>
+      <view class='margin-top-sm'>1.必修课与专业选修课均合格且成绩平均在75分（含）或良好以上.</view>
+      <view class='margin-top-sm'>2.基本测评分排名前30%（一等要求基本测评前15%、综合能力前30%）</view>
+      <view class='margin-top-sm'>3.英语成绩：大一、大二  >=75分；大三、大四要求四级通过（一等要求大一、大二 >=80分）</view>
+      <view class='margin-top-sm'>4.体育成绩：大一、大二  >=75分；大三、大四 >=75分且体测成绩良好</view>
+    </view>
+  </view>
+  <view class="flex margin">
+    <button bind:tap="showModal" data-target="viewModal" class="flex-sub margin-xs padding-sm cu-btn bg-olive lg">查看达标名单</button>
+    <button bind:tap="apply" data-name="merit" class="flex-sub margin-xs padding-sm cu-btn bg-blue lg">申请</button>
+  </view>
+</scroll-view>
+<view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">
+  <text class="cuIcon-pullright"></text>
+</view>
+<scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}">
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
+    <view class="cu-item" wx:for="{{20}}" wx:key="index">
+      <view class="content">
+        <text class="cuIcon-github text-grey"></text>
+        <text class="text-grey">李玉娥 {{index +1}}</text>
+        <text class="cu-tag margin-left-xs line-black">2020级电信学院</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

@@ -1,9 +1,0 @@
-<cu-custom bgColor="bg-gradual-{{barColor}}" isBack="{{true}}">
-  <view slot="backText">返回</view>
-  <view slot="content">{{title}}</view>
-</cu-custom>
-<scroll-view scroll-x class="bg-white nav text-center fixed" style="top:{{CustomBar}}px">
-  <view class="cu-item {{index==TabCur?'text-blue cur':''}}" wx:for="{{individualList}}" wx:key="*this">
-    {{item}}
-  </view>
-</scroll-view>

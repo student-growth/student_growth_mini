@@ -1,6 +1,4 @@
 {
   "usingComponents": {
-    "Form":"../../components/Form/Form"
-  },
-  "navigationBarTitleText": "学生评价"
+  }
 }

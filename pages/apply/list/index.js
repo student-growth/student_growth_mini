@@ -1,26 +1,29 @@
 const app = getApp();
 import {applyCategory} from '../../../store/index.js'
+import request from '../../../request/index.js'
 Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     Custom: app.globalData.Custom,
     TabCur: 0, 
-    contentData:[], 
-    category:applyCategory
+    contentData:null, 
+    category:applyCategory,
+    sort:'研究创新'
+  },
+  //获取申请列表
+  getApplyList(sort){
+    request.get('student/applyList',{sort})
+    .then(res=>{
+      this.setData({contentData:res.data})
+    })
+
   },
 
-  //options(Object)
   onLoad: function (options) {
-    let firstMenu = this.data.category.map(v=>{
-      return {id:v.id,icon:v.iconName,name:v.name}
-    });
-    let contentData = this.data.category[0].secondCate;
-    this.setData({
-      firstMenu,
-      contentData
-    })
+    this.getApplyList(this.data.sort);
   },
+
   onReady:function(){
     let that=this;
     wx.getSystemInfo({
@@ -28,20 +31,20 @@ Page({
         that.setData({scrollHeight:(res.windowHeight -100)+"px"});
       }
     })
-
   },
 
   chooseItem(e){
-    console.log(e.currentTarget.dataset)
-    
+    const item = e.currentTarget.dataset.item
+    wx.navigateTo({
+      url:'/pages/apply/detail/index?menuId='+item.menuId+'&applyId='+item.id
+    })
   },
   // 左侧菜单的点击事件
   handleItemTap(e){
-    const id =  e.currentTarget.dataset.id; 
-    let contentData = this.data.category[id].secondCate==undefined?[]:this.data.category[id].secondCate;
+    const item = e.currentTarget.dataset.item
+    this.getApplyList(item.name)
     this.setData({
-      TabCur:id,
-      contentData
+      TabCur:item.id
     })
   }
 });

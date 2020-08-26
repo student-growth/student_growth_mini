@@ -1,0 +1,37 @@
+.radis{
+  border-radius: 3%;
+}
+.bold{
+  font-weight: bold;
+}
+.cu-form-group .title {
+  min-width: calc(5em + 30rpx);
+}
+
+.image-box{
+  padding: 32rpx;
+  height: 340rpx;
+  position: relative;
+}
+.image-css{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 240rpx;
+
+}
+.image-box>.zoom{
+  position: absolute;
+  top: 32rpx;
+  opacity: 0.8;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.btn-group{
+  display: flex;
+  padding-bottom: 32rpx;
+  align-content: space-around;
+}
+

@@ -1,0 +1,6 @@
+<!-- 个性化榜单页面  -->
+<!-- path:/pages/personalise/index -->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">个性化榜单</view>
+</cu-custom>

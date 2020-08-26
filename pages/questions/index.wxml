@@ -14,7 +14,7 @@
 </form>
 <view class="cu-card case">
   <view class="cu-item solid-bottom">
-    <textarea style="padding:15rpx" maxlength="-1" bindinput="textareaInput" placeholder="在此处输入问题反馈内容"></textarea>
+    <textarea style="padding:15rpx;height:800rpx" maxlength="-1" bindinput="textareaInput" placeholder="在此处输入问题反馈内容"></textarea>
   </view>
 </view>
 <view class="flex  justify-center">

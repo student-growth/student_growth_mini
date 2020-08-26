@@ -1,18 +1,16 @@
-<view class="login">
-  <view class="login_icon">
-    <iconfont name="wodexuesheng" color="#fff" size="50" />
-  </view>
-  <form bindsubmit="login">
-    <input type="text" name="id" placeholder="请输入学/工号" />
-    <input type="text" name="password" password placeholder="默认密码身份证后六位" />
-    <button formType="submit" >→</button>
-  </form>
-  <view class="navi_area">
-    <navigator url="../../pages/forgot/index" open-type="navigate">忘记密码</navigator>
-    <view>|</view>
-    <navigator open-type="navigate">用户注册</navigator>
-  </view>
-  <i-toast id="toast" />
-  <i-message id="message" />
-  <view class="foot">浙江工商大学智慧教育工作室</view>
+<!-- 头像部分 -->
+<view class="svg-logo"></view>
+<text class="center margin-top text-grey text-blod">学生成长系统</text>
+<form bindsubmit="login">
+  <input type="text" name="id" placeholder="请输入学/工号" />
+  <input type="text" name="password" password placeholder="默认密码身份证后六位" />
+  <button formType="submit">
+    <text class="cuIcon-right lg text-white"></text>
+  </button>
+</form>
+<view class="navi_area">
+  <navigator url="../../pages/forgot/index" open-type="navigate">忘记密码</navigator>
+  <view>|</view>
+  <navigator open-type="navigate">用户注册</navigator>
 </view>
+<view class="svg-footer">浙江工商大学智慧教育工作室</view>

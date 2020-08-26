@@ -1,0 +1,26 @@
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+.cu-form-group textarea{
+  height: 10em;
+}
+.btn-group{
+  background-color: #f1f1f1;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;right: 0;
+}
+.line{
+  margin: 80rpx 30rpx;
+  height: 1rpx;
+  border-top: 1rpx solid #2980b9;
+  text-align: center;
+}
+.line span{
+  position: relative;
+  background: #f1f1f1;
+  top: -20rpx;
+  color: #2980b9;
+  padding: 0 20rpx;
+}

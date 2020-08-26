@@ -1,22 +1,40 @@
 {
   "pages": [
-    "pages/scholarship/list/index",
-    "pages/scholarship/individual/index",
-    "pages/scholarship/merit/index",
-    "pages/scholarship/outstand/index",
-    "pages/scholarship/table/index",
-    "pages/apply/list/index", 
-    "pages/process/list/index",
-    "pages/index/home/index",
-    "pages/questions/index",
+    
     "pages/score/index",
+
+    "pages/process/list/index",
+    "pages/apply/list/index",
+    "pages/login/home/index",
+
+    "pages/apply/detail/index",
+    
+    "pages/index/home/index",
+    "pages/rank/home/index",
+
+    
+    
     "pages/auth/center/index",
+    
+    "pages/scholarship/list/index",
+    "pages/scholarship/list/individual",
+    "pages/scholarship/list/merit",
+    "pages/scholarship/list/outstand",
+    "pages/scholarship/form/index",
+    
+    "pages/questions/index",
+    
     "pages/comment/index",
     "pages/index/newsdetail/index",
     "pages/process/detail/index",
-    "pages/login/home/index",
     "pages/login/forget/index",
-    "pages/auth/setting/index"
+    "pages/auth/setting/index",
+
+    
+
+    "pages/personalise/index",
+    
+    "pages/personaltest/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

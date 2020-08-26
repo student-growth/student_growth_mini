@@ -6,12 +6,11 @@ Page({
      user:null
   },
 
-  //do login
   login(e){
     request.post('student/login',e.detail.value)
     .then(res=>{
       getApp().globalData.user = res.data
-      
+      wx.navigateTo({url:'/pages/index/home/index'})
     }).catch(err=>{
        
     })

@@ -2,37 +2,54 @@
   <view slot="backText">返回</view>
   <view slot="content">进度详情</view>
 </cu-custom>
-<view class="cu-bar bg-blue light shadow-blur">
-  <text class="cuIcon-titles">项目正在审核中,同学耐心等待...</text>
+<block wx:if="{{state=='APPLYING'}}">
+  <view class="cu-bar bg-blue light shadow-blur">
+    <text class="cuIcon-titles">项目正在审核中,同学耐心等待...</text>
+  </view>
+</block>
+<block wx:elif="{{state=='REFUSED'}}">
+  <view class="cu-bar bg-red light shadow-blur">
+    <text class="cuIcon-titles">该项目申请被拒绝,如有疑问,请联系项目审核管理员</text>
+  </view>
+</block>
+<block wx:elif="{{state=='PASS'}}">
+  <view class="cu-bar bg-green light shadow-blur">
+    <text class="cuIcon-titles">该项目申请通过</text>
+  </view>
+</block>
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-titles text-blue"></text>
+    表单详情
+  </view>
 </view>
 <view class="cu-card dynamic">
-  <view class="cu-item ">
-    <view class="cu-list menu">
-      <view class="cu-item">
-        <view class="text-black text-center">竞赛名称</view>
-      </view>
-      <view class="cu-item">
-        <view class="text-black text-center">竞赛时间</view>
-      </view>
-      <view class="cu-item">
-        <view class="text-black text-center">团队：</view>
-        <view class="text-black text-center">团队：</view>
-        <view class="text-black text-center">团队：</view>
-      </view>
-      <view class="cu-item">
-        <view class="text-black text-center">获奖情况</view>
-      </view>
+  <view class="cu-list menu margin radis">
+    <view class="cu-form-group" wx:for="{{formTemp}}" wx:key="id" wx:for-index="index" wx:for-item="item">
+      <view class="title bold">{{item.name+":"}}</view>
+      <input name="{{item.key}}" type="{{item.type}}" value="{{item.value}}" disabled="{{true}}" />
     </view>
-    <scroll-view class="cu-list comment solids-top margin-top">
-      <view class="cu-item">
-        <text class="text-lg">1231312</text>
-      </view>
-      <view class="cu-item">
-        1313123
-      </view>
-      <view class="cu-item">
-        1313123
-      </view>
-    </scroll-view>
   </view>
+  <!-- <view class="cu-item "></view> -->
+</view>
+<view class="cu-bar bg-white solid-bottom">
+  <view class="action">
+    <text class="cuIcon-titles text-orange"></text>
+    申请图片
+  </view>
+</view>
+<view class="image-box" bind:tap="viewImage" data-url="{{image}}">
+  <image src="{{image}}" mode="aspectFill" class="image-css" />
+  <view class="cu-tag bg-grey zoom">
+    <text class="text-black">点击放大</text>
+  </view>
+</view>
+<view class="btn-group">
+  <button class="cu-btn shadow-blur flex-sub bg-grey padding-sm margin-xs">返回</button>
+  <block wx:if="{{state=='REFUSED'}}">
+    <button class="cu-btn shadow-blur flex-sub bg-red padding-sm margin-xs">撤销申请</button>
+  </block>
+  <block wx:else>
+    <button class="cu-btn shadow-blur flex-sub bg-green padding-sm margin-xs">确定</button>
+  </block>
 </view>

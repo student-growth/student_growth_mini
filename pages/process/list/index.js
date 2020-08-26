@@ -1,16 +1,11 @@
-import store from '../../../store/index.js'
 import request from '../../../request/index.js'
-Page({ 
+const app = getApp()
+Page({
   data: {
     table: {}
   },
-
-  checkDetail() {
-    console.log("test")
-  },
-
-   // ListTouch触摸开始
-   ListTouchStart(e) {
+  // ListTouch触摸开始
+  ListTouchStart(e) {
     this.setData({
       ListTouchStart: e.touches[0].pageX
     })
@@ -24,7 +19,7 @@ Page({
 
   // ListTouch计算滚动
   ListTouchEnd(e) {
-    if (this.data.ListTouchDirection =='left'){
+    if (this.data.ListTouchDirection == 'left') {
       this.setData({
         modalName: e.currentTarget.dataset.target
       })
@@ -38,18 +33,26 @@ Page({
     })
   },
   onLoad: function (options) {
-    this.setData({ 'table.column': store.processColumn })
-    this.setData({ 'table.body': [{}, {}, {}, {}, {}, {}] })
     this.getProcessList()
   },
 
   getProcessList() {
-    
+    request.get("student/getProcessList", { studentId: app.globalData.user.id })
+      .then(res => {
+        this.setData({
+          prcessList: res.list
+        })
+      }).catch(err => {
+        console.log(err)
+      })
   },
-  checkDetail(e){
-    console.log(e)
-    wx.navigateTo({
-      url:'../detail/index'
+  //查看详情按钮
+  checkDetail(e) {
+    let item = e.currentTarget.dataset.item
+    wx.navigateTo({ url: '../detail/index'})
+    wx.setStorage({
+      key:"processDetail",
+      data:item
     })
   }
 })

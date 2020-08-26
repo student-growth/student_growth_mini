@@ -1,0 +1,7 @@
+<!-- 个人测试功能页面[心理测试，职业测试] -->
+<!-- path:/pages/personaltest/index -->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">个人测试</view>
+</cu-custom>
+

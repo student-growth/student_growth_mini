@@ -3,23 +3,49 @@
   <view slot="content">申请进度</view>
 </cu-custom>
 <view class="cu-list menu margin-top">
-  <view class="cu-item solid-bottom {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{10}}" wx:key="id" bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+  <view class="cu-item solid-bottom {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{prcessList}}" wx:key="id" bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
     <view class="content padding-sm">
       <view class="text-grey">
-        <text class="cuIcon-btn text-olive">挑战杯</text>
-        <view class="cu-capsule round">
-          <view class="cu-tag bg-blue sm">分数</view>
-          <view class="cu-tag line-blue sm">{{index}}</view>
+        <text class="cuIcon-btn text-olive">{{item.applyName}}</text>
+      </view>
+      <view class="text-cut text-sm radius" style="width:320rpx;">此处放项目简介</view>
+    </view>
+    <block wx:if="{{item.applyState=='APPLYING'}}">
+      <view class="action">
+        <view class="text-black">
+          <text class="cuIcon-infofill text-blue"></text>
+          申请中
         </view>
       </view>
-      <view class="text-cut text-sm radius" style="width:320rpx;">这是一个挑战杯子，这是一个挑战杯子，这是一个挑战杯子，这是一个挑战杯子，这是一个挑战杯子，</view>
-    </view>
-    <view class="action">
-      <view class="text-black">
-        <text class="cuIcon-infofill text-red"></text>
-        待审核
+    </block>
+    <block wx:elif="{{item.applyState=='REFUSED'}}">
+      <view class="action margin-right">
+        <view class="cu-capsule">
+          <view class="cu-tag bg-red ">分数</view>
+          <view class="cu-tag line-red">{{index}}</view>
+        </view>
       </view>
-    </view>
+      <view class="action">
+        <view class="text-black">
+          <text class="cuIcon-roundclosefill text-red"></text>
+          已拒绝
+        </view>
+      </view>
+    </block>
+    <block wx:elif="{{item.applyState=='PASS'}}">
+      <view class="action margin-right">
+        <view class="cu-capsule">
+          <view class="cu-tag bg-green ">分数</view>
+          <view class="cu-tag line-green">{{index}}</view>
+        </view>
+      </view>
+      <view class="action">
+        <view class="text-black">
+          <text class="cuIcon-roundcheckfill text-green"></text>
+          已通过
+        </view>
+      </view>
+    </block>
     <view class="move">
       <view class="bg-grey" bind:tap="checkDetail" data-item="{{item}}">详情</view>
       <view class="bg-red">取消</view>

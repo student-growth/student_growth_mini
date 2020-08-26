@@ -1,58 +1,118 @@
 <!-- pages/score/index.wxml  分数查询页面 -->
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
-	<view slot="backText">返回</view>
-	<view slot="content">成绩查询</view>
+  <view slot="backText">返回</view>
+  <view slot="content">成绩查询</view>
 </cu-custom>
 <scroll-view scroll-x class="bg-white nav text-center fixed" style="top:{{CustomBar}}px">
-	<view class="cu-item {{index==TabCur?'text-blue cur':''}}" wx:for="{{tabNav}}" wx:key="*this" bindtap='tabSelect' data-id="{{index}}">
-		{{tabNav[index]}}
-	</view>
+  <view class="cu-item {{index==TabCur?'text-blue cur':''}}" wx:for="{{tabNav}}" wx:key="*this" bindtap='tabSelect' data-id="{{index}}">
+    {{tabNav[index]}}
+  </view>
 </scroll-view>
 <block wx:if='{{TabCur==0}}'>
-	<view class="cu-bar bg-white solid-bottom margin-top">
-		<view class="action">
-			<text class="cuIcon-title text-blue"></text>必修课
-		</view>
-	</view>
-	<view class="padding bg-white solid-bottom">
-		<ul class="header table_ul">
-			<li class="table_li" wx:for="{{table.column}}" wx:key="*this">{{item}}</li>
-		</ul>
-		<ul class="table_ul" wx:for="{{table.body.compulsory}}" wx:key="id" wx:for-item='item'>
-			<li class="table_li">
-				<i-tag type='border' color="{{item.score>=60?'green':'red'}}">
-					{{item.courseName}}</i-tag>
-			</li>
-			<li class="table_li">{{item.dailyScore}}</li>
-			<li class="table_li">{{item.finalScore}}</li>
-			<li class="table_li">{{item.score}}</li>
-			<li class="table_li">{{item.credit}}</li>
-			<li class="table_li">{{item.point}}</li>
-		</ul>
-	</view>
-	<view class="cu-bar bg-white solid-bottom margin-top">
-		<view class="action">
-			<text class="cuIcon-title text-blue"></text>选修课
-		</view>
-	</view>
-	<view class="padding bg-white">
-		<ul class="header table_ul">
-			<li class="table_li" wx:for="{{table.column}}" wx:key="*this">{{item}}</li>
-		</ul>
-		<ul class="table_ul" wx:for="{{table.body.elective}}" wx:key="id" wx:for-item='item'>
-			<li class="table_li">
-				<i-tag type='border' color="{{item.score>=60?'green':'red'}}">
-					{{item.courseName}}</i-tag>
-			</li>
-			<li class="table_li">{{item.dailyScore}}</li>
-			<li class="table_li">{{item.finalScore}}</li>
-			<li class="table_li">{{item.score}}</li>
-			<li class="table_li">{{item.credit}}</li>
-			<li class="table_li">{{item.point}}</li>
-		</ul>
-	</view>
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-titles text-blue"></text>
+      必修课
+    </view>
+    <view class="action  padding-xs radius bg-white" bind:tag="chooseSemester">
+      学期：2019--2020
+      <text class="cuIcon-triangledownfill"></text>
+    </view>
+  </view>
+  <block wx:if="{{table.body.compulsory==undefined}}">
+    <view class="bg-grey light shadow-blur table-empty">
+      <text class="cuIcon-pick text-grey">这里是空的</text>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="table">
+      <view class="content">
+        <ul class="header table_ul">
+          <li class="table_li" wx:for="{{table.column}}" wx:key="*this">{{item}}</li>
+        </ul>
+        <ul class="table_ul" wx:for="{{table.body.compulsory}}" wx:key="id" wx:for-item='item'>
+          <li>{{item.courseName}}</li>
+          <li class="table_li">{{item.dailyScore}}</li>
+          <li class="table_li">{{item.finalScore}}</li>
+          <li class="table_li">{{item.score}}</li>
+          <li class="table_li">{{item.credit}}</li>
+          <li class="table_li">{{item.point}}</li>
+        </ul>
+      </view>
+    </view>
+  </block>
+  <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-titles text-orange"></text>
+      选修课
+    </view>
+    <view class="action  padding-xs radius bg-white" bind:tag="chooseSemester">
+      学期：2019--2020
+      <text class="cuIcon-triangledownfill"></text>
+    </view>
+  </view>
+  <block wx:if="{{table.body.elective==undefined}}">
+    <view class="bg-grey light shadow-blur table-empty">
+      <text class="cuIcon-pick text-grey">这里是空的</text>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="table">
+      <view class="content">
+        <ul class="header table_ul">
+          <li class="table_li" wx:for="{{table.column}}" wx:key="*this">{{item}}</li>
+        </ul>
+        <ul class="table_ul" wx:for="{{table.body.elective}}" wx:key="id" wx:for-item='item'>
+          <li>{{item.courseName}}</li>
+          <li class="table_li">{{item.dailyScore}}</li>
+          <li class="table_li">{{item.finalScore}}</li>
+          <li class="table_li">{{item.score}}</li>
+          <li class="table_li">{{item.credit}}</li>
+          <li class="table_li">{{item.point}}</li>
+        </ul>
+      </view>
+    </view>
+  </block>
+  <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-titles text-green"></text>
+      公修课
+    </view>
+    <view class="action  padding-xs radius bg-white" bind:tag="chooseSemester">
+      学期：2019--2020
+      <text class="cuIcon-triangledownfill"></text>
+    </view>
+  </view>
+  <block wx:if="{{table.body.public==undefined}}">
+    <view class="bg-grey light shadow-blur table-empty">
+      <text class="cuIcon-pick text-grey">这里是空的</text>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="table">
+      <view class="content">
+        <ul class="header table_ul">
+          <li class="table_li" wx:for="{{table.column}}" wx:key="*this">{{item}}</li>
+        </ul>
+        <ul class="table_ul" wx:for="{{table.body.elective}}" wx:key="id" wx:for-item='item'>
+          <li>{{item.courseName}}</li>
+          <li class="table_li">{{item.dailyScore}}</li>
+          <li class="table_li">{{item.finalScore}}</li>
+          <li class="table_li {{item.score<60?'fail':'success'}}">{{item.score}}</li>
+          <li class="table_li">{{item.credit}}</li>
+          <li class="table_li">{{item.point}}</li>
+        </ul>
+      </view>
+    </view>
+  </block>
 </block>
+<!-- 综合成绩查询 -->
+<block wx:if='{{TabCur ==1}}'></block>
+<!-- CET成绩查询 -->
 <block wx:if='{{TabCur ==2}}'>
-</block>
-<block wx:if='{{TabCur ==3}}'>
+  <scroll-view scroll-x class="bg-white nav text-center fixed" style="top:100px">
+    <view class="cu-item {{index==CETCur?'text-blue cur':''}}" wx:for="{{CETNav}}" wx:key="*this" bindtap='cetSelect' data-id="{{index}}">
+      {{CETNav[index]}}
+    </view>
+  </scroll-view>
 </block>
