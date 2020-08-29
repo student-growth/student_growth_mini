@@ -1,0 +1,31 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">{{examList.name}}</view>
+</cu-custom>
+
+<view class="cu-card case no-card bg-blue light">
+  <view class="text-content">
+    <text class="cuIcon-infofill text-orange"></text>
+    {{examList.description}}
+  </view>
+</view>
+<view class="exam-card" wx:for="{{examList.test}}" wx:key="id">
+  <view class="title">{{index+1}}.{{item.name}}</view>
+  <view class="choice">
+    <radio-group bindchange="selectRadio" data-index='{{index}}'>
+      <view wx:for="{{examList.choice}}" wx:key="id" wx:for-item="choiceItem">
+        <radio class="green" value="{{choiceItem.value}}"></radio>
+        {{choiceItem.name}}
+      </view>
+    </radio-group>
+  </view>
+</view>
+<!-- 确认按钮 -->
+<view class="btn-group">
+  <button bind:tap="handleReset" class="cu-btn shadow-blur flex-sub bg-grey padding-sm margin-xs">
+    重置
+  </button>
+  <button bind:tap="handleSubmit" class="cu-btn shadow-blur flex-sub bg-blue padding-sm margin-xs">
+    查看结果
+  </button>
+</view>

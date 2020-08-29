@@ -1,0 +1,10 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">测试结果</view>
+</cu-custom>
+<view class="cu-card">
+  当前测试结果
+</view>
+<view class="cu-list">
+  查看历史测试结果
+</view>

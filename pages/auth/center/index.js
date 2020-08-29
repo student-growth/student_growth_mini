@@ -1,9 +1,15 @@
+const app = getApp()
+
 Page({
   data: {
     
   },
   onLoad: function(options) {
-    //Do some initialize when page load.
-    
+    this.setData({
+      user:app.globalData.user
+    })
+  },
+  onReady:function(){
+    console.log(this.data.user)
   }
 })

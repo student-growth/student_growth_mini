@@ -1,0 +1,16 @@
+<!-- 个人测试功能页面[心理测试，职业测试] -->
+<!-- path:/pages/personaltest/index -->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">个人测试</view>
+</cu-custom>
+<view class="padding margin" wx:for="{{psyTest}}" wx:key="id" bind:tap="chooseTest" data-item='{{item}}'>
+  <view class="shadow-blur solid-bottom bg-{{item.color}} ABox">
+    <view class="title text-center">{{item.name}}
+    <text class="cuIcon-right"></text>
+    </view>
+  </view>
+  <view style="margin-top:1rpx" class="description flex card-negative shadow-blur bg-{{item.color}} ABox">
+    {{item.description}}
+  </view>
+</view>

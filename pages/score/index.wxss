@@ -1,8 +1,18 @@
 page {
   padding-top: 90rpx;
 }
-.radius{
-  border-radius: 4rpx;
+.cu-card-extra{
+  border-radius: 5%;
+  margin: 40rpx;
+  margin-top: 150rpx;
+}
+.cu-card-extra .item-empty{
+  min-height: 320rpx;
+  font-size: 1rem;
+  text-align: center;
+}
+.cu-form-group :last-child{
+  margin-top: 1rpx;
 }
 .fail{
   font-weight: bold;
@@ -55,9 +65,20 @@ page {
   display: flex;
   align-content: center;
   justify-content: center;
+  background-color: #f1f1f1;
+}
+
+.btn-group{
+  display: flex;
+  padding: 32rpx;
+  align-content: space-around;
 }
 
 .table-empty text {
   align-self: center;
   font-size: 1rem;
+}
+.footer{
+  height:  160rpx;
+  background-color: white;
 }

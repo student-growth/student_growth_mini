@@ -14,13 +14,18 @@
       <text class="cuIcon-titles text-blue"></text>
       必修课
     </view>
-    <view class="action  padding-xs radius bg-white" bind:tag="chooseSemester">
-      学期：2019--2020
-      <text class="cuIcon-triangledownfill"></text>
+    <view class="action  padding-xs radius bg-white">
+      <view class="title" style="margin-right:24rpx;">学期:</view>
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <view class="picker">
+          {{multiArray[0][multiIndex[0]]}} [{{multiArray[1][multiIndex[1]]}}]
+        </view>
+      </picker>
+      <view class="cuIcon-triangledownfill text-black"></view>
     </view>
   </view>
   <block wx:if="{{table.body.compulsory==undefined}}">
-    <view class="bg-grey light shadow-blur table-empty">
+    <view class=" shadow-blur table-empty">
       <text class="cuIcon-pick text-grey">这里是空的</text>
     </view>
   </block>
@@ -46,13 +51,18 @@
       <text class="cuIcon-titles text-orange"></text>
       选修课
     </view>
-    <view class="action  padding-xs radius bg-white" bind:tag="chooseSemester">
-      学期：2019--2020
-      <text class="cuIcon-triangledownfill"></text>
+    <view class="action  padding-xs radius bg-white">
+      <view class="title" style="margin-right:24rpx;">学期:</view>
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <view class="picker">
+          {{multiArray[0][multiIndex[0]]}} [{{multiArray[1][multiIndex[1]]}}]
+        </view>
+      </picker>
+      <view class="cuIcon-triangledownfill text-black"></view>
     </view>
   </view>
   <block wx:if="{{table.body.elective==undefined}}">
-    <view class="bg-grey light shadow-blur table-empty">
+    <view class=" shadow-blur table-empty">
       <text class="cuIcon-pick text-grey">这里是空的</text>
     </view>
   </block>
@@ -78,13 +88,18 @@
       <text class="cuIcon-titles text-green"></text>
       公修课
     </view>
-    <view class="action  padding-xs radius bg-white" bind:tag="chooseSemester">
-      学期：2019--2020
-      <text class="cuIcon-triangledownfill"></text>
+    <view class="action  padding-xs radius bg-white">
+      <view class="title" style="margin-right:24rpx;">学期:</view>
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <view class="picker">
+          {{multiArray[0][multiIndex[0]]}} [{{multiArray[1][multiIndex[1]]}}]
+        </view>
+      </picker>
+      <view class="cuIcon-triangledownfill text-black"></view>
     </view>
   </view>
   <block wx:if="{{table.body.public==undefined}}">
-    <view class="bg-grey light shadow-blur table-empty">
+    <view class="shadow-blur table-empty">
       <text class="cuIcon-pick text-grey">这里是空的</text>
     </view>
   </block>
@@ -105,14 +120,49 @@
       </view>
     </view>
   </block>
+  <view class="footer"></view>
 </block>
 <!-- 综合成绩查询 -->
 <block wx:if='{{TabCur ==1}}'></block>
 <!-- CET成绩查询 -->
 <block wx:if='{{TabCur ==2}}'>
-  <scroll-view scroll-x class="bg-white nav text-center fixed" style="top:100px">
+  <scroll-view scroll-x class="bg-white nav text-center fixed" style="top:105px">
     <view class="cu-item {{index==CETCur?'text-blue cur':''}}" wx:for="{{CETNav}}" wx:key="*this" bindtap='cetSelect' data-id="{{index}}">
       {{CETNav[index]}}
     </view>
   </scroll-view>
+  <view class="cu-card dynamic cu-card-extra">
+    <block wx:if="{{CurCET==undefined}}">
+      <view class="cu-item item-empty">
+        <text class="cuIcon-warnfill text-orange">暂无数据</text>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="cu-list menu ">
+        <view class="cu-form-group">
+          <view class="title">编号:</view>
+          <input type="number" placeholder="测试" value="{{CurCET.adminId}}" disabled />
+        </view>
+        <view class="cu-form-group">
+          <view class="title">听力：</view>
+          <input type="number" value="{{CurCET.cetListen}}" placeholder="测试" disabled />
+        </view>
+        <view class="cu-form-group">
+          <view class="title">阅读：</view>
+          <input type="number" placeholder="测试" value="{{CurCET.cetRead}}" disbaled />
+        </view>
+        <view class="cu-form-group">
+          <view class="title">写作：</view>
+          <input type="number" placeholder="测试" value="{{CurCET.cetWrite}}" disabled />
+        </view>
+        <view class="cu-form-group">
+          <view class="title">总分：</view>
+          <input type="number" placeholder="测试" disabled value="{{CurCET.totalScore}}" />
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="btn-group">
+    <button class="cu-btn shadow-blur flex-sub bg-blue padding-sm margin-xs">确定</button>
+  </view>
 </block>

@@ -1,0 +1,44 @@
+.btn-group{
+  margin: 32rpx 0;
+  display: flex;
+  align-content: space-around;
+  justify-content: space-around;
+}
+.cu-form-group{
+  min-height: 160rpx; 
+  margin-top: 8rpx;
+}
+.cu-card{
+  font-size:1rem;
+  padding: 30rpx;
+}
+/*card css */
+.exam-card{
+  padding: 32rpx 16rpx;
+  background-color: white;
+  font-size: 1.1rem;
+  margin-top: 8rpx;
+}
+.exam-card .title{
+  margin-top: 8rpx;
+  font-weight: bold;
+}
+.exam-card .choice radio-group{
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: space-evenly;
+  margin-top: 32rpx;
+}
+
+.exam-card .choice radio-group{
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: space-evenly;
+  margin-top: 64rpx;
+}
+.exam-card .choice radio{
+  box-sizing: content-box;
+  margin-right: 12rpx;
+}

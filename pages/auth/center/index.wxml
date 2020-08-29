@@ -3,7 +3,8 @@
   <view slot="content">个人中心</view>
 </cu-custom>
 <view class="header">
-  <text class="avatar">李玉娥</text>
+  <text class="avatar">{{user.name}}</text>
+  <text class="text-grey">{{user.major}}</text>
   <image src="/images/wave.gif" mode="widthFix" class="gif-wave"></image>
 </view>
 <view class=" padding flex text-center text-grey bg-white ">

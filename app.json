@@ -1,6 +1,10 @@
 {
   "pages": [
     
+    "pages/personaltest/list/index",
+    "pages/personaltest/result/index",
+    "pages/personaltest/exam/index",
+    "pages/personalise/index",
     "pages/score/index",
 
     "pages/process/list/index",
@@ -28,13 +32,7 @@
     "pages/index/newsdetail/index",
     "pages/process/detail/index",
     "pages/login/forget/index",
-    "pages/auth/setting/index",
-
-    
-
-    "pages/personalise/index",
-    
-    "pages/personaltest/index"
+    "pages/auth/setting/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",
