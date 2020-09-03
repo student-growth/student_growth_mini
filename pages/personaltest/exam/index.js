@@ -32,25 +32,27 @@ Page({
   handleReset(e) {
     this.data.scoreArray.splice(0)
   },
+  //查看测试结果
   handleSubmit(e) {
     let length = this.data.scoreArray.length
-    // if (length != this.data.examList.test.length) {
-    //   //提示答题不全
-    //   wx.showToast({
-    //     title: '请答完所有题目',
-    //     icon: 'none',
-    //     duration: 3000
-    //   })
-    // } else {
-    //   wx.navigateTo({
-    //     url: '/pages/personaltest/result/index?result='
-    //       + JSON.stringify(this.data.scoreArray) + '&id=' + this.data.id
-    //   })
-    // }
-
+    if (length != this.data.examList.test.length) {
+      //提示答题不全
+      wx.showToast({
+        title: '请答完所有题目',
+        icon: 'none',
+        duration: 3000
+      })
+    } else {
       wx.navigateTo({
         url: '/pages/personaltest/result/index?result='
           + JSON.stringify(this.data.scoreArray) + '&id=' + this.data.id
       })
+    }
+
+
+      // wx.navigateTo({
+      //   url: '/pages/personaltest/result/index?result='
+      //     + JSON.stringify(this.data.scoreArray) + '&id=' + this.data.id
+      // })
   }
 })

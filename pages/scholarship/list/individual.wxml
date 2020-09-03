@@ -25,7 +25,7 @@
       <view class="content">
         <text class="cuIcon-github text-grey"></text>
         <text class="text-grey">李玉娥 {{index +1}}</text>
-        <text class="cu-tag margin-left-xs line-black">2020级电信学院</text>
+        <text class="cu-tag margin-left-xs line-black">电子1801</text>
       </view>
     </view>
   </view>

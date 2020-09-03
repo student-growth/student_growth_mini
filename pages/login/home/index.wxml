@@ -3,7 +3,7 @@
 <text class="center margin-top text-grey text-blod">学生成长系统</text>
 <form bindsubmit="login">
   <input type="text" name="id" placeholder="请输入学/工号" />
-  <input type="text" name="password" password placeholder="默认密码身份证后六位" />
+  <input type="text" name="password" password placeholder="默认密码为学号" />
   <button formType="submit">
     <text class="cuIcon-right lg text-white"></text>
   </button>

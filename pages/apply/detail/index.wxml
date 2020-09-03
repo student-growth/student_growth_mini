@@ -2,43 +2,59 @@
 <!-- pages/apply/detail/index -->
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">信息填写</view>
+  <view slot="content">{{name}}</view>
 </cu-custom>
 <view class="cu-bar bg-white solid-bottom margin-top">
   <view class="action">
     <text class="cuIcon-titles text-blue"></text>
-    表单填写
+    {{name}}
   </view>
 </view>
 <form catchsubmit="handleSubmit" catchreset="handleReset">
   <view class="cu-form-group border-bottom" wx:for="{{formTemp}}" wx:key="key" wx:for-item="item" wx:for-index="index">
     <view class="title">{{item.name}}</view>
-    <block wx:if="{{item.type=='date'}}">
+    <block wx:if="{{item.type=='time'}}">
       <picker mode="date" name="{{item.key}}" value="{{formData.date}}" start="2000-01-01" end="2030-01-01" bindchange="DateChange">
         <view class="picker">{{formData.date}}</view>
+      </picker>
+    </block>
+    <block wx:elif="{{item.type=='picker'}}">
+      <picker bindchange="PickerChange" value="{{index}}" range="{{item.pickerItem}}">
+        <view class="picker">{{item.pickerItem[index]}}</view>
       </picker>
     </block>
     <block wx:else>
       <input name="{{item.key}}" placeholder="{{item.placeholder}}" type="{{item.type}}"></input>
     </block>
   </view>
+  <view class="cu-card case no-card bg-grey light">
+    <view class="text-content" style="font-size:0.8em">
+      <text class="cuIcon-notificationfill text-black"></text>
+      <text class="text-black">计分说明：团队项目，核心成员不超过20%，核心成员0.8，一般成员0.5，不分先后0.6</text>
+    </view>
+  </view>
   <view class="cu-bar bg-white margin-top">
     <view class="action">
       <text class="cuIcon-titles text-orange"></text>
       图片上传
     </view>
+    <view class="action">{{imgList.length}}/3</view>
+  </view>
+  <view class="cu-card case no-card bg-orange light">
+    <view class="text-content">
+      <text class="cuIcon-notificationfill text-red"></text>
+      请上传 封面, 目录,论文第一页
+    </view>
   </view>
   <view class="cu-form-group">
     <!-- 上传照片 -->
     <view class="grid col-3 grid-square flex-sub">
-      <view></view>
       <view class="bg-img " wx:for="{{imgList}}" wx:key="id" bindtap="ViewImage" data-url="{{imgList[index]}}">
         <image src='{{imgList[index]}}' mode='aspectFill'></image>
         <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
           <text class="cuIcon-close"></text>
         </view>
       </view>
-      
       <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length!=1}}">
         <text class="cuIcon-cameraadd"></text>
       </view>

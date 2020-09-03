@@ -9,44 +9,66 @@
   </view>
 </scroll-view>
 <block wx:if='{{TabCur==0}}'>
+  <block wx:if="{{table.body==undefined||table.body.length==0}}">
   <view class="cu-bar bg-white solid-bottom">
-    <view class="action">
-      <text class="cuIcon-titles text-blue"></text>
-      必修课
+      <view class="action">
+        <text class="cuIcon-titles text-blue"></text>
+        选择学期
+      </view>
+      <view class="action  padding-xs radius bg-white">
+        <picker mode="multiSelector" bindchange="chooseSemester" value="{{multiIndex}}" range="{{multiArray}}">
+          <view class="picker">
+            {{multiArray[0][multiIndex[0]]}} [{{multiArray[1][multiIndex[1]]}}]
+          </view>
+        </picker>
+        <view class="cuIcon-triangledownfill text-black"></view>
+      </view>
     </view>
-    <view class="action  padding-xs radius bg-white">
-      <view class="title" style="margin-right:24rpx;">学期:</view>
-      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-        <view class="picker">
-          {{multiArray[0][multiIndex[0]]}} [{{multiArray[1][multiIndex[1]]}}]
-        </view>
-      </picker>
-      <view class="cuIcon-triangledownfill text-black"></view>
-    </view>
-  </view>
-  <block wx:if="{{table.body.compulsory==undefined}}">
-    <view class=" shadow-blur table-empty">
-      <text class="cuIcon-pick text-grey">这里是空的</text>
+    <view class="cu-item item-empty">
+      <text class="cuIcon-warnfill text-orange">暂无数据</text>
     </view>
   </block>
   <block wx:else>
-    <view class="table">
-      <view class="content">
-        <ul class="header table_ul">
-          <li class="table_li" wx:for="{{table.column}}" wx:key="*this">{{item}}</li>
-        </ul>
-        <ul class="table_ul" wx:for="{{table.body.compulsory}}" wx:key="id" wx:for-item='item'>
-          <li>{{item.courseName}}</li>
-          <li class="table_li">{{item.dailyScore}}</li>
-          <li class="table_li">{{item.finalScore}}</li>
-          <li class="table_li">{{item.score}}</li>
-          <li class="table_li">{{item.credit}}</li>
-          <li class="table_li">{{item.point}}</li>
-        </ul>
+    <block wx:for="{{table.body}}" wx:for-item="item" wx:for-index="key" wx:key="key">
+      <view class="cu-bar bg-white solid-bottom">
+        <view class="action">
+          <text class="cuIcon-titles text-blue"></text>
+          {{key}}
+        </view>
+        <view class="action  padding-xs radius bg-white">
+          <picker mode="multiSelector" bindchange="chooseSemester" value="{{multiIndex}}" range="{{multiArray}}">
+            <view class="picker">
+              {{multiArray[0][multiIndex[0]]}} [{{multiArray[1][multiIndex[1]]}}]
+            </view>
+          </picker>
+          <view class="cuIcon-triangledownfill text-black"></view>
+        </view>
       </view>
-    </view>
+      <block wx:if="{{item==undefined||item.length==0}}">
+        <view class=" shadow-blur table-empty">
+          <text class="cuIcon-pick text-grey">这里是空的</text>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="table">
+          <view class="content">
+            <ul class="header table_ul">
+              <li class="table_li" wx:for="{{table.column}}" wx:key="*this">{{item}}</li>
+            </ul>
+            <ul class="table_ul" wx:for="{{item}}" wx:for-item="innerItem" wx:for-index="innerIndex" wx:key="id">
+              <li class="table_li">{{innerItem.courseName}}</li>
+              <!-- <li class="table_li">{{innerItem.dailyScore}}</li> -->
+              <li class="table_li">{{innerItem.finalScore}}</li>
+              <!-- <li class="table_li">{{innerItem.score}}</li> -->
+              <li class="table_li">{{innerItem.credit}}</li>
+              <!-- <li class="table_li">{{innerItem.point}}</li> -->
+            </ul>
+          </view>
+        </view>
+      </block>
+    </block>
   </block>
-  <view class="cu-bar bg-white solid-bottom margin-top">
+  <!-- <view class="cu-bar bg-white solid-bottom margin-top">
     <view class="action">
       <text class="cuIcon-titles text-orange"></text>
       选修课
@@ -82,8 +104,8 @@
         </ul>
       </view>
     </view>
-  </block>
-  <view class="cu-bar bg-white solid-bottom margin-top">
+  </block> -->
+  <!-- <view class="cu-bar bg-white solid-bottom margin-top">
     <view class="action">
       <text class="cuIcon-titles text-green"></text>
       公修课
@@ -119,12 +141,12 @@
         </ul>
       </view>
     </view>
-  </block>
+  </block> -->
   <view class="footer"></view>
 </block>
 <!-- 综合成绩查询 -->
 <block wx:if='{{TabCur ==1}}'></block>
-<!-- CET成绩查询 -->
+<!-- CET成绩查询 [暂时不显示] -->
 <block wx:if='{{TabCur ==2}}'>
   <scroll-view scroll-x class="bg-white nav text-center fixed" style="top:105px">
     <view class="cu-item {{index==CETCur?'text-blue cur':''}}" wx:for="{{CETNav}}" wx:key="*this" bindtap='cetSelect' data-id="{{index}}">

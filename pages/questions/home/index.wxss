@@ -1,0 +1,6 @@
+textarea{
+  padding:40rpx;
+  line-height: 150%;
+  font-size: 1rem;
+  height:800rpx
+}

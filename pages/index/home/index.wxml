@@ -3,7 +3,7 @@
   <image src='/images/BasicsBg.png' mode='widthFix' class="png index_image" style='width:100%;height:486rpx;'></image>
   <view class="bg-img">
     <view class="flex padding align-center" style="padding-top:120rpx;" bind:tap="navCenter">
-      <view class="cu-avatar round margin-left lg bg-yellow " style="color:white;">李</view>
+      <view class="cu-avatar round margin-left lg bg-yellow " style="color:white;font-size:0.9em">{{user.name}}</view>
       <view class="text-center margin-left-sm text-xl text-shadow text-white">个人中心</view>
     </view>
     <swiper class="card-swiper" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
@@ -47,7 +47,8 @@
       <text>{{item.name}}</text>
     </view>
   </view>
-  <view class="cu-bar bg-white solid-bottom margin-top">
+  <!-- 删去问题反馈 -->
+  <!-- <view class="cu-bar bg-white solid-bottom margin-top">
     <view class="action">
       <text class="cuIcon-titles text-blue"></text>
       问题反馈
@@ -64,7 +65,7 @@
         <view class="text-grey text-xs">{{item.createTime}}</view>
       </view>
     </view>
-  </view>
+  </view> -->
   <view class="svg-footer">
     <text>浙江工商大学智慧教育工作室</text>
   </view>

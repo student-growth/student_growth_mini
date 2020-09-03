@@ -31,6 +31,7 @@ App({
     imgHost: 'http://47.114.44.188:8888/',
     remoteHost: 'http://47.114.44.188:8080/',
     //测试数据
-    user: { id: "1811080112", name: "夏超", department: "信息与电子工程学院", major: "测控技术与仪器", grade: "测仪1301", sex: null }
+    user:{id:'1611050101',name:'李玉娥',grade:'物联网1802',sex:'女'}
+    // user: {}
   }
 })

@@ -3,11 +3,11 @@ const app = getApp();
 const util = require('../../../utils/util.js')
 Page({
   data: {
+    user: app.globalData.user,
     imgList: []
   },
   onLoad: function (options) {
-
-    request.get("student/getFormTemp", { menuId: options.menuId })
+    request.get("project/getFormTemp", { menuId: options.menuId })
       .then(res =>
         this.setData({
           applyId: options.applyId,
@@ -16,9 +16,10 @@ Page({
       )
 
     let time = util.formatDay(new Date());
-
+    let name = options.name
     this.setData({
-      'formData.date': time
+      'formData.date': time,
+      name: name
     })
   },
   DateChange(e) {
@@ -67,7 +68,7 @@ Page({
     })
   },
   //提交申请
-  handleSubmit(e) { 
+  handleSubmit(e) {
     wx.uploadFile({
       url: 'http://localhost:8800/student/submitApply',
       header: {
@@ -79,12 +80,12 @@ Page({
         'formData': JSON.stringify(e.detail.value),
         'userId': app.globalData.user.id,
         'applyId': this.data.applyId,
-        'formTemp':this.data.formTemp
+        'formTemp': this.data.formTemp
       },
       success: function (res) {
         wx.showModal({
           title: '提交成功',
-          content:'请到【进度查询】中查看申请进度'
+          content: '请到【进度查询】中查看申请进度'
         })
 
       }
@@ -93,7 +94,7 @@ Page({
 
   },
 
-  handleReset(e){
-     
+  handleReset(e) {
+
   }
 })

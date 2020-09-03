@@ -1,0 +1,48 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">问题反馈</view>
+</cu-custom>
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-titles text-blue"></text>
+    反馈列表
+  </view>
+  <view class="action">了解更多</view>
+</view>
+<view class="cu-list menu margin-bottom">
+  <view class="cu-item" bind:tap="checkDetail" data-item='{{item}}' wx:for="{{questlist}}" wx:key="id">
+    <view class="cu-tag bg-red light">{{item.category}}</view>
+    <view class="content">
+      <view class="text-black">{{item.title}}</view>
+    </view>
+    <view class="action">
+      <view class="text-grey text-xs">{{item.createTime}}</view>
+    </view>
+  </view>
+</view>
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-titles text-orange"></text>
+    反馈问题
+  </view>
+   
+</view>
+<form bindsubmit="handleSubmit" bindreset="handleReset">
+  <view class="cu-form-group">
+    <view class="title">收件人</view>
+    <input placeholder="请输入教师名称"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">标题</view>
+    <input placeholder="请输入问题简要"></input>
+  </view>
+</form>
+<view class="cu-card case">
+  <view class="cu-item solid-bottom">
+    <textarea  maxlength="-1" bindblur="textareaInput" placeholder="在此处输入问题反馈内容"></textarea>
+  </view>
+</view>
+<view class="flex  justify-center">
+  <button class="cu-btn line-blue margin-right-lg shadow" bind:tap="handleReset">取消</button>
+  <button class="cu-btn bg-blue shadow" bind:tap="handleSubmit">提交</button>
+</view>

@@ -1,0 +1,9 @@
+.empty{
+  margin-top: 120rpx;
+  font-size: 1rem;
+  text-align: center;
+  background-color: #f1f1f1;
+  height: 300rpx;
+  padding: 40rpx;
+  width: 100%;
+}

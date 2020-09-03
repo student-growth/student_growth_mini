@@ -1,6 +1,8 @@
+const app = getApp()
 Page({
   data: {
     index:null,
+    user:app.globalData.user,
     level:[
       {id:0,name:'一等奖学金'},
       {id:1,name:'二等奖学金'},
@@ -14,5 +16,8 @@ Page({
   },
   onLoad: function(options) {
     
+  },
+  chooseSex(e){
+    console.log(e)
   }
 })

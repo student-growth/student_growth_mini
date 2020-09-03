@@ -1,23 +1,22 @@
 {
   "pages": [
+
+    "pages/login/home/index",
     
+    "pages/index/home/index",
+    "pages/score/index",
     "pages/personaltest/list/index",
     "pages/personaltest/result/index",
     "pages/personaltest/exam/index",
     "pages/personalise/index",
-    "pages/score/index",
 
     "pages/process/list/index",
     "pages/apply/list/index",
-    "pages/login/home/index",
 
     "pages/apply/detail/index",
     
-    "pages/index/home/index",
     "pages/rank/home/index",
 
-    
-    
     "pages/auth/center/index",
     
     "pages/scholarship/list/index",
@@ -26,13 +25,15 @@
     "pages/scholarship/list/outstand",
     "pages/scholarship/form/index",
     
-    "pages/questions/index",
+    "pages/questions/home/index",
+    "pages/questions/detail/index",
     
     "pages/comment/index",
     "pages/index/newsdetail/index",
     "pages/process/detail/index",
     "pages/login/forget/index",
     "pages/auth/setting/index"
+
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

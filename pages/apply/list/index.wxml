@@ -7,46 +7,61 @@
 <view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px">
   <view class="search-form round">
     <text class="cuIcon-search"></text>
-    <input type="text" placeholder="查询项目名称" confirm-type="search" bindinput="searchIcon"></input>
-  </view>
-  <view class="action">
-    <button class="cu-btn bg-gradual-blue shadow-blur round">搜索</button>
+    <input type="text" placeholder="查询项目名称" confirm-type="search" bindconfirm="searchProject"></input>
   </view>
 </view>
-<view class="flex">
-  <!-- left menu -->
-  <scroll-view style="height:{{scrollHeight}}" class="nav-bar  flex-sub padding-left-sm radius fixed" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}">
-    <view class="padding-top" wx:for="{{category}}" wx:key="id" bindtap='handleItemTap' data-item="{{item}}">
-      <view class="cu-bar  solid-bottom bg-{{index==TabCur?'blue':'white'}} light">
-        <view class="action text-center">
-          <text class='cuIcon-{{item.icon}}} text-{{item.color}}'></text>
-          {{item.name}}
+<block wx:if="{{fuzzyList!=undefined}}">
+  <view class="cu-list menu">
+    <view class="cu-item" wx:for="{{fuzzyList}}" wx:for-item="innerItem" wx:key="id" bind:tap="chooseItem" data-item="{{innerItem}}">
+      <view class="content">
+        <view class="text-black">
+          <text class="cuIcon-title text-blue"></text>
+          <text class="text-cut" style="width:400rpx">{{innerItem.name}}</text>
         </view>
+      </view>
+      <view class="action">
+        <button class="cu-btn bg-olive sm margin-right-sm" style="display:none">详情</button>
+        <button class="cu-btn  bg-blue sm">申请</button>
       </view>
     </view>
-  </scroll-view>
-  <!-- main menu -->
-  <scroll-view style="height:{{scrollHeight}}" class="flex-twice padding-left-sm " scroll-y scroll-with-animation>
-    <view class="padding-top" wx:for="{{contentData}}" wx:for-item="item" wx:for-index="key" wx:key="key">
-      <view class='cu-bar solid-bottom bg-white'>
-        <view class='action'>
-          <text class='cuIcon-titles text-green'></text>
-          {{key}}
+  </view>
+</block>
+<block wx:else>
+  <view class="flex">
+    <!-- left menu -->
+    <scroll-view style="height:{{scrollHeight}}" class="nav-bar  flex-sub padding-left-sm radius fixed" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}">
+      <view class="padding-top" wx:for="{{category}}" wx:key="id" bindtap='handleItemTap' data-item="{{item}}">
+        <view class="cu-bar  solid-bottom bg-{{index==TabCur?'blue':'white'}} light">
+          <view class="action text-center">
+            <text class='cuIcon-{{item.icon}}} text-{{item.color}}'></text>
+            {{item.name}}
+          </view>
         </view>
       </view>
-      <view class="cu-list menu">
-        <view class="cu-item" wx:for="{{item}}" wx:for-item="innerItem" wx:for-index="innerIndex" wx:key="id" bind:tap="chooseItem" data-item="{{innerItem}}">
-          <view class="content">
-            <view class="text-black">
-              <text class="text-cut" style="width:200rpx">{{innerItem.name}}</text>
+    </scroll-view>
+    <!-- main menu -->
+    <scroll-view style="height:{{scrollHeight}}" class="flex-twice padding-left-sm " scroll-y scroll-with-animation>
+      <view class="padding-top" wx:for="{{contentData}}" wx:for-item="item" wx:for-index="key" wx:key="key">
+        <view class='cu-bar solid-bottom bg-white'>
+          <view class='action'>
+            <text class='cuIcon-titles text-green'></text>
+            {{key}}
+          </view>
+        </view>
+        <view class="cu-list menu">
+          <view class="cu-item" wx:for="{{item}}" wx:for-item="innerItem" wx:for-index="innerIndex" wx:key="id" bind:tap="chooseItem" data-item="{{innerItem}}">
+            <view class="content">
+              <view class="text-black">
+                <text class="text-cut" style="width:300rpx">{{innerItem.abbreviation}}</text>
+              </view>
+            </view>
+            <view class="action">
+              <button class="cu-btn bg-olive sm margin-right-sm" style="display:none">详情</button>
+              <button class="cu-btn  bg-blue sm">申请</button>
             </view>
           </view>
-          <view class="action">
-            <button class="cu-btn bg-olive sm margin-right-sm" style="display:none">详情</button>
-            <button class="cu-btn  bg-blue sm">申请</button>
-          </view>
         </view>
       </view>
-    </view>
-  </scroll-view>
-</view>
+    </scroll-view>
+  </view>
+</block>

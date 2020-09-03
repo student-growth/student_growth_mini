@@ -4,7 +4,10 @@ import request from '../../../request/index.js'
 const app =getApp();
 
 Page({
-  data: {cardCur: 0},
+  data: {
+    cardCur: 0,
+    user:app.globalData.user
+  },
   cardSwiper(e) {
     this.setData({
       cardCur: e.detail.current
@@ -28,7 +31,7 @@ Page({
     }) 
     this.getSwiperList()
     this.getNewsList();
-    this.getQuesList();
+    //this.getQuesList();
   },
   
   //获得问题列表

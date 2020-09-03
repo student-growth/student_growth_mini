@@ -1,0 +1,14 @@
+.character{
+  line-height: 180%;
+  margin-top: 40rpx;
+}
+.profession{
+font-size: 1em;
+}
+.shadow{
+  box-shadow: 0 10rpx 10rpx #717171;
+}
+.cu-card{
+  font-size:1rem;
+  padding: 30rpx;
+}

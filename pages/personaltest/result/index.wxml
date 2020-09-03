@@ -2,9 +2,50 @@
   <view slot="backText">返回</view>
   <view slot="content">测试结果</view>
 </cu-custom>
-<view class="cu-card">
-  当前测试结果
+<view class="cu-card case no-card bg-blue light">
+  <view class="text-content">
+    <text class="cuIcon-infofill text-orange"></text>
+    以下测试结果仅供参考
+  </view>
 </view>
-<view class="cu-list">
-  查看历史测试结果
-</view>
+<block wx:if="{{id==0}}">
+  <!-- 霍兰德性格测试 -->
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="action">
+        <text class="cuIcon-titles text-blue">性格分析</text>
+      </text>
+    </view>
+  </view>
+  <view class="cu-card article" wx:for="{{characterList}}" wx:key="id">
+    <view class="cu-item shadow">
+      <view class="title">{{index+1}}.{{item.type}}</view>
+      <view class="cu-tag bg-green light profession">{{item.profession}}</view>
+      <view class="content character">{{item.character}}</view>
+    </view>
+  </view>
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="action">
+        <text class="cuIcon-titles text-orange">职业分析</text>
+      </text>
+    </view>
+  </view>
+  <view class="cu-card article shadow">
+    <view class="cu-item">
+      <view class="title">适合你的职业有：</view>
+      <view class="content">{{profession}}</view>
+    </view>
+  </view>
+</block>
+<block wx:elif="{{id==1}}">
+  <!-- 暂时不做 -->
+</block>
+<block wx:elif="{{id==2}}">
+  <view class="cu-card article">
+    <view class="cu-item shadow">
+      <text class="title">当前测试分数:{{score}}</text>
+      <text class="content">{{result}}</text>
+    </view>
+  </view>
+</block>

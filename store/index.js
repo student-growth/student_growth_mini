@@ -7,18 +7,20 @@ const toolsList = [{
 }, {
   id: 3, name: '谁是大神', url: '/pages/rank/home/index', icon: 'choicenessfill', color: 'olive'
 }, {
-  id: 4, name: '个性化榜单', url: '/pages/personalise/index', icon: 'friendfill', color: 'red'
+  id: 4, name: '个性化榜单', url: '/pages/personalise/list/index', icon: 'friendfill', color: 'red'
 }, {
-  id: 5, name: '个人测试', url: '/pages/personaltest/index', icon: 'profilefill', color: 'brown'
+  id: 5, name: '个人测试', url: '/pages/personaltest/list/index', icon: 'profilefill', color: 'brown'
 }, {
   id: 6, name: '进度查询', url: '/pages/process/list/index', icon: 'rankfill', color: 'orange'
 }, {
   id: 7, name: '奖学金申请', url: '/pages/scholarship/list/index', icon: 'moneybagfill', color: 'mauve'
 }, {
-  id: 8, name: '意见反馈', url: '/pages/questions/index', icon: 'questionfill', color: 'cyan'
+  id: 8, name: '意见反馈', url: '/pages/questions/home/index', icon: 'questionfill', color: 'cyan'
 }]
-const scoreColumn = ['课程名称', '平时成绩', '期末成绩', '总成绩', '学分', '绩点']
-const scoreNavBar = ['学科成绩', '综合成绩', 'CTE成绩']
+//const scoreColumn = ['课程名称', '平时成绩', '期末成绩', '总成绩', '学分', '绩点']
+const scoreColumn = ['课程名称',   '总成绩', '学分']
+// const scoreNavBar = ['学科成绩', '综合成绩', 'CTE成绩']
+const scoreNavBar = ['学科成绩', '综合成绩' ]
 const processColumn = ['已经申请成果', '进度', '分数', '备注']
 
 const applyCategory = [
@@ -52,7 +54,7 @@ const individualList = [
 
 const psyTest=[
   {id:0,color:'blue',url:'/pages/personaltest/exam/index',name:'霍兰德职业兴趣测试',description:'人的个性与职业有着密切的关系，不同职业对从业者的人格特征的要求是有差距的，如果通过科学的测试，可以预知自己的个性特征，这有助于选择适合于个人发展的职业。您将要阅读的这个《职业价格自测问卷》，可以帮助您作个性自评，从而获自己的个性特征更适合从事哪方面的工作'},
-  {id:1,color:'orange',url:'/pages/personaltest/exam/index',name:'MBTI-职业性格测试',description:'MBTI提供的性格类型描述仅供测试者确定自己的性格类型之用，性格类型没有好坏，只有不同。每一种性格特征都有其价值和优点，	也有缺点和需要注意的地方。	清楚地了解自己的性格优劣势，	有利于更好地发挥自己的特长,而尽可能的在为人处事中避免自己性格中的劣势，更好地和他人相处，更好地作重要的决策'},
+  // {id:1,color:'orange',url:'/pages/personaltest/exam/index',name:'MBTI-职业性格测试',description:'MBTI提供的性格类型描述仅供测试者确定自己的性格类型之用，性格类型没有好坏，只有不同。每一种性格特征都有其价值和优点，	也有缺点和需要注意的地方。	清楚地了解自己的性格优劣势，	有利于更好地发挥自己的特长,而尽可能的在为人处事中避免自己性格中的劣势，更好地和他人相处，更好地作重要的决策'},
   {id:2,color:'green',url:'/pages/personaltest/exam/index',name:'大学生心理健康测试',description:'大学生新生入学心理健康测试，也称作大学生人格问卷，是根据University Personality Inventory（简称UPI）编制而成。常用于大学新生入学时心理健康普查，也可用于大学生个人自评。其优点是能够在早期发现学生的心理健康问题，是大学心理咨询机构的常备工具'}
 ]
 const exam={
@@ -179,7 +181,7 @@ const collegeTest={
     {id:38,name:'经常有离家出走或脱离集体的想法'},
     {id:39,name:'感到内心痛苦无法解脱，只能自伤或自杀'},
   ]
-   
+  
 }// export
 module.exports = {
   toolsList,

@@ -6,7 +6,8 @@ page {
   margin: 40rpx;
   margin-top: 150rpx;
 }
-.cu-card-extra .item-empty{
+.item-empty{
+  margin-top: 400rpx;
   min-height: 320rpx;
   font-size: 1rem;
   text-align: center;
@@ -19,14 +20,9 @@ page {
   color:red
 }
 .table {
-  display: flex;
   text-align: center;
-  margin: 0;
-  padding: 8rpx;
-  box-sizing: content-box;
+  margin: 0 32rpx;
   overflow: scroll;
-  align-content: center;
-  justify-content: center;
 }
 
 .table .table_header {
@@ -38,6 +34,7 @@ page {
 
 .table .content {
   display: table-row-group;
+   
 }
 
 .table .content .header {
@@ -54,6 +51,7 @@ page {
 .table .content .table_ul .table_li {
   display: table-cell;
   padding: 10rpx;
+  min-width: 240rpx;
 }
 
 .table .content .table_ul:nth-child(odd):not(:first-child) {
@@ -80,5 +78,5 @@ page {
 }
 .footer{
   height:  160rpx;
-  background-color: white;
+  background-color: #f1f1f1;
 }

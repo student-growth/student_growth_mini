@@ -16,20 +16,20 @@
 </view>
 <view class="cu-form-group">
   <view class="title">姓名:</view>
-  <input name='name' value='Leesure' />
+  <input name='name'  value="{{user.name}}"/>
 </view>
 <view class="  cu-form-group">
   <view class="title">班级:</view>
-  <input type="text" name="grade" value="电信2020级" />
+  <input type="text" name="grade" value="{{user.grade}}" />
 </view>
 <view class="flex">
   <view class="flex-sub cu-form-group">
     <view class="title">性别:</view>
-    <input type="text" value="女" name="sex" />
+    <input type="number" value="{{user.sex}}"/>
   </view>
   <view class="flex-sub cu-form-group">
     <view class="title">年龄:</view>
-    <input type="text" />
+    <input type="number" />
   </view>
 </view>
 <view class="flex border-top">
