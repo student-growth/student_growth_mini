@@ -1,2 +1,4 @@
-<!--pages/newsdetail/newsdetail.wxml-->
 
+<web-view src="https://mp.weixin.qq.com/s/8jELhBJ_PyodVOoMw1OyIQ" bindmessage="bindmessage">
+  测试链接
+</web-view>

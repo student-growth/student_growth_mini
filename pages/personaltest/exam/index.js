@@ -45,11 +45,11 @@ Page({
     } else {
       wx.navigateTo({
         url: '/pages/personaltest/result/index?result='
-          + JSON.stringify(this.data.scoreArray) + '&id=' + this.data.id
+          + JSON.stringify(this.data.scoreArray) + '&id=' 
+          + this.data.id
+          + '&type=1'
       })
     }
-
-
       // wx.navigateTo({
       //   url: '/pages/personaltest/result/index?result='
       //     + JSON.stringify(this.data.scoreArray) + '&id=' + this.data.id

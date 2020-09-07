@@ -2,5 +2,15 @@ textarea{
   padding:40rpx;
   line-height: 150%;
   font-size: 1rem;
-  height:800rpx
+  height:600rpx;
+  position: relative;
+}
+.font-count{
+  position: absolute;
+  bottom:8rpx;
+  right: 0;
+  color: #838080
+}
+.cu-btn[disabled]{
+  opacity: 0.9;
 }

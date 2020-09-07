@@ -21,6 +21,8 @@
     </view>
     <view class="action">了解更多</view>
   </view>
+  
+    
   <view class="cu-list menu">
     <view class="cu-item" wx:for="{{newslist}}" wx:key="id" data-item="{{item}}" bindtap="checkNewsDeatil">
       <view class="content">

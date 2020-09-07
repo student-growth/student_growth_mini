@@ -1,0 +1,24 @@
+.cu-card.article>.cu-item {
+  min-height: 30vh;
+}
+
+.justify-center {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+}
+
+.empty {
+  width: 100%;
+  min-height: 400rpx;
+  text-align: center;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.empty text {
+  font-size: large;
+  align-self: center;
+  letter-spacing: 10rpx;
+}

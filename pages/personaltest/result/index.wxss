@@ -12,3 +12,12 @@ font-size: 1em;
   font-size:1rem;
   padding: 30rpx;
 }
+.btn-group{
+  margin: 40rpx 0;
+  display: flex;
+  align-content: space-around;
+  justify-content: space-around;
+}
+.btn-group button{
+  flex:1
+}

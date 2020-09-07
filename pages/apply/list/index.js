@@ -47,10 +47,13 @@ Page({
         })
     }
   },
+  //申请表单
   chooseItem(e) {
     const item = e.currentTarget.dataset.item
     wx.navigateTo({
-      url: '/pages/apply/detail/index?menuId=' + item.menuId + '&applyId=' + item.id + '&name=' + item.name
+      url: '/pages/apply/detail/index?menuId=' 
+      + item.menuId + '&applyId=' 
+      + item.id + '&name=' + item.name
     })
   },
   // 左侧菜单的点击事件

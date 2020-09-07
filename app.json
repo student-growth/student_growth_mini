@@ -8,6 +8,8 @@
     "pages/personaltest/list/index",
     "pages/personaltest/result/index",
     "pages/personaltest/exam/index",
+     
+
     "pages/personalise/index",
 
     "pages/process/list/index",
@@ -26,6 +28,7 @@
     "pages/scholarship/form/index",
     
     "pages/questions/home/index",
+    "pages/questions/list/index",
     "pages/questions/detail/index",
     
     "pages/comment/index",
@@ -36,8 +39,8 @@
 
   ],
   "window": {
-    "navigationBarBackgroundColor": "#39b54a",
-    "navigationBarTitleText": "学生成长",
+    "navigationBarBackgroundColor": "#b4dec8",
+    "navigationBarTitleText": "新闻资讯",
     "navigationStyle": "custom",
     "navigationBarTextStyle": "white"
   },

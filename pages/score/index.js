@@ -1,111 +1,177 @@
 // pages/score/index.js 分数查询页面
 import request from '../../request/index.js'
-import { scoreColumn, scoreNavBar } from '../../store/index.js'
+import { scoreNavBar } from '../../store/index.js'
 const app = getApp()
 const util = require('../../utils/util.js')
 Page({
   data: {
     CustomBar: app.globalData.CustomBar,
-    stuId: app.globalData.user.id,
     TabCur: 0,
-    CETCur: 0,
-    CETNav: ['CET-4', 'CET-6'],
-    semester: '大一[上]',
-
-    multiIndex: [0, 0]
+    yearindex: 0,
+    multiIndex: [0, 0],
+    totalScoreColumn: ['项目名称', '分值', '获奖时间'],
+    scoreColumn: ['课程名称', '总成绩', '学分']
   },
-  tabSelect(e) {
-    this.setData({
-      TabCur: e.currentTarget.dataset.id,
-      scrollLeft: (e.currentTarget.dataset.id - 1) * 60
-    })
-    if (this.data.TabCur == 1) {
-      this.getComposite()
-    } else if (this.data.TabCur == 2) {
-      //四六级查询
-      this.getCETScoreList()
-    }
-  },
-  // bindMultiPickerChange: function (e) {
-  //   this.setData({
-  //     multiIndex: e.detail.value
-  //   })
-  // },
-
-  // cetSelect(e) {
-  //   this.setData({
-  //     CETCur: e.currentTarget.dataset.id,
-  //     scrollLeft: (e.currentTarget.dataset.id - 1) * 60,
-  //   })
-  //   if(e.currentTarget.dataset.id==0){
-  //     if(this.data.cet['CET4']!=undefined){
-  //       this.setData({CurCET:this.data.cet['CET4'][0]})
-  //     }else{
-  //       this.setData({CurCET:null})
-  //     }
-  //   }else if(e.currentTarget.dataset.id=1){
-  //     if(this.data.cet['CET6']!=undefined){
-  //       this.setData({CurCET:this.data.cet['CET4'][0]})
-  //     }else{
-  //       this.setData({CurCET:null})
-  //     }
-  //   }
-  // },
-
   onLoad: function (options) {
+    wx.getStorage({ key: 'user' })
+      .then(res => {
+        this.setData({ user: res.data })
+      })
+
+  },
+  onReady: function () {
     let time = util.formatDay(new Date());
-    //计算学期
+    //计算学年
     let semesterArr = []
-    let id = this.data.stuId.substr(0, 2)
-    let year = Number(id)
-    for (let i = 0; i < 4; i++) {
-      let next = year + 1
-      let str = '20' + year + '-20' + next + '学年'
+    let stuId = this.data.user.id
+    let id = stuId.substr(0, 2)
+
+    let currentYear = new Date().getFullYear()
+    let entrance = Number('20' + id)
+    //let yearArray=[]
+    for (let i = currentYear; i >= entrance; i--) {
+      let str = i + '-' + (i + 1) + '学年'
       semesterArr.push(str)
-      year++
     }
     this.setData({
       date: time,
       multiArray: [semesterArr, ['第1学期', '第2学期']],
+      yearArray: semesterArr,
       tabNav: scoreNavBar
     })
+    let info = {
+      id: stuId,
+      semester: this.data.multiArray[0][0] + ' ' + this.data.multiArray[1][0]
+    }
+    this.getSubjectScore(info)
   },
-  onReady: function () {
-    
-    let init = this.data.multiArray[0][0] + ' ' + this.data.multiArray[1][0]
-    this.getSubjectScore(init)
+  tabSelect(e) {
+    let currentIndex = e.currentTarget.dataset.id
+    this.setData({
+      TabCur: currentIndex,
+      scrollLeft: (e.currentTarget.dataset.id - 1) * 60,
+      'table.column': null,
+      'table.body': []
+    })
+
+    if (currentIndex == 1) {//选择查看综合成绩
+      let info = {
+        id: this.data.user.id,
+        semester: this.data.yearArray[0]
+      }
+      this.getComposite(info)
+    } else if (currentIndex == 0) { //选着查看期末成绩
+      let formData = {
+        id: this.data.user.id,
+        semester: this.data.multiArray[0][0] + ' ' + this.data.multiArray[1][0]
+      }
+      this.getSubjectScore(formData)
+    }
+  },
+  //选择学年
+  changeYear(e) {
+    let index = e.detail.value
+    this.setData({ yearindex: index })
+
+    let info = {
+      id: this.data.user.id,
+      semester: this.data.yearArray[index]
+    }
+    this.getComposite(info)
   },
   //选择学期
   chooseSemester(e) {
     let index = e.detail.value
-    let term = this.data.multiArray[0][index[0]] + ' ' + this.data.multiArray[1][index[1]]
     this.setData({
       multiIndex: e.detail.value
     })
-    this.getSubjectScore(term)
+    let info = {
+      id: this.data.user.id,
+      semester: this.data.multiArray[0][index[0]] + ' ' + this.data.multiArray[1][index[1]]
+    }
+    this.getSubjectScore(info)
   },
   //获得学科成绩
-  getSubjectScore(semester) {
-    this.setData({ 'table.column': scoreColumn })
-    request.get('student/score',
-      { id: app.globalData.user.id, semester: semester })
+  getSubjectScore(info) {
+    request.get('student/score', info)
       .then(res => {
-        this.setData({ 'table.body': res.data })
-      })
-  },
-  //获取综合成绩
-  getComposite() {
-    console.log("todo composit")
-  },
-  // 获取CET成绩
-  getCETScoreList() {
-    request.get('student/getCETScore', { id: app.globalData.user.id })
-      .then(res => {
-        this.setData({
-          cet: res.data,
-          CurCET: res.data['CET4'][0]
+        if (res.data != undefined || res.data != null) {
+          this.setData({
+            'table.column': this.data.scoreColumn,
+            'table.body': res.data
+          })
+        }
+      }).catch(err => {
+        console.log(err)
+        wx.showToast({
+          title: '获取数据失败:' + JSON.stringify(err),
+          icon: 'none',
+          duration: 4000
         })
       })
   },
+  //获取综合成绩
+  getComposite(info) {
+    request.get('score/totalScore', info)
+      .then(res => {
+        if (res.data != null) {
+          this.setData({
+            'table.column': this.data.totalScoreColumn,
+            'table.body': res.data
+          })
+          let result = this.getTotalScore(res.data)
+          this.setData({
+            totalScore:result
+          })
+        }
+      }).catch(err => {
+        console.log(err)
+        wx.showToast({
+          title: '获取数据失败' + JSON.stringify(err),
+          icon: 'none',
+          duration: 3000
+        })
+      })
+  },
+
+  //获取综合能力评分
+  getTotalScore(list) {
+    let total = 75
+    for (let key in list) {
+      let arr = list[key]
+      let score = 0
+      arr.forEach(item => {
+        score += item.score
+      })
+      switch (key) {
+        case '研究创新':
+          total += score * 0.3
+          break
+        case '专业技能':
+          total += score * 0.25
+          break
+        case '组织领导':
+          total += score * 0.15
+          break
+        case '社会实践':
+          total += score * 0.15
+          break
+        case '文体特长':
+          total += score * 0.15
+          break
+      }
+    }
+    return total
+  }
+  // // 获取CET成绩
+  // getCETScoreList() {
+  //   request.get('student/getCETScore', { id: app.globalData.user.id })
+  //     .then(res => {
+  //       this.setData({
+  //         cet: res.data,
+  //         CurCET: res.data['CET4'][0]
+  //       })
+  //     })
+  // }
 
 })

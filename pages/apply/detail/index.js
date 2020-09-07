@@ -3,11 +3,14 @@ const app = getApp();
 const util = require('../../../utils/util.js')
 Page({
   data: {
-    user: app.globalData.user,
-    imgList: []
+    formData: {},
+    imgList: [],
+    disable: false,
+    score: null
   },
   onLoad: function (options) {
-    request.get("project/getFormTemp", { menuId: options.menuId })
+    let info = { menuId: options.menuId, projectId: options.applyId }
+    request.get("project/getFormTemp", info)
       .then(res =>
         this.setData({
           applyId: options.applyId,
@@ -22,6 +25,25 @@ Page({
       name: name
     })
   },
+  onReady: function () {
+    wx.getStorage({
+      key: 'user'
+    }).then(res => this.setData({
+      user: res.data
+    }))
+  },
+  PickerChange(e) {
+    let value = e.detail.value
+    let index = e.currentTarget.dataset.index
+    let scoreList = this.data.formTemp[index].scoreList
+    let str = `formTemp[${index}].index`
+    //修改选项和分值
+    this.setData({
+      [str]: value,
+      score: scoreList[value]
+    })
+
+  },
   DateChange(e) {
     this.setData({
       'formData.date': e.detail.value
@@ -30,7 +52,7 @@ Page({
 
   ChooseImage() {
     wx.chooseImage({
-      count: 4,
+      count: 3,
       sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album'], //从相册选择
       success: (res) => {
@@ -67,30 +89,37 @@ Page({
       }
     })
   },
+
   //提交申请
   handleSubmit(e) {
-    wx.uploadFile({
-      url: 'http://localhost:8800/student/submitApply',
-      header: {
-        "Content-Type": "multipart/form-data"
-      },
-      filePath: this.data.imgList[0],
-      name: 'file',
-      formData: {
-        'formData': JSON.stringify(e.detail.value),
-        'userId': app.globalData.user.id,
-        'applyId': this.data.applyId,
-        'formTemp': this.data.formTemp
-      },
-      success: function (res) {
-        wx.showModal({
-          title: '提交成功',
-          content: '请到【进度查询】中查看申请进度'
+    let info = {
+      formData: JSON.stringify(e.detail.value),
+      formTemp: JSON.stringify(this.data.formTemp),
+      userId: this.data.user.id,
+      applyId: this.data.applyId,
+      applyName: this.data.name,
+      score: this.data.score
+    }
+    let imagePath = this.data.imgList[0]
+    request.upload('apply/submit', info, imagePath)
+      .then(res => {
+        this.setData({
+          disable: true
         })
-
-      }
-
-    })
+        wx.showModal({
+          title: '申请成功',
+          content: '请到【进度查询】中查看申请进度',
+          success(res) {
+            if (res.confirm) {
+              console.log('用户点击确定')
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      }).catch(err=>{
+        
+      })
 
   },
 

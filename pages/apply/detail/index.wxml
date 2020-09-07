@@ -4,7 +4,7 @@
   <view slot="backText">返回</view>
   <view slot="content">{{name}}</view>
 </cu-custom>
-<view class="cu-bar bg-white solid-bottom margin-top">
+<view class="cu-bar bg-white solid-bottom">
   <view class="action">
     <text class="cuIcon-titles text-blue"></text>
     {{name}}
@@ -19,10 +19,13 @@
       </picker>
     </block>
     <block wx:elif="{{item.type=='picker'}}">
-      <picker bindchange="PickerChange" value="{{index}}" range="{{item.pickerItem}}">
-        <view class="picker">{{item.pickerItem[index]}}</view>
+      <picker bindchange="PickerChange" name="{{item.key}}" data-index='{{index}}' value="{{item.pickerItem[item.index]}}" range="{{item.pickerItem}}">
+        <view class="picker">{{item.index==-1?item.placeholder:item.pickerItem[item.index]}}</view>
       </picker>
-    </block>
+    </block> 
+    <block wx:elif="{{item.key=='score'}}">
+      <input name="{{item.key}}" value="{{score}}" placeholder="{{item.placeholder}}" type="{{item.type}}" disabled></input>
+    </block> 
     <block wx:else>
       <input name="{{item.key}}" placeholder="{{item.placeholder}}" type="{{item.type}}"></input>
     </block>
@@ -60,8 +63,8 @@
       </view>
     </view>
   </view>
-  <view class="flex  justify-center margin-top">
-    <button class="cu-btn line-blue margin-right-lg shadow" form-type="reset">取消</button>
-    <button class="cu-btn bg-blue shadow" form-type="submit">提交</button>
+  <view class="flex justify-center margin-lg">
+    <button class="cu-btn flex-sub line-blue margin-right-lg shadow" form-type="reset">取消</button>
+    <button disabled="{{disable}}" class="cu-btn flex-sub bg-blue shadow" form-type="submit">提交</button>
   </view>
 </form>

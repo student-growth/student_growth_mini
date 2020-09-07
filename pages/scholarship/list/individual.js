@@ -19,7 +19,8 @@ Page({
     })
   },
   apply(e){
-    let name  = e.currentTarget.dataset.name
-    wx.navigateTo({url:'/pages/scholarship/form/index'})
+    let index  = e.currentTarget.dataset.index
+    let title=this.data.individualList[index].title
+    wx.navigateTo({url:'/pages/scholarship/form/index?title='+title})
   }
 })

@@ -1,6 +1,21 @@
 page {
   padding-top: 90rpx;
 }
+.totalScore{
+  padding-top: 32rpx;
+  text-align: center;
+  width: 100%;
+  background-color: white;
+}
+.totalScore .title{
+  line-height: 180%;
+  font-size: large;
+  color: #1e1e1e;
+}
+.totalScore .score{
+  font-size: x-large;
+  color: #f0823f;
+}
 .cu-card-extra{
   border-radius: 5%;
   margin: 40rpx;
@@ -50,20 +65,22 @@ page {
 
 .table .content .table_ul .table_li {
   display: table-cell;
-  padding: 10rpx;
-  min-width: 240rpx;
+  padding: 24rpx;
+  min-width: 280rpx;
 }
 
 .table .content .table_ul:nth-child(odd):not(:first-child) {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.table-empty {
-  min-height: 240rpx;
-  display: flex;
-  align-content: center;
-  justify-content: center;
+.empty{
+  margin-top: 120rpx;
+  font-size: 1rem;
+  text-align: center;
   background-color: #f1f1f1;
+  height: 300rpx;
+  padding: 40rpx;
+  width: 100%;
 }
 
 .btn-group{

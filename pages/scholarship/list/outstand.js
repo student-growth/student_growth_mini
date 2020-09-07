@@ -21,7 +21,8 @@ Page({
   },
   //申请奖学金
   apply(e){
-    let name= e.currentTarget.dataset.name
-    wx.navigateTo({url:'/pages/scholarship/form/index'})
+    let index  = e.currentTarget.dataset.index
+    let title=this.data.outstandingList[index].title
+    wx.navigateTo({url:'/pages/scholarship/form/index?title='+title})
   }
 })

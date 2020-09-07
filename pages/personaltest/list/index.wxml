@@ -1,16 +1,52 @@
 <!-- 个人测试功能页面[心理测试，职业测试] -->
 <!-- path:/pages/personaltest/index -->
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
-  <view slot="backText">返回</view>
-  <view slot="content">个人测试</view>
-</cu-custom>
-<view class="padding margin" wx:for="{{psyTest}}" wx:key="id" bind:tap="chooseTest" data-item='{{item}}'>
-  <view class="shadow-blur solid-bottom bg-{{item.color}} ABox">
-    <view class="title text-center">{{item.name}}
-    <text class="cuIcon-right"></text>
+<scroll-view scroll-y class="DrawerPage {{showList?'show':''}}">
+  <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">个人测试</view>
+  </cu-custom>
+  <view class="padding margin" wx:for="{{psyTest}}" wx:key="id">
+    <view class="shadow-blur solid-bottom bg-{{item.color}} ABox" bind:tap="chooseTest" data-item='{{item}}'>
+      <view class="title text-center">
+        {{item.name}}
+        <text class="cuIcon-right"></text>
+      </view>
+    </view>
+    <view style="margin-top:1rpx" bind:tap="chooseTest" data-item='{{item}}' class="description flex card-negative shadow-blur bg-{{item.color}} ABox">
+      {{item.description}}
+    </view>
+    <!-- 查看历史记录 -->
+    <view style="margin-top:1rpx" class="flex card-negative shadow-blur bg-{{item.color}} ABox text-center">
+      <button class="flex-sub margin-xs padding-sm cu-btn bg-white" bindtap="checkHistoryScore" data-index='{{index}}'>
+        查看历史测试结果
+      </button>
     </view>
   </view>
-  <view style="margin-top:1rpx" class="description flex card-negative shadow-blur bg-{{item.color}} ABox">
-    {{item.description}}
-  </view>
+</scroll-view>
+<view class="DrawerClose {{showList?'show':''}}" bindtap="hideModal">
+  <text class="cuIcon-pullright"></text>
 </view>
+<!-- 左边展出栏 -->
+<scroll-view scroll-y class="DrawerWindow {{showList?'show':''}}">
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
+    <block wx:if="{{psyList==undefined || psyList.length<=0}}">
+      <view class="cu-item item-empty">
+        <text class="cuIcon-warnfill text-orange">暂无数据</text>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="cu-item" wx:for="{{psyList}}" wx:key="index">
+        <view class="content" bind:tap="checkResult" data-item='{{item}}'>
+          <text class="cuIcon-github text-grey"></text>
+          <block wx:if="{{item.testName==0}}">
+            <text class="text-grey">霍兰德职业兴趣测试</text>
+          </block>
+          <block wx:elif="{{item.testName==2}}">
+            <text class="text-grey">大学生心理健康测试</text>
+          </block>
+          <text class="cu-tag margin-left-xs line-black">测试时间：{{item.testTime}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>

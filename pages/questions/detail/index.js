@@ -1,29 +1,25 @@
+import request from '../../../request/index.js'
 Page({
   data: {
-    
+    questionDetail:{}
   },
   onLoad: function(options) {
-    //Do some initialize when page load.
-    
+    let detail =JSON.parse(options.detail)
+    this.setData({question:detail})
+    this.getQuestionDtail({id:detail.id})
   },
   onReady: function() {
-    //Do some when page ready.
     
+  } ,
+  getQuestionDtail(formData){
+    request.get('question/getFeedback',formData)
+    .then(res=>{
+      this.setData({
+        'question.feedback':res.data
+      })
+    })
   },
-  onShow: function() {
-    //Do some when page show.
-    
-  },
-  onHide: function() {
-    //Do some when page hide.
-    
-  },
-  onUnload: function() {
-    //Do some when page unload.
-    
-  },
-  onPullDownRefresh: function() {
-    //Do some when page pull down.
-    
+  back(){
+    wx.navigateBack()
   }
 })

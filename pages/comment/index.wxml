@@ -15,11 +15,11 @@
     <form bindsubmit="submitForm" bindreset="resetForm">
       <view class="cu-form-group">
         <view class="title">品德素质:</view>
-        <input placeholder="分数范围在0-100之间" name="character"></input>
+        <input placeholder="分数范围在0-100之间" name="moral" value="{{self.moral}}"></input>
       </view>
       <view class="cu-form-group">
         <view class="title">心理素质:</view>
-        <input type="number" placeholder="分数范围在0-100之间" name="psyscore"></input>
+        <input type="number" placeholder="分数范围在0-100之间" name="psychology" value="{{self.psychology}}"></input>
       </view>
       <view class="flex  justify-center">
         <button form-type="reset" class="cu-btn margin-sm  line text-green shadow">取消</button>
@@ -35,7 +35,7 @@
   </view>
 </view>
 <view class="cu-list menu">
-  <view class="cu-item " bind:tap="scoring" wx:key="id" data-index='{{index}}' wx:for="{{student}}">
+  <view class="cu-item " bind:tap="scoring" wx:key="id" data-index='{{index}}' wx:for="{{students}}">
     <view class="content">
       <view>
         <text class="text-black text-blod">{{item.name}}</text>
@@ -46,7 +46,7 @@
       </view>
     </view>
     <view class="action">
-      <block wx:if="{{item.psy==undefined || item.moral==undefined}}">
+      <block wx:if="{{item.psychology==undefined || item.moral==undefined}}">
         <view class="text-black">
           <text class="cuIcon-infofill text-orange"></text>
           未评价
@@ -55,11 +55,8 @@
       <block wx:else>
         <view class="cu-capsule round">
           <view class="cu-tag bg-orange light margin">心理</view>
-          <view class="cu-tag line-orange">{{item.psy}}</view>
-          <block wx:if='{{showError}}'>
-            
-          </block>
-            
+          <view class="cu-tag line-orange">{{item.psychology}}</view>
+          <block wx:if='{{showError}}'></block>
         </view>
         <view class="cu-capsule round">
           <view class="cu-tag bg-olive light margin">品德</view>
@@ -79,23 +76,22 @@
       </view>
     </view>
     <block wx:if="{{showError}}">
-    <text class="cuIcon-infofill text-red margin-right-sm"></text>
+      <text class="cuIcon-infofill text-red margin-right-sm"></text>
       <text class="text-red">请输入正确的分数</text>
     </block>
-      
     <view>
       <view class="cu-form-group">
         <view class="title">品德素质:</view>
-        <input class="text-left" type="number" bindinput="charaInput" placeholder="分数范围在0-100之间" name="character"></input>
+        <input class="text-left" type="number" bindblur="charaInput" placeholder="分数范围在0-100之间" name="moral"></input>
       </view>
       <view class="cu-form-group">
         <view class="title">心理素质:</view>
-        <input class="text-left" type="number" bindinput="psyInput" placeholder="分数范围在0-100之间" name="psyscore"></input>
+        <input class="text-left" type="number" bindblur="psyInput" placeholder="分数范围在0-100之间" name="psychology"></input>
       </view>
     </view>
     <view class="cu-bar bg-white">
       <view class="action margin-0 flex-sub text-grey solid-left" bindtap="hideModal">取消</view>
-      <view class="action margin-0 flex-sub text-blue solid-left" bindtap="dialogFormSubmiit">
+      <view class="action margin-0 flex-sub text-blue solid-left" bindtap="dialogFormSubmit">
         确定
       </view>
     </view>

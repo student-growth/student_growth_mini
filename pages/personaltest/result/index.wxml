@@ -49,3 +49,15 @@
     </view>
   </view>
 </block>
+<view class="btn-group">
+  <block wx:if="{{type=='1'}}">
+    <button bind:tap="saveResult" disabled="{{disable}}" class="cu-btn shadow-blur bg-blue padding-sm margin-xs">
+      保存测试结果
+    </button>
+  </block>
+  <block wx:else>
+    <button bind:tap="back" class="cu-btn shadow-blur  bg-grey padding-sm margin-xs">
+      返回
+    </button>
+  </block>
+</view>

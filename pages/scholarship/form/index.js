@@ -2,12 +2,12 @@ const app = getApp()
 Page({
   data: {
     index:null,
-    user:app.globalData.user,
+    // user:app.globalData.user,
     level:[
       {id:0,name:'一等奖学金'},
       {id:1,name:'二等奖学金'},
       {id:2,name:'三等奖学金'},
-    ]
+    ],
   },
   chooseLevel(e){
     this.setData({
@@ -15,7 +15,11 @@ Page({
     })
   },
   onLoad: function(options) {
-    
+    let user=wx.getStorageSync('user')
+    this.setData({
+      user,
+      title:options.title
+    }) 
   },
   chooseSex(e){
     console.log(e)

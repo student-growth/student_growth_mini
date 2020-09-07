@@ -1,12 +1,17 @@
-import { exam, collegeTest } from '../../../store/index'
 import { matchResult } from '../../../store/holland.js'
+import request from '../../../request/index.js'
 Page({
   data: {},
   onLoad: function (options) {
+    //todo 区分首次测试和查看结果
+    this.setData({
+      id: options.id,
+      type: options.type,
+      saveList: options.result
+    })
     let resultList = JSON.parse(options.result)
-    this.setData({ id: options.id })
     switch (options.id) {
-      case '0':
+      case '0'://holland test
         this.getHollandResult(resultList)
         break
       case '2':
@@ -115,7 +120,6 @@ Page({
   },
   //获取前三个最大的数的下标
   getThreeMaxIndex(list) {
-    
     let index = []
     let count = 0
     while (count < 3) {
@@ -124,15 +128,29 @@ Page({
       for (let i = 0; i < list.length; i++) {
         if (max < list[i]) {
           max = list[i]
-          point=i
-          list[i]=-2
+          point = i
+          list[i] = -2
         }
       }
       index.push(point)
       count++
     }
-   
     return index
+  },
+  saveResult() {
+    wx.getStorage({ key: 'user' })
+      .then(res => {
+        let testName = this.data.id
+        let result = this.data.saveList
+        let info = {id: res.data.id, testName, result } 
+        request.post('psy_test/savePsyResult', info)
+          .then(res => {
+            this.setData({disable:true}) 
+          })
+      })
+  },
+  back() {
+    wx.navigateBack()
   }
 
 })

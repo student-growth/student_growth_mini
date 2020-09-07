@@ -1,7 +1,13 @@
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">进度详情</view>
+  <view slot="content">{{applyName}}</view>
 </cu-custom>
+<view class="cu-bar bg-white solid-bottom">
+  <view class="action">
+    <text class="cuIcon-titles text-blue"></text>
+    {{applyName}}
+  </view>
+</view>
 <block wx:if="{{state=='APPLYING'}}">
   <view class="cu-bar bg-blue light shadow-blur">
     <text class="cuIcon-titles">项目正在审核中,同学耐心等待...</text>
@@ -17,39 +23,67 @@
     <text class="cuIcon-titles">该项目申请通过</text>
   </view>
 </block>
-<view class="cu-bar bg-white solid-bottom margin-top">
-  <view class="action">
-    <text class="cuIcon-titles text-blue"></text>
-    表单详情
+<block wx:elif="{{state=='CANCEL'}}">
+  <view class="cu-bar bg-gray ">
+    <text class="cuIcon-info">该项目已经撤回,修改后可重新申请</text>
   </view>
-</view>
-<view class="cu-card dynamic">
-  <view class="cu-list menu margin radis">
-    <view class="cu-form-group" wx:for="{{formTemp}}" wx:key="id" wx:for-index="index" wx:for-item="item">
-      <view class="title bold">{{item.name+":"}}</view>
-      <input name="{{item.key}}" type="{{item.type}}" value="{{item.value}}" disabled="{{true}}" />
-    </view>
+</block>
+<form bindsubmit="submitModify" bindreset="resetModify">
+  <view class="cu-form-group" wx:for="{{formTemp}}" wx:key="id" wx:for-index="index" wx:for-item="item">
+    <view class="title bold {{disabled?'text-grey':''}}">{{item.name+":"}}</view>
+    <block wx:if="{{item.type=='time'}}">
+      <picker disabled="{{disabled}}" mode="date" name="{{item.key}}" value="{{item.value}}" start="2000-01-01" end="2030-01-01" bindchange="DateChange" data-index='{{index}}'>
+        <view class="picker">{{item.value}}</view>
+      </picker>
+    </block>
+    <block wx:elif="{{item.type=='picker'}}">
+      <picker disabled="{{disabled}}" bindchange="PickerChange" name="{{item.key}}" data-arr='{{item.pickerItem}}' data-index='{{index}}' value="{{item.value}}" range="{{item.pickerItem}}">
+        <view class="picker">{{item.value}}</view>
+      </picker>
+    </block>
+    <block wx:else>
+      <input name="{{item.key}}" type="{{item.type}}" value="{{item.value}}" disabled="{{disabled}}" />
+    </block>
   </view>
   <!-- <view class="cu-item "></view> -->
-</view>
-<view class="cu-bar bg-white solid-bottom">
-  <view class="action">
-    <text class="cuIcon-titles text-orange"></text>
-    申请图片
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-titles text-orange"></text>
+      申请图片
+    </view>
   </view>
-</view>
-<view class="image-box" bind:tap="viewImage" data-url="{{image}}">
-  <image src="{{image}}" mode="aspectFill" class="image-css" />
-  <view class="cu-tag bg-grey zoom">
-    <text class="text-black">点击放大</text>
-  </view>
-</view>
-<view class="btn-group">
-  <button class="cu-btn shadow-blur flex-sub bg-grey padding-sm margin-xs">返回</button>
-  <block wx:if="{{state=='REFUSED'}}">
-    <button class="cu-btn shadow-blur flex-sub bg-red padding-sm margin-xs">撤销申请</button>
+  <block wx:if="{{disabled}}">
+    <view class="image-box" bind:tap="viewImage" data-url="{{image}}">
+      <image src="{{image}}" mode="aspectFill" class="image-css" />
+      <view class="cu-tag bg-grey zoom">
+        <text class="text-black">点击放大</text>
+      </view>
+    </view>
   </block>
   <block wx:else>
-    <button class="cu-btn shadow-blur flex-sub bg-green padding-sm margin-xs">确定</button>
+    <view class="margin grid col-3 grid-square flex-sub bg-white">
+      <view class="bg-img " wx:for="{{imgList}}" wx:key="id" bindtap="ViewImage" data-url="{{imgList[index]}}">
+        <image src='{{imgList[index]}}' mode='aspectFill'></image>
+        <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+          <text class="cuIcon-close"></text>
+        </view>
+      </view>
+      <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length!=1}}">
+        <text class="cuIcon-cameraadd"></text>
+      </view>
+    </view>
   </block>
-</view>
+  <view class="btn-group">
+    <block wx:if="{{disabled}}">
+      <button bind:tap="back" class="cu-btn shadow-blur flex-sub bg-olive padding-sm margin-xs">返回</button>
+    </block>
+    <block wx:else>
+      <button form-type="reset" class="cu-btn shadow-blur flex-sub bg-grey padding-sm margin-xs">
+        重置
+      </button>
+      <button form-type="submit" class="cu-btn shadow-blur flex-sub bg-olive padding-sm margin-xs">
+        提交申请
+      </button>
+    </block>
+  </view>
+</form>

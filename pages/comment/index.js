@@ -1,45 +1,53 @@
 // pages/comment/index.js
 import request from '../../request/index.js'
 Page({
-
   data: {
     show: false,
     showError: false,
-    // todo 测试数据
-    student: [
-      { id: '123', name: '李玉娥', grade: '物联网1802' },
-      { id: '124', name: '李玉娥', grade: '物联网1802' },
-      { id: '125', name: '李玉娥', grade: '物联网1802' },
-      { id: '126', name: '李玉娥', grade: '物联网1802' },
-    ],
   },
-  //为其他同学评分
+  //显示弹窗
   scoring(e) {
     let index = e.currentTarget.dataset.index;
     this.setData({ index: index })
     this.showModal()
   },
   showModal() {
-    //刷新表单数据 
     this.setData({ show: true })
   },
-  //隐藏对话窗口
+
   hideModal(e) {
-    this.setData({ 
+    this.setData({
       show: false
     })
   },
   onLoad: function () {
-    //网络请求
-  },
-  //提交表单
-  submitForm(e) {
-    console.log(e.detail.value)
-    let formData = e.detail.value;
-
-    request.post('commit', { formData })
+    wx.getStorage({ key: 'user' })
       .then(res => {
-        // console.log(res)
+        this.getStudentInfo(res.data)
+        this.setData({ user: res.data })
+      })
+
+  },
+  onReady: function () {
+    let id = this.data.user.id
+    this.getAllScore(id)
+  },
+  getStudentInfo(user) {
+    let id = user.id
+    let grade = user.grade
+    request.get("open/studentInfo", { id, grade })
+      .then(res => {
+        this.setData({
+          students: res.list
+        })
+      })
+  },
+  comment(formData) {
+    request.post('student/comment', formData)
+      .then(res => {
+        this.hideModal()
+        this.showSuccess()
+      }).catch(err => {
         wx.showToast({
           title: res.sysError,
           icon: 'none',
@@ -47,9 +55,42 @@ Page({
         })
       })
   },
+  getAllScore(id) {
+    request.get('student/getCommentScore', { id })
+      .then(res => {
+        this.concatScore(res.list)
+      })
+  },
+
+  concatScore(list){
+    let students = this.data.students
+    let id=this.data.user.id
+    for(let i=0;i<list.length;i++){
+      students.forEach(item=>{
+        if(item.id==list[i].other)
+        item.psychology = list[i].psy
+        item.moral=list[i].moral
+      })
+      if(id==list[i].other){
+        let self={moral:list[i].moral,psychology:list[i].psy}
+        this.setData({
+           self
+        })
+      }
+    }
+    this.setData({students})
+  },
+  //提交表单
+  submitForm(e) {
+    let formData = e.detail.value;
+    let id = this.data.user.id
+    formData.id = id
+    formData.other = id
+    //提交评论
+    this.comment(formData)
+  },
 
   charaInput(e) {
-
     this.setData({
       showError: false,
       'dialogForm.moral': e.detail.value
@@ -57,44 +98,43 @@ Page({
 
   },
   psyInput(e) {
-    this.setData({ 
-      showError:false,
-      'dialogForm.psy': e.detail.value })
+    this.setData({
+      showError: false,
+      'dialogForm.psychology': e.detail.value
+    })
   },
   // 对话框提交
-  dialogFormSubmiit(e) { 
+  dialogFormSubmit() {
     let formData = this.data.dialogForm
-    if (formData.psy < 0 || formData.psy > 100 || formData.moral < 0 || formData.moral > 100) {
+    formData.id = this.data.user.id
+    if (formData.psychology < 0 || formData.psychology > 100
+      || formData.moral < 0 || formData.moral > 100) {
       this.setData({
         showError: true
       })
       return
-    } 
-  
+    }
     let index = this.data.index
-    console.log(index)
-    let psy = 'student[' + index + '].psy'
-    let moral = 'student[' + index + '].moral'
+    console.log(typeof index)
+    let psychology = `students[${index}].psychology`
+    let moral = `students[${index}].moral`
     this.setData({
-      [psy]: formData.psy,
+      [psychology]: formData.psychology,
       [moral]: formData.moral
     })
-    request.post('commit', this.data.dialogForm)
-      .then(res => {
-        this.hideModal()
-      }).catch(err => {
-         
-        wx.showToast({
-          title: JSON.stringify(err),
-          icon: 'none'
-        })
-        this.hideModal()
-      })
+    formData.other = this.data.students[index].id
+    this.comment(formData)
   },
   resetForm() {
     this.setData({
       dialogForm: null,
       showDialogue: false
+    })
+  },
+  showSuccess() {
+    wx.showToast({
+      key: "评论成功",
+      icon: 'none'
     })
   }
 })

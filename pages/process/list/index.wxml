@@ -8,16 +8,17 @@
   </view>
 </scroll-view>
 <view class="cu-list menu " style="margin-top:100rpx">
-  <block wx:if="{{prcessList==undefined || prcessList.length==0}}">
+  <block wx:if="{{processList==undefined || processList.length==0}}">
     <view class="empty">
       <text class="cuIcon-pick text-orange">这里是空的</text>
     </view>
   </block>
   <block wx:else>
-    <view class="cu-item solid-bottom {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{prcessList}}" wx:key="id" bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+    <view class="cu-item solid-bottom {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{processList}}" wx:key="id" bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}" style="display:{{item.tag}}">
       <view class="content padding-sm">
         <view class="text-grey">
-          <text class="cuIcon-btn text-olive">{{item.applyName}}</text>
+          <text class="cuIcon-tag text-blue"></text>
+          <text class="text-darkblue">{{item.applyName}}</text>
         </view>
         <view class="text-cut text-sm radius" style="width:320rpx;">此处放项目简介</view>
       </view>
@@ -29,13 +30,7 @@
           </view>
         </view>
       </block>
-      <block wx:elif="{{item.applyState=='REFUSED'}}">
-        <view class="action margin-right">
-          <view class="cu-capsule">
-            <view class="cu-tag bg-red ">分数</view>
-            <view class="cu-tag line-red">{{index}}</view>
-          </view>
-        </view>
+      <block wx:elif="{{item.applyState=='REFUSED'}}"> 
         <view class="action">
           <view class="text-black">
             <text class="cuIcon-roundclosefill text-red"></text>
@@ -57,16 +52,26 @@
           </view>
         </view>
       </block>
+      <block wx:else="{{item.applyState=='CANCEL'}}">
+        <view class="action">
+          <view class="text-black">
+            <text class="cuIcon-refresh text-grey"></text>
+            已撤销
+          </view>
+        </view>
+      </block>
       <block wx:if="{{TabCur==0 || TabCur==1}}">
         <view class="move">
           <view class="bg-grey" bind:tap="checkDetail" data-item="{{item}}">详情</view>
-          <view class="bg-red">撤回</view>
+          <view class="bg-red" bind:tap="cancelApply" data-index='{{index}}' data-id='{{item.id}}'>
+            撤回
+          </view>
         </view>
       </block>
       <block wx:elif="{{TabCur==2 ||TabCur==3}}">
         <view class="move">
           <view class="bg-grey" bind:tap="checkDetail" data-item="{{item}}">详情</view>
-          <view class="bg-red">编辑</view>
+          <view class="bg-blue" bind:tap="modifyApply" data-item='{{item}}'>编辑</view>
         </view>
       </block>
     </view>

@@ -1,0 +1,26 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">反馈列表</view>
+</cu-custom>
+<view class="cu-bar bg-white solid-bottom">
+  <view class="action">
+    <text class="cuIcon-titles text-blue "></text>
+    反馈列表
+  </view>
+</view>
+<view class="cu-list menu">
+  <view class="cu-item" wx:for="{{quesList}}" wx:key="id" bind:tap="checkQuesDetail" data-index='{{index}}'>
+    <view class="content padding-tb-sm">
+      <view>
+        <text class="cuIcon-questionfill text-orange margin-right-xs"></text>
+        <text class="font-bold">{{item.title}}</text>
+      </view>
+      <view class="text-black text-sm"> 
+        <text class="text-cut">内容:{{item.content}}</text>
+      </view>
+    </view>
+    <view class="action">
+      <text class="cuIcon-right text-black"></text>
+    </view>
+  </view>
+</view>

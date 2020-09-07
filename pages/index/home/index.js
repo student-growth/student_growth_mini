@@ -6,7 +6,8 @@ const app =getApp();
 Page({
   data: {
     cardCur: 0,
-    user:app.globalData.user
+    toolsList:store.toolsList
+    //user:app.globalData.user
   },
   cardSwiper(e) {
     this.setData({
@@ -24,24 +25,23 @@ Page({
     wx.navigateTo({url:'/pages/auth/center/index'})
   },
   onLoad: function (options) {
-    let user = app.globalData.user;
-    this.setData({
-      toolsList:store.toolsList,
-      user
-    }) 
+    wx.getStorage({key:'user'}).then(res=>{
+      this.setData({user:res.data})
+    })
     this.getSwiperList()
     this.getNewsList();
     //this.getQuesList();
   },
   
-  //获得问题列表
-  getQuesList(){
-    request.get('question/getQues',{size:3})
-    .then(res=>{
-      this.setData({questlist:res.list})
-    })
-  },
+  // 获得问题列表
+  // getQuesList(){
+  //   request.get('question/getQues',{size:3})
+  //   .then(res=>{
+  //     this.setData({questlist:res.list})
+  //   })
+  // },
   //getNewsList
+  //todo 获得新闻列表
   getNewsList(){
     request.get('stu_news/news_list',{size:5})
     .then(res=>{
@@ -50,7 +50,7 @@ Page({
   },
   //获取具体的文件内容
   checkNewsDeatil(e){
-    console.log(e.currentTarget.dataset)
+     wx.navigateTo({url:'/pages/index/newsdetail/index'})
   },
   //getSwiperList
   getSwiperList(){

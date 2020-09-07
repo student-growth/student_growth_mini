@@ -7,7 +7,7 @@ const toolsList = [{
 }, {
   id: 3, name: '谁是大神', url: '/pages/rank/home/index', icon: 'choicenessfill', color: 'olive'
 }, {
-  id: 4, name: '个性化榜单', url: '/pages/personalise/list/index', icon: 'friendfill', color: 'red'
+  id: 4, name: '个性化榜单', url: '/pages/personalise/index', icon: 'friendfill', color: 'red'
 }, {
   id: 5, name: '个人测试', url: '/pages/personaltest/list/index', icon: 'profilefill', color: 'brown'
 }, {

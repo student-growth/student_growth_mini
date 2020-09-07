@@ -6,13 +6,17 @@ Page({
     state: ['已申请',  '已通过', '已拒绝','已撤消'],
     stateList: ['APPLYING', 'PASS', 'REFUSED', 'CANCEL'],
     TabCur: 0,
-    table: {}
+    isModify:false
   },
   // 选择类型
   tabSelect(e) {
     let index =e.currentTarget.dataset.id
+    let formData={
+      studentId:this.data.userId,
+      state:this.data.stateList[index]
+    }
     this.setData({ TabCur: index })
-    this.getProcessList(index)
+    this.getProcessList(formData)
   },
   // ListTouch触摸开始
   ListTouchStart(e) {
@@ -43,36 +47,53 @@ Page({
     })
   },
   onLoad: function (options) {
-    this.getProcessList(0)
-  },
-
-  getProcessList(index) {
-    request.post("student/getProcessList",
-      {
-        studentId: app.globalData.user.id,
-        state: this.data.stateList[index]
-      }
-    ).then(res => { 
+    wx.getStorage({key:'user'})
+    .then(res=>{
+      let formData={studentId:res.data.id,
+        state:this.data.stateList[0]}
+      this.getProcessList(formData)
       this.setData({
-        prcessList: res.list
-      })
-    }).catch(err => {
-      
-      wx.showToast({
-        title: JSON.stringify(err),
-        icon: 'none',
-        duration: 3000
+        userId:res.data.id
       })
     })
-     
+    
+  },
+
+  getProcessList(info) {
+    request.post("student/getProcessList",info).then(res => { 
+      this.setData({
+        processList: res.list
+      })
+    })
   },
   //查看详情按钮
   checkDetail(e) {
     let item = e.currentTarget.dataset.item
-    wx.navigateTo({ url: '../detail/index' })
+    wx.navigateTo({ url: '../detail/index?applyName='+item.applyName })
     wx.setStorage({
       key: "processDetail",
       data: item
     })
+  },
+  //撤销申请
+  cancelApply(e){ 
+    //申请编号
+    let id =e.currentTarget.dataset.id
+    let index=e.currentTarget.dataset.index 
+    request.get('apply/cancel',{id})
+    .then(res=>{
+      //this index object display is none 
+      let tag=`processList[${index}].tag`
+      this.setData({
+        [tag]:'none'
+      })
+    })
+  },
+  //编辑申请内容
+  modifyApply(e){
+    let item=e.currentTarget.dataset.item
+     wx.navigateTo({
+       url:'/pages/process/detail/index?disabled=false&applyName='+item.applyName+'&id='+item.id
+     })
   }
 })

@@ -12,7 +12,7 @@
       <button class="flex-sub margin-xs padding-sm cu-btn bg-white" bindtap="showModal" data-target="viewModal">
         查看达标名单
       </button>
-      <button class="flex-sub margin-xs padding-sm cu-btn bg-white" bind:tap="apply" data-name="individual">申请</button>
+      <button class="flex-sub margin-xs padding-sm cu-btn bg-white" bind:tap="apply" data-index="{{index}}">申请</button>
     </view>
   </view>
 </scroll-view>

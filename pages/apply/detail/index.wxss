@@ -5,3 +5,6 @@
   font-size: 1rem;
   padding: 8rpx;
 }
+.margin-lg{
+  margin: 40rpx 16rpx;
+}
