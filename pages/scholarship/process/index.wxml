@@ -1,0 +1,53 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">奖学金进度</view>
+</cu-custom>
+<view class="cu-bar bg-white solid-bottom">
+  <view class="action">
+    <text class="cuIcon-titles text-blue"></text>
+    {{title}}
+  </view>
+  <view class="action  padding-xs radius bg-white">
+    <picker mode="selector" bindchange="chooseSemester" value="{{semester[index]}}" range="{{semester}}">
+      <view class="picker">{{semester[index]}}</view>
+    </picker>
+    <view class="cuIcon-triangledownfill text-black"></view>
+  </view>
+</view>
+<block wx:if="{{list==undefined|| list.length==0}}">
+  <view class="cu-item item-empty">
+    <text class="cuIcon-warnfill text-orange">暂无数据</text>
+  </view>
+</block>
+<!-- 处理非空数据 -->
+<block wx:else>
+  <block wx:for="{{list}}" wx:key="id">
+    <view class="cu-timeline">
+      <view class="cu-time">{{item.createTime}}</view>
+      <view class="cu-item">
+        <view class="content">
+          <view class="cu-capsule radius">
+            <view class="cu-tag bg-cyan">申请状态</view>
+            <block wx:if="{{item.applyStatus=='APPLYING'}}">
+              <view class="cu-tag line-cyan">{{item.applyStatus}}</view>
+            </block>
+            <block wx:if="{{item.applyStatus=='PASS'}}">
+              <view class="cu-tag line-green">{{item.applyStatus}}</view>
+            </block>
+            <block wx:if="{{item.applyStatus=='REFUSED'}}">
+              <view class="cu-tag line-red">{{item.applyStatus}}</view>
+            </block>
+            
+          </view>
+          <view class="margin-top">申请等级：{{item.applyLevel==0?'无等级分类':item.applyLevel+'等级'}}</view>
+          <block wx:if="{{item.auditResults}}">
+            <view class="margin-top">审核评语：{{item.auditResults}}</view>
+          </block>
+          <block wx:else>
+            <view class="margin-top">暂无审核评语</view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </block>
+</block>

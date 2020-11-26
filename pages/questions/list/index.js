@@ -8,6 +8,9 @@ Page({
   },
   onReady: function () {
     let user = wx.getStorageSync('user')
+    if(user==null||user==undefined){
+     wx.navigateTo('/pages/login/home/index')
+    }
     let formData = {
       studentId: user.id,
       size: -1
@@ -15,10 +18,12 @@ Page({
     this.getQestionList(formData)
   },
   getQestionList(formData) {
+    wx.showLoading()
     request.get('question/list', formData).then(res => {
+      wx.hideLoading()
       this.setData({ quesList: res.list })
     }).catch(err => {
-      console.log(err)
+      wx.hideLoading()
       wx.showToast({
         title: '获取数据失败:' + JSON.stringify(err)
       })

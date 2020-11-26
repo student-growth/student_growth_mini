@@ -1,0 +1,113 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">{{student.name}}的分数详细</view>
+</cu-custom>
+<view class="cu-bar bg-pink light solid-bottom">
+  <view class="action">
+    <text class="cuIcon-titles text-pink"></text>
+    品德素质
+  </view>
+</view>
+<view class="cu-item menu">
+  <view class="cu-form-group">
+    <view class="title">基本分数：</view>
+    <input type="number" value="{{student.moralBase}}" disabled />
+  </view>
+  <view class="cu-form-group">
+    <view class="title">纪实分数：</view>
+    <input type="number" value="{{student.moralExtra}}" disbaled />
+  </view>
+  <view class="cu-form-group">
+    <view class="title">品德素质分数</view>
+    <input type="number" value="{{student.moralTotal}}" disbaled />
+  </view>
+  <view class="cu-form-group">
+    <view class="title">品德素质排名</view>
+    <input type="number" value="{{student.moralRank}}" disbaled />
+  </view>
+</view>
+<view class="cu-bar bg-blue light solid-bottom">
+  <view class="action">
+    <text class="cuIcon-titles text-blue"></text>
+    专业素质
+  </view>
+</view>
+<view class="cu-item menu">
+  <view class="cu-form-group">
+    <view class="title">基本成绩：</view>
+    <input type="number" value="{{student.profBase}}" disabled />
+  </view>
+  <view class="cu-form-group">
+    <view class="title">附加分：</view>
+    <input type="number" value="{{student.profExtra}}" disabled />
+  </view>
+  <view class="cu-form-group">
+    <view class="title">总分：</view>
+    <input type="number" value="{{student.profTotal}}" disabled />
+  </view>
+  <view class="cu-form-group">
+    <view class="title">名次</view>
+    <input type="number" value="{{student.profRank}}" disabled />
+  </view>
+</view>
+<view class="cu-bar bg-purple light solid-bottom">
+  <view class="action">
+    <text class="cuIcon-titles text-purple"></text>
+    身心素质
+  </view>
+</view>
+<view class="cu-item menu">
+  <view class="cu-form-group">
+    <view class="title">身体素质：</view>
+    <input type="number" value="{{student.healthScore}}" disabled />
+  </view>
+  <view class="cu-form-group">
+    <view class="title">心理素质：</view>
+    <input type="number" value="{{student.psychScore}}" disabled />
+  </view>
+  <view class="cu-form-group">
+    <view class="title">总分：</view>
+    <input type="number" value="{{student.healthPsychTotal}}" disabled />
+  </view>
+</view>
+<view class="cu-bar bg-orange light solid-bottom">
+  <view class="action">
+    <text class="cuIcon-titles text-orange"></text>
+    综合能力
+  </view>
+</view>
+<view class="cu-list menu" style="margin-bottom:120rpx">
+  <view class="cu-form-group">
+    <view class="title">研究创新：</view>
+    <input type="number" value="{{student.creative}}" disabled />
+  </view>
+  <view class="cu-form-group">
+    <view class="title">专业技能：</view>
+    <input type="number" value="{{student.profession}}" disabled />
+  </view>
+  <view class="cu-form-group">
+    <view class="title">组织领导：</view>
+    <input type="number" value="{{student.leader}}" disabled />
+  </view>
+  <view class="cu-form-group">
+    <view class="title">社会实践：</view>
+    <input type="number" value="{{student.practice}}" disabled />
+  </view>
+  <view class="cu-form-group">
+    <view class="title">文体特长：</view>
+    <input type="number" value="{{student.special}}" disabled />
+  </view>
+  <view class="cu-form-group">
+    <view class="title">总分：</view>
+    <input type="number" disabled value="{{student.totalScore}}" />
+  </view>
+  <view class="cu-form-group">
+    <view class="title">名次：</view>
+    <input type="number" disabled value="{{student.totalRank}}" />
+  </view>
+</view>
+<view class="btn-group">
+  <button bind:tap="back" class="cu-btn shadow-blur flex-sub bg-grey padding-sm margin-xs">
+    返回
+  </button>
+</view>

@@ -15,8 +15,10 @@ Page({
       studentId:user.id,
       size:3
     }
+    wx.showLoading()
     request.get('question/list',formData)
     .then(res=>{  
+      wx.hideLoading()
       this.setData({questlist:res.list})
     })
   },
@@ -39,8 +41,10 @@ Page({
     this.setData({countFount:str.length})
   },
   saveQues(formData){
+    wx.showLoading()
     request.post('question/save',formData)
     .then(res=>{
+      wx.hideLoading()
       wx.showToast({
         title:'反馈成功',
         icon:'none'
@@ -49,12 +53,11 @@ Page({
          disabled:true
        })
     }).catch(err=>{
-      console.log(err)
+      wx.hideLoading()
       wx.showToast({title:'提交失败',icon:'none'})
     })
   },
   checkMore(){
     wx.navigateTo({url:'/pages/questions/list/index'})
-  }
-
+  } 
 })

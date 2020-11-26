@@ -26,16 +26,18 @@
     "pages/scholarship/list/merit",
     "pages/scholarship/list/outstand",
     "pages/scholarship/form/index",
+    "pages/scholarship/process/index",
     
     "pages/questions/home/index",
     "pages/questions/list/index",
     "pages/questions/detail/index",
-    
+  
     "pages/comment/index",
     "pages/index/newsdetail/index",
     "pages/process/detail/index",
     "pages/login/forget/index",
-    "pages/auth/setting/index"
+    "pages/auth/setting/index",
+    "pages/rank/detail/index"
 
   ],
   "window": {

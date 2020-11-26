@@ -46,7 +46,7 @@ Page({
       ListTouchDirection: null
     })
   },
-  onLoad: function (options) {
+  onReady: function (options) {
     wx.getStorage({key:'user'})
     .then(res=>{
       let formData={studentId:res.data.id,
@@ -55,9 +55,11 @@ Page({
       this.setData({
         userId:res.data.id
       })
-    })
-    
+    }) 
   },
+
+  
+  
 
   getProcessList(info) {
     request.post("student/getProcessList",info).then(res => { 
@@ -92,6 +94,11 @@ Page({
   //编辑申请内容
   modifyApply(e){
     let item=e.currentTarget.dataset.item
+    let index=e.currentTarget.dataset.index 
+    let tag=`processList[${index}].tag`
+      this.setData({
+        [tag]:'none'
+      })
      wx.navigateTo({
        url:'/pages/process/detail/index?disabled=false&applyName='+item.applyName+'&id='+item.id
      })

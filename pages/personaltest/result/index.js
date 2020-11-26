@@ -138,19 +138,30 @@ Page({
     return index
   },
   saveResult() {
-    wx.getStorage({ key: 'user' })
+    let user = wx.getStorageSync('user')
+    let testName=this.data.id;
+    let result = this.data.saveList;
+    let info = { id: user.id, testName, result }
+    
+    wx.showLoading()
+    request.post('psy_test/savePsyResult', info)
       .then(res => {
-        let testName = this.data.id
-        let result = this.data.saveList
-        let info = {id: res.data.id, testName, result } 
-        request.post('psy_test/savePsyResult', info)
-          .then(res => {
-            this.setData({disable:true}) 
-          })
+        wx.hideLoading()
+        wx.showToast({title:'保存成功',icon:'none',duration:4000})
+        this.setData({ disable: true })
+        wx.navigateTo({
+          url:'/pages/personaltest/list/index'
+        })
+      }).catch(err=>{
+        wx.hideLoading()
+        wx.showToast({title:'错误：'+JSON.stringify(err),icon:'none',duration:4000})
       })
+     
   },
   back() {
-    wx.navigateBack()
+    wx.navigateTo({
+      url:'/pages/personaltest/list/index'
+    })
   }
 
 })

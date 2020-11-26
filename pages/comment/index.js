@@ -4,6 +4,7 @@ Page({
   data: {
     show: false,
     showError: false,
+
   },
   //显示弹窗
   scoring(e) {
@@ -17,16 +18,19 @@ Page({
 
   hideModal(e) {
     this.setData({
+      dialogForm:{},
       show: false
     })
   },
   onLoad: function () {
-    wx.getStorage({ key: 'user' })
-      .then(res => {
-        this.getStudentInfo(res.data)
-        this.setData({ user: res.data })
-      })
-
+    let user= wx.getStorageSync('user');
+    this.getStudentInfo(user)
+    //计算学年
+    let year=new Date().getFullYear()
+    this.setData({ user,
+      semester:year+'-'+(year+1)+'学年'
+    })
+     
   },
   onReady: function () {
     let id = this.data.user.id
@@ -43,21 +47,27 @@ Page({
       })
   },
   comment(formData) {
+    wx.showLoading({title:'加载中'})
     request.post('student/comment', formData)
       .then(res => {
-        this.hideModal()
+        wx.hideLoading()
         this.showSuccess()
+        this.hideModal()
       }).catch(err => {
+         
+        wx.hideLoading()
+        this.hideModal()
         wx.showToast({
-          title: res.sysError,
-          icon: 'none',
-          duration: 3000
+          title: "错误："+JSON.stringify(err.data),
+          icon: 'none'
         })
       })
   },
   getAllScore(id) {
+    wx.showLoading()
     request.get('student/getCommentScore', { id })
       .then(res => {
+        wx.hideLoading()
         this.concatScore(res.list)
       })
   },
@@ -65,6 +75,9 @@ Page({
   concatScore(list){
     let students = this.data.students
     let id=this.data.user.id
+    if(list==undefined||list==null){
+      return 
+    }
     for(let i=0;i<list.length;i++){
       students.forEach(item=>{
         if(item.id==list[i].other)
@@ -114,8 +127,7 @@ Page({
       })
       return
     }
-    let index = this.data.index
-    console.log(typeof index)
+    let index = this.data.index 
     let psychology = `students[${index}].psychology`
     let moral = `students[${index}].moral`
     this.setData({
@@ -127,13 +139,13 @@ Page({
   },
   resetForm() {
     this.setData({
-      dialogForm: null,
-      showDialogue: false
+      dialogForm:{},
+      show: false
     })
   },
   showSuccess() {
     wx.showToast({
-      key: "评论成功",
+      title: "评论成功",
       icon: 'none'
     })
   }

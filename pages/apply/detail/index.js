@@ -26,11 +26,10 @@ Page({
     })
   },
   onReady: function () {
-    wx.getStorage({
-      key: 'user'
-    }).then(res => this.setData({
-      user: res.data
-    }))
+    let user= wx.getStorageSync('user')
+    this.setData({
+      user
+    })
   },
   PickerChange(e) {
     let value = e.detail.value
@@ -52,7 +51,7 @@ Page({
 
   ChooseImage() {
     wx.chooseImage({
-      count: 3,
+      count: 1,
       sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album'], //从相册选择
       success: (res) => {
@@ -90,37 +89,63 @@ Page({
     })
   },
 
-  //提交申请
   handleSubmit(e) {
     let info = {
       formData: JSON.stringify(e.detail.value),
       formTemp: JSON.stringify(this.data.formTemp),
-      userId: this.data.user.id,
+      studentId: this.data.user.id,
       applyId: this.data.applyId,
       applyName: this.data.name,
       score: this.data.score
     }
     let imagePath = this.data.imgList[0]
-    request.upload('apply/submit', info, imagePath)
-      .then(res => {
-        this.setData({
-          disable: true
+    wx.showLoading({
+      title: '上传中...'
+    })
+    this.setData({
+      disable: true
+    })
+    //如果没有选择图片
+    if (this.data.imgList == undefined || this.data.imgList.length == 0) {
+      request.post('apply/submit_no_image', info)
+        .then(res => {
+          wx.showModal({
+            title: '申请成功',
+            content: '请到【进度查询】中查看申请进度'
+          })
+          wx.hideLoading()
+        }).catch(err => {
+          wx.hideLoading()
+          wx.showToast({
+            title: "上传失败",
+            icon: 'none',
+            duration: 3000
+          })
+          this.setData({
+            disable: false
+          })
         })
-        wx.showModal({
-          title: '申请成功',
-          content: '请到【进度查询】中查看申请进度',
-          success(res) {
-            if (res.confirm) {
-              console.log('用户点击确定')
-            } else if (res.cancel) {
-              console.log('用户点击取消')
-            }
-          }
+    } else {
+      request.upload('apply/submit', info, imagePath)
+        .then(res => {
+          console.log(res)
+          wx.showModal({
+            title: '申请成功',
+            content: '请到【进度查询】中查看申请进度'
+          })
+          wx.hideLoading()
+        }).catch(err => {
+          wx.hideLoading()
+          wx.showToast({
+            title: "上传失败",
+            icon: 'none',
+            duration: 3000
+          })
+          this.setData({
+            disable: false
+          })
         })
-      }).catch(err=>{
-        
-      })
-
+    }
   },
 
   handleReset(e) {

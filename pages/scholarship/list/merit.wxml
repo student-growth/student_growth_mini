@@ -14,8 +14,9 @@
     </view>
   </view>
   <view class="flex margin">
-    <button bind:tap="showModal" data-target="viewModal" class="flex-sub margin-xs padding-sm cu-btn bg-olive lg">查看达标名单</button>
+    <!-- <button bind:tap="showModal" data-target="viewModal" class="flex-sub margin-xs padding-sm cu-btn bg-olive lg">查看名单</button> -->
     <button bind:tap="apply" data-index="{{index}}" class="flex-sub margin-xs padding-sm cu-btn bg-blue lg">申请</button>
+    <button bind:tap="checkProcess" data-index="{{index}}" class="flex-sub margin-xs padding-sm cu-btn bg-orange lg">查看进度</button>
   </view>
 </scroll-view>
 <view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">

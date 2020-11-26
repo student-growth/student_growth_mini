@@ -21,6 +21,9 @@ Page({
     })
   },
   apply(e){ 
-    wx.navigateTo({url:'/pages/scholarship/form/index?title="优秀学生综合奖学金"'})
+    wx.navigateTo({url:'/pages/scholarship/form/index?title=优秀学生综合奖学金'})
+  },
+  checkProcess(e){
+    wx.navigateTo({url:'/pages/scholarship/process/index?title=优秀学生综合奖学金'})
   }
 })

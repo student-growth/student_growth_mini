@@ -24,3 +24,11 @@
   color: #2980b9;
   padding: 0 20rpx;
 }
+.font-count{
+  position: absolute;
+  bottom: 0;
+  right: 8rpx;
+}
+.cu-form-group{
+  position: relative;
+}

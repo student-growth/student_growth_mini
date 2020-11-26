@@ -10,7 +10,7 @@
 <view class="cu-list menu " style="margin-top:100rpx">
   <block wx:if="{{processList==undefined || processList.length==0}}">
     <view class="empty">
-      <text class="cuIcon-pick text-orange">这里是空的</text>
+      <text class="cuIcon-pick text-orange">暂无数据</text>
     </view>
   </block>
   <block wx:else>
@@ -20,7 +20,7 @@
           <text class="cuIcon-tag text-blue"></text>
           <text class="text-darkblue">{{item.applyName}}</text>
         </view>
-        <view class="text-cut text-sm radius" style="width:320rpx;">此处放项目简介</view>
+        <!-- <view class="text-cut text-sm radius" style="width:320rpx;">此处放项目简介</view> -->
       </view>
       <block wx:if="{{item.applyState=='APPLYING'}}">
         <view class="action">
@@ -71,7 +71,7 @@
       <block wx:elif="{{TabCur==2 ||TabCur==3}}">
         <view class="move">
           <view class="bg-grey" bind:tap="checkDetail" data-item="{{item}}">详情</view>
-          <view class="bg-blue" bind:tap="modifyApply" data-item='{{item}}'>编辑</view>
+          <view class="bg-blue" bind:tap="modifyApply" data-index='{{index}}' data-item='{{item}}'>编辑</view>
         </view>
       </block>
     </view>

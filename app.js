@@ -8,6 +8,9 @@ App({
     }
     wx.getSystemInfo({
       success: e => {
+        //计算当前学年
+        let year = new Date().getFullYear()
+        this.globalData.semester=year+'-'+(year+1);
         this.globalData.StatusBar = e.statusBarHeight;
         let capsule = wx.getMenuButtonBoundingClientRect();
         if (capsule) {
@@ -21,7 +24,7 @@ App({
   },
   onPageNotFound: function () {
     wx.navigateTo({
-      url: '/pages/login/index'
+      url: '/pages/login/home/index'
     });
 
   },
@@ -29,9 +32,8 @@ App({
     version: '1.0.0',
     host: 'http://localhost:8800/',
     imgHost: 'http://47.114.44.188:8888/',
-    remoteHost: 'http://47.114.44.188:8080/',
-    //测试数据
-    //user:{id:'1611050101',name:'李玉娥',grade:'物联网1802',sex:'女'}
-     user: {}
+    remoteIP: 'http://47.114.44.188:8080/',
+    remoteHost:'http://www.zjgsu.com.cn:8080/',
+    user: {}
   }
 })

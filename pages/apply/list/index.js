@@ -14,9 +14,14 @@ Page({
   },
   //获取申请列表
   getApplyList(sort) {
+    wx.showLoading()
     request.get('project/applyList', { sort })
       .then(res => {
+        wx.hideLoading()
         this.setData({ contentData: res.data })
+      }).catch(err=>{
+        wx.hideLoading()
+        wx.showToast({title:'获取数据失败:'+err.data.sysError,icon:'none',duration:3000})
       })
 
   },
@@ -33,16 +38,22 @@ Page({
       }
     })
   },
-
   searchProject(e) {
     let value = e.detail.value
     if (e.detail.value == "") {
       this.setData({ fuzzyList: null })
     } else {
+      wx.showLoading()
       request.get('project/fuzzyQuery', { keyword: value })
         .then(res => {
+          wx.hideLoading()
           this.setData({
             fuzzyList: res.list
+          })
+        }).catch(err=>{
+          wx.hideLoading() 
+          this.setData({
+            fuzzyList: []
           })
         })
     }

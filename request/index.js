@@ -1,9 +1,11 @@
 const app = getApp()
 const request = (url, options) => {
+
   return new Promise((resolve, reject) => {
     wx.request({
-      // todo 修改远程Host: url:`${app.globalData.remoteHost}${url}`
-      url: `${app.globalData.host}${url}`,
+      // todo 修改远程Host: 
+      url: `${app.globalData.remoteHost}${url}`,
+      //url: `${app.globalData.host}${url}`,
       method: options.method,
       data: options.method === 'GET' ? options.data : JSON.stringify(options.data),
       header: {
@@ -27,20 +29,21 @@ const request = (url, options) => {
 const upload = (url, formData, filePath) => {
   return new Promise((resolve, reject) => {
     wx.uploadFile({
-      url: `${app.globalData.host}${url}`,
+      //url: `${app.globalData.host}${url}`,
+      url: `${app.globalData.remoteHost}${url}`,
       header: {
         "Content-Type": "multipart/form-data"
       },
-      filePath:filePath,
-      name:'file',
+      filePath: filePath,
+      name: 'file',
       formData,
       success: function (res) {
-        resolve(res.data)
+        resolve(res)
       },
       fail: function (err) {
-        reject(err.data)
-      } 
-    }) 
+        reject(err)
+      }
+    })
   })
 }
 
@@ -72,5 +75,5 @@ const remove = (url, options) => {
 }
 
 module.exports = {
-  get, post, put, remove,upload
+  get, post, put, remove, upload
 }

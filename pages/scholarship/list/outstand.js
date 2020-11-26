@@ -24,5 +24,10 @@ Page({
     let index  = e.currentTarget.dataset.index
     let title=this.data.outstandingList[index].title
     wx.navigateTo({url:'/pages/scholarship/form/index?title='+title})
+  },
+  checkProcess(e){
+    let index  = e.currentTarget.dataset.index
+    let title=this.data.outstandingList[index].title
+    wx.navigateTo({url:'/pages/scholarship/process/index?title='+title})
   }
 })

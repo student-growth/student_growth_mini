@@ -9,8 +9,6 @@
   </button>
 </form>
 <view class="navi_area">
-  <navigator url="../../pages/forgot/index" open-type="navigate">忘记密码</navigator>
-  <view>|</view>
-  <navigator open-type="navigate">用户注册</navigator>
+  <navigator url="../../pages/forgot/index" open-type="navigate">忘记密码</navigator> 
 </view>
 <view class="svg-footer">浙江工商大学智慧教育工作室</view>

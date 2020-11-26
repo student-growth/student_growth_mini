@@ -9,6 +9,7 @@
     <text class="cuIcon-edit text-blue"></text>
     自我评价
   </view>
+  <view class="action">当前学年：{{semester}}</view>
 </view>
 <view class="cu-card case">
   <view class="cu-item shadow">
@@ -33,6 +34,7 @@
     <text class="cuIcon-rank text-blue"></text>
     同学互评
   </view>
+  <view class="action">当前：{{semester}}</view>
 </view>
 <view class="cu-list menu">
   <view class="cu-item " bind:tap="scoring" wx:key="id" data-index='{{index}}' wx:for="{{students}}">
@@ -82,15 +84,15 @@
     <view>
       <view class="cu-form-group">
         <view class="title">品德素质:</view>
-        <input class="text-left" type="number" bindblur="charaInput" placeholder="分数范围在0-100之间" name="moral"></input>
+        <input class="text-left" type="number" value='{{dialogForm.moral}}' bindblur="charaInput" placeholder="分数范围在0-100之间" name="moral"></input>
       </view>
       <view class="cu-form-group">
         <view class="title">心理素质:</view>
-        <input class="text-left" type="number" bindblur="psyInput" placeholder="分数范围在0-100之间" name="psychology"></input>
+        <input class="text-left" type="number" value="{{dialogForm.psychology}}" bindblur="psyInput" placeholder="分数范围在0-100之间" name="psychology"></input>
       </view>
     </view>
     <view class="cu-bar bg-white">
-      <view class="action margin-0 flex-sub text-grey solid-left" bindtap="hideModal">取消</view>
+      <view class="action margin-0 flex-sub text-grey solid-left" bindtap="resetForm">取消</view>
       <view class="action margin-0 flex-sub text-blue solid-left" bindtap="dialogFormSubmit">
         确定
       </view>

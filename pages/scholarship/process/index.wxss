@@ -1,3 +1,7 @@
+.cu-timeline {
+  min-height: 80vh;
+}
+
 .item-empty {
   margin-top: 400rpx;
   min-height: 320rpx;

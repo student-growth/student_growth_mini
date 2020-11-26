@@ -81,7 +81,7 @@
       <button form-type="reset" class="cu-btn shadow-blur flex-sub bg-grey padding-sm margin-xs">
         重置
       </button>
-      <button form-type="submit" class="cu-btn shadow-blur flex-sub bg-olive padding-sm margin-xs">
+      <button disabled="{{btndisabled}}" form-type="submit" class="cu-btn shadow-blur flex-sub bg-olive padding-sm margin-xs">
         提交申请
       </button>
     </block>

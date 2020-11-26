@@ -11,31 +11,37 @@
   </view>
 </view>
 <form catchsubmit="handleSubmit" catchreset="handleReset">
-  <view class="cu-form-group border-bottom" wx:for="{{formTemp}}" wx:key="key" wx:for-item="item" wx:for-index="index">
-    <view class="title">{{item.name}}</view>
-    <block wx:if="{{item.type=='time'}}">
-      <picker mode="date" name="{{item.key}}" value="{{formData.date}}" start="2000-01-01" end="2030-01-01" bindchange="DateChange">
-        <view class="picker">{{formData.date}}</view>
-      </picker>
-    </block>
-    <block wx:elif="{{item.type=='picker'}}">
-      <picker bindchange="PickerChange" name="{{item.key}}" data-index='{{index}}' value="{{item.pickerItem[item.index]}}" range="{{item.pickerItem}}">
-        <view class="picker">{{item.index==-1?item.placeholder:item.pickerItem[item.index]}}</view>
-      </picker>
-    </block> 
-    <block wx:elif="{{item.key=='score'}}">
-      <input name="{{item.key}}" value="{{score}}" placeholder="{{item.placeholder}}" type="{{item.type}}" disabled></input>
-    </block> 
-    <block wx:else>
-      <input name="{{item.key}}" placeholder="{{item.placeholder}}" type="{{item.type}}"></input>
-    </block>
-  </view>
-  <view class="cu-card case no-card bg-grey light">
-    <view class="text-content" style="font-size:0.8em">
-      <text class="cuIcon-notificationfill text-black"></text>
-      <text class="text-black">计分说明：团队项目，核心成员不超过20%，核心成员0.8，一般成员0.5，不分先后0.6</text>
+  <block wx:for="{{formTemp}}" wx:key="key" wx:for-item="item" wx:for-index="index">
+    <view class="cu-form-group border-bottom">
+      <view class="title">{{item.name}}</view>
+      <block wx:if="{{item.type=='time'}}">
+        <picker mode="date" name="{{item.key}}" value="{{formData.date}}" start="2000-01-01" end="2030-01-01" bindchange="DateChange">
+          <view class="picker">{{formData.date}}</view>
+        </picker>
+      </block>
+      <block wx:elif="{{item.type=='picker'}}">
+        <picker bindchange="PickerChange" name="{{item.key}}" data-index='{{index}}' value="{{item.pickerItem[item.index]}}" range="{{item.pickerItem}}">
+          <view class="picker">
+            {{item.index==-1?item.placeholder:item.pickerItem[item.index]}}
+          </view>
+        </picker>
+      </block>
+      <block wx:elif="{{item.key=='score'}}">
+        <input name="{{item.key}}" value="{{score}}" placeholder="{{item.placeholder}}" type="{{item.type}}" disabled></input>
+      </block>
+      <block wx:else>
+        <input name="{{item.key}}" placeholder="{{item.placeholder}}" type="{{item.type}}"></input>
+      </block>
     </view>
-  </view>
+    <block wx:if="{{item.key=='desciption'}}">
+      <view class="cu-card case no-card bg-grey light">
+        <view class="text-content" style="font-size:0.8em">
+          <text class="cuIcon-notificationfill text-black"></text>
+          <text class="text-black">{{item.desciption}}</text>
+        </view>
+      </view>
+    </block>
+  </block>
   <view class="cu-bar bg-white margin-top">
     <view class="action">
       <text class="cuIcon-titles text-orange"></text>
@@ -46,7 +52,7 @@
   <view class="cu-card case no-card bg-orange light">
     <view class="text-content">
       <text class="cuIcon-notificationfill text-red"></text>
-      请上传 封面, 目录,论文第一页
+      请上传支撑材料
     </view>
   </view>
   <view class="cu-form-group">
@@ -58,13 +64,15 @@
           <text class="cuIcon-close"></text>
         </view>
       </view>
-      <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length!=1}}">
+      <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length==0}}">
         <text class="cuIcon-cameraadd"></text>
       </view>
     </view>
   </view>
   <view class="flex justify-center margin-lg">
     <button class="cu-btn flex-sub line-blue margin-right-lg shadow" form-type="reset">取消</button>
-    <button disabled="{{disable}}" class="cu-btn flex-sub bg-blue shadow" form-type="submit">提交</button>
+    <button disabled="{{disable}}" class="cu-btn flex-sub bg-blue shadow" form-type="submit">
+      提交
+    </button>
   </view>
 </form>

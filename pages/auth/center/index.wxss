@@ -23,13 +23,15 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  background-color: #f37b1d;
-  padding: 20px 10rpx;
+  background-color: #e9c341;
+  padding: 20px 20rpx;
   font-weight: bold;
-  border-radius: 50%;
+  border-radius: 50rpx;
   color: white;
   letter-spacing: 0.2em;
 }
+
+
 
 @keyframes box {
   0% {

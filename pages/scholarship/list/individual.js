@@ -6,7 +6,10 @@ Page({
     individualList
   },
   onLoad: function(options) {
-    
+    let user = wx.getStorageInfo('user')
+    this.setData({
+      user
+    })
   },
   showModal(e) {
     this.setData({
@@ -15,12 +18,17 @@ Page({
   },
   hideModal(e) {
     this.setData({
-      modalName: null
+      modalName: {}
     })
   },
   apply(e){
     let index  = e.currentTarget.dataset.index
     let title=this.data.individualList[index].title
     wx.navigateTo({url:'/pages/scholarship/form/index?title='+title})
+  },
+  checkProcess(e){
+    let index  = e.currentTarget.dataset.index
+    let title=this.data.individualList[index].title
+    wx.navigateTo({url:'/pages/scholarship/process/index?title='+title})
   }
 })

@@ -41,7 +41,7 @@ Page({
     })
     let info = {
       id: stuId,
-      semester: this.data.multiArray[0][0] + ' ' + this.data.multiArray[1][0]
+      semester: this.data.multiArray[0][0].substr(0,9) + '-' + this.data.multiArray[1][0].substring(1,2)
     }
     this.getSubjectScore(info)
   },
@@ -61,9 +61,10 @@ Page({
       }
       this.getComposite(info)
     } else if (currentIndex == 0) { //选着查看期末成绩
+      let index=this.data.multiIndex
       let formData = {
         id: this.data.user.id,
-        semester: this.data.multiArray[0][0] + ' ' + this.data.multiArray[1][0]
+        semester: this.data.multiArray[0][index[0]].substr(0,9) + '-' + this.data.multiArray[1][index[1]].substring(1,2)
       }
       this.getSubjectScore(formData)
     }
@@ -83,16 +84,19 @@ Page({
   chooseSemester(e) {
     let index = e.detail.value
     this.setData({
-      multiIndex: e.detail.value
+      multiIndex: e.detail.value 
     })
     let info = {
       id: this.data.user.id,
-      semester: this.data.multiArray[0][index[0]] + ' ' + this.data.multiArray[1][index[1]]
+      semester: this.data.multiArray[0][index[0]].substr(0,9) + '-' + this.data.multiArray[1][index[1]].substring(1,2)
     }
     this.getSubjectScore(info)
   },
   //获得学科成绩
-  getSubjectScore(info) {
+  getSubjectScore(info) { 
+    wx.showLoading({
+      title:'数据加载中...'
+    })
     request.get('student/score', info)
       .then(res => {
         if (res.data != undefined || res.data != null) {
@@ -101,8 +105,9 @@ Page({
             'table.body': res.data
           })
         }
+        wx.hideLoading()
       }).catch(err => {
-        console.log(err)
+        wx.hideLoading()
         wx.showToast({
           title: '获取数据失败:' + JSON.stringify(err),
           icon: 'none',
@@ -112,6 +117,9 @@ Page({
   },
   //获取综合成绩
   getComposite(info) {
+    wx.showLoading({
+      title:'数据加载中...'
+    })
     request.get('score/totalScore', info)
       .then(res => {
         if (res.data != null) {
@@ -123,9 +131,15 @@ Page({
           this.setData({
             totalScore:result
           })
+        }else{
+          this.setData({
+            'table.column':null,
+            'table.body': []
+          })
         }
+        wx.hideLoading()
       }).catch(err => {
-        console.log(err)
+        wx.hideLoading()
         wx.showToast({
           title: '获取数据失败' + JSON.stringify(err),
           icon: 'none',

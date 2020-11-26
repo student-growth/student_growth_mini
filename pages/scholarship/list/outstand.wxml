@@ -10,10 +10,11 @@
       <view class="content margin-top-xs">{{item.content}}</view>
     </view>
     <view style="margin-top:1rpx" class="flex card-negative shadow-blur bg-{{item.color}} ABox text-center">
-      <button class="flex-sub margin-xs padding-sm cu-btn bg-white" bindtap="showModal" data-target="viewModal">
-        查看达标名单
-      </button>
+      <!-- <button class="flex-sub margin-xs padding-sm cu-btn bg-white" bindtap="showModal" data-target="viewModal">
+        查看名单
+      </button> -->
       <button class="flex-sub margin-xs padding-sm cu-btn bg-white" bind:tap="apply" data-index="{{index}}">申请</button>
+      <button class="flex-sub margin-xs padding-sm cu-btn bg-white" bind:tap="checkProcess" data-index="{{index}}">查看进度</button>
     </view>
   </view>
 </scroll-view>

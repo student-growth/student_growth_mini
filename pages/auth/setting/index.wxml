@@ -1,20 +1,80 @@
-<!-- pages/setting/index.wxml
-  个人设置页面 
--->
-<view class="container">
-  <view class="header">
-    <view class="user_icon"></view>
-    <span>{{Student.name}}</span>
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">个人信息维护</view>
+</cu-custom>
+<form bindsubmit="submitStudentDetail" bindreset="resetSubmit">
+  <block wx:if="{{type==1}}">
+    <view class="cu-bar bg-cyan light solid-bottom">
+      <view class="action">
+        <text class="cuIcon-titles"></text>
+        信息完善
+      </view>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">身份证号：</view>
+      <input name="age" type="idcard" placeholder="请输入身份证号" />
+    </view>
+    <view class="cu-form-group">
+      <view class="title">年龄：</view>
+      <input name="age" type="number" placeholder="请输入年龄" />
+    </view>
+    <view class="cu-form-group">
+      <view class="title">民族：</view>
+      <input name="nation" type="text" placeholder="请输入民族" />
+    </view>
+    <view class="cu-form-group">
+      <view class="title">政治面貌：</view>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">在校职务/身份：</view>
+    </view>
+    <view class="cu-bar bg-mauve light solid-bottom ">
+      <view class="action">
+        <text class="cuIcon-titles text-mauve"></text>
+        联系信息
+      </view>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">手机号：</view>
+      <input name="phone" type="number" placeholder="请输入手机号码" />
+    </view>
+    <view class="cu-form-group">
+      <view class="title">邮箱：</view>
+      <input name="email" type="text" placeholder="请绑定邮箱" />
+    </view>
+  </block>
+  <block wx:elif="{{type==2}}">
+    <view class="cu-bar bg-pink light solid-bottom ">
+      <view class="action">
+        <text class="cuIcon-titles text-pink"></text>
+        修改密码
+      </view>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">学号：</view>
+      <input name="phone" type="number" placeholder="请输入学号确认身份" />
+    </view>
+    <view class="cu-form-group">
+      <view class="title">身份证号：</view>
+      <input name="phone" type="idcard" placeholder="请输入身份证号确认身份" />
+    </view>
+    <view class="cu-form-group">
+      <view class="title">密码：</view>
+      <input name="password" password="{{hidePassword}}" type="number" placeholder="请输入密码" />
+      <text class="cuIcon-{{icon}} text-grey" bind:tap="switchPassword"></text>
+       
+    </view>
+    <view class="cu-form-group">
+      <view class="title">确认密码：</view>
+      <input name="passwordPwd" password="{{hidePassword}}" type="number" placeholder="请确认密码" />
+      <text class="cuIcon-{{icon}} text-grey" bind:tap="switchPassword"></text>
+    </view>
+  </block>
+  <!-- 修改密码 -->
+  <view class="flex justify-center margin-lg btn-group">
+    <button class="cu-btn flex-sub line-blue margin-right-lg shadow" form-type="reset">取消</button>
+    <button disabled="{{disable}}" class="cu-btn flex-sub bg-blue shadow" form-type="submit">
+      提交
+    </button>
   </view>
-  <view class="card">
-    <view>
-      <span>通知</span>
-    </view> 
-  </view>
-  <view class="content">
-    <navigator>个人设置</navigator>
-    <navigator>安全设置</navigator>
-    <navigator>绑定邮箱</navigator>
-    <navigator>手机绑定</navigator>
-  </view>
-</view>
+</form>

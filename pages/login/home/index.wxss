@@ -46,7 +46,7 @@ page button {
 }
 
 page .navi_area {
-  margin-top: 150rpx;
+  margin-top: 100rpx;
   display: flex;
   flex: 1;
   color: #1e50b3;
@@ -59,6 +59,6 @@ page .navi_area view {
 }
 
 page .svg-footer {
-  margin-top: 90rpx;
+  margin-top: 80rpx;
   font-size: x-small;
 }

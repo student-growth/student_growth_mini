@@ -4,3 +4,33 @@
   <view slot="backText">返回</view>
   <view slot="content">谁是大神</view>
 </cu-custom>
+<block wx:if="{{list[0].data==undefined||list[0].data.length<=0}}">
+  <view class="cu-item item-empty">
+    <text class="cuIcon-warnfill text-orange">暂时没有大神榜单</text>
+  </view>
+</block>
+<block wx:else>
+  <block wx:for="{{list}}" wx:key="key" wx:for-item="item" wx:for-index="index">
+    <view class="cu-bar bg-{{colorList[index]}} light solid-bottom">
+      <view class="action">
+        <text class="cuIcon-titles text-{{colorList[index]}}"></text>
+        {{item.name}}
+      </view>
+    </view>
+    <view class="cu-list menu" data-index='{{index}}'>
+      <block wx:for="{{item.data}}" wx:key="studentId" wx:for-item="innerItem" wx:for-index="index">
+        <view class="cu-item" bind:tap="checkDetail" data-id='{{innerItem.studentId}}'>
+          <view class="content">
+            <text class="cuIcon-tag text-red"></text>
+            <text class="text-black">{{index+1}}.{{innerItem.name}}</text>
+          </view>
+          <view class="action">
+            <view class="cu-capsule">
+              <text class="cuIcon-right text-grey"></text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>
+</block>
