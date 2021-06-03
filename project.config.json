@@ -26,7 +26,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.11.1",
 	"appid": "wx3c9f5e12ff32f9f2",
-	"projectname": "StudentGrowthSystem_02",
+	"projectname": "student_growth_mini",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

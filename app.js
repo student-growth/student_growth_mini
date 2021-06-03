@@ -28,12 +28,13 @@ App({
     });
 
   },
+  // test account: 1711090229
   globalData: {
     version: '1.0.0',
-    host: 'http://localhost:8800/',
-    imgHost: 'http://47.114.44.188:8888/',
-    remoteIP: 'http://47.114.44.188:8080/',
-    remoteHost:'http://www.zjgsu.com.cn:8080/',
+    host: 'https://localhost:8800/',
+    imgHost: 'https://47.114.44.188:8888/',
+    remoteIP: 'https://47.114.44.188:8081/',
+    remoteHost:'https://jingzhun-edu.zjgsu.cn:8081/',
     user: {}
   }
 })
