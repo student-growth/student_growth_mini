@@ -5,8 +5,5 @@
 > 由于微信小程序本身有一套自己的开发工具，因此推荐使用微信小程序来开发代码
 - 工具开发文档： https://developers.weixin.qq.com/miniprogram/dev/devtools/devtools.html
 - 工具下载链接： https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html
-
-### 启动远程项目
- 到路径 `/home/student-growth/`中执行 ./strat.sh文件
  
 
